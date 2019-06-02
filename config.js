@@ -7,7 +7,7 @@
 var config = {
     colored: true,
     typeCasing: 'lower',
-    dateFormat: 'dd-mm-yyyy',
+    timeFormat: 'dd-mm-yyyy',
     theme: ':type :message'
 };
 

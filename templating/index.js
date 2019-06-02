@@ -12,7 +12,7 @@ function renderTheme(type, message, config) {
     .replace(':type', require('./type')(type, config))
 
     // Render the :date variable in the template
-    .replace(':date', require("./date")(config))
+    .replace(':time', require("./time")(config))
 
     // Render the :message variable in the template
     .replace(':message', message);
