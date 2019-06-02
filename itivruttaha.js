@@ -10,12 +10,16 @@
 
 'use strict';
 
+// Require this project's files
+var config = require('./config');
+
 // The function that will log a success message
 function logSuccess(message) {
-    console.log('log a success message');
+    console.log(`${config.colored} ${message}`);
 }
 
 // Export the required functions
 module.exports = {
-    success: logSuccess
+    success: logSuccess,
+    config: config
 };
