@@ -17,6 +17,9 @@ function renderTheme(type, message, config) {
     // Render the :filename variable in the template
     .replace(':filename', require('./filename'))
 
+    // Render the :node variable in the template
+    .replace(':bin', require('./bin'))
+
     // Render the :message variable in the template
     .replace(':message', message);
 }
