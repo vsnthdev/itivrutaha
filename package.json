@@ -1,0 +1,25 @@
+{
+    "name": "itivruttaha",
+    "version": "0.0.0",
+    "description": "A dynamic logging module written in JavaScript",
+    "author": "Vasanth Developer <vasanth@vasanthdeveloper.com>",
+    "license": "MIT",
+    "homepage": "https://github.com/vasanthdeveloper/itivruttaha#readme",
+    "main": "itivruttaha.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vasanthdeveloper/itivruttaha.git"
+    },
+    "keywords": [
+        "nodejs",
+        "logging",
+        "system",
+        "dynamic",
+        "log",
+        "messages"
+    ],
+    "bugs": {
+        "url": "https://github.com/vasanthdeveloper/itivruttaha/issues"
+    },
+    "scripts": {}
+}
