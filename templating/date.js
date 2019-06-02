@@ -18,7 +18,7 @@ function renderDate(config) {
     }
 
     // Return the date value
-    return config.theme.replace(':date', dateString);
+    return dateString;
 }
 
 // Export the renderDate function

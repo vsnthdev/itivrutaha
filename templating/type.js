@@ -71,7 +71,7 @@ function renderType(type, config) {
     }
 
     // Return the prepared returnable string
-    return config.theme.replace(':type', returnableType);
+    return returnableType;
 }
 
 // The function that will use Regex to convert into title case

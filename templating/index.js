@@ -5,17 +5,17 @@
 
 // The function that will render a theme
 function renderTheme(type, message, config) {
+    // Return the rendered message string
+    return config.theme
+
     // Render the :type variable in the template
-    let renderedMessage = require('./type')(type, config);
+    .replace(':type', require('./type')(type, config))
 
     // Render the :date variable in the template
-    renderedMessage = require("./date")(config);
+    .replace(':date', require("./date")(config))
 
     // Render the :message variable in the template
-    renderedMessage = renderedMessage.replace(':message', message);
-    
-    // Return the rendered message string
-    return renderedMessage;
+    .replace(':message', message);
 }
 
 // Export the renderTheme function
