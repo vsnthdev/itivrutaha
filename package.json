@@ -22,7 +22,10 @@
         "url": "https://github.com/vasanthdeveloper/itivruttaha/issues"
     },
     "scripts": {
-        "postinstall": "git clone --single-branch --branch example https://github.com/vasanthdeveloper/itivruttaha.git example",
+        "postinstall": "git clone --single-branch --branch example https://github.com/vasanthdeveloper/itivruttaha.git example & true",
         "test": "node ./example/example.js"
+    },
+    "dependencies": {
+        "chalk": "^2.4.2"
     }
 }

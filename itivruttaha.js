@@ -17,7 +17,7 @@ const renderer = require('./templating/index');
 // The function that will log a success message
 function logSuccess(message) {
     // Render the template
-    let renderedMessage = renderer.renderTheme(message, config);
+    let renderedMessage = renderer.renderTheme('success', message, config);
 }
 
 // Export the required functions

@@ -4,8 +4,11 @@
 // Which we can console.log
 
 // The function that will render a theme
-function renderTheme(message, config) {
-    console.log(config);
+function renderTheme(type, message, config) {
+    // Render the :type variable in the template
+    let renderedMessage = require('./type')(type, config);
+
+    console.log(renderedMessage);
 }
 
 // Export the renderTheme function

@@ -5,7 +5,9 @@
 
 // The dictionary object that has all the config properties
 var config = {
-    colored: true
+    colored: true,
+    typeCasing: 'lower',
+    theme: ':type :message'
 };
 
 // Export the above object which is holding the config properties
