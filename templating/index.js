@@ -8,6 +8,9 @@ function renderTheme(type, message, config) {
     // Render the :type variable in the template
     let renderedMessage = require('./type')(type, config);
 
+    // Render the :date variable in the template
+    renderedMessage = require("./date")(config);
+
     // Render the :message variable in the template
     renderedMessage = renderedMessage.replace(':message', message);
     
