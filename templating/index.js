@@ -14,6 +14,9 @@ function renderTheme(type, message, config) {
     // Render the :date variable in the template
     .replace(':time', require("./time")(config))
 
+    // Render the :filename variable in the template
+    .replace(':filename', require('./filename'))
+
     // Render the :message variable in the template
     .replace(':message', message);
 }
