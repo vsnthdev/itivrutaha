@@ -12,10 +12,12 @@
 
 // Require this project's files
 var config = require('./config');
+const renderer = require('./templating/index');
 
 // The function that will log a success message
 function logSuccess(message) {
-    console.log(`${config.colored} ${message}`);
+    // Render the template
+    let renderedMessage = renderer.renderTheme(message, config);
 }
 
 // Export the required functions
