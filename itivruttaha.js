@@ -65,11 +65,33 @@ function logVerbose(message) {
     }
 }
 
+// The function that will log a verbose mesage
+// We can also pass an error object as a message
+function logWarning(object) {
+    if (typeof object == 'string') {
+        // Render the template
+        let renderedMessage = renderer.renderTheme('warning', object, config);
+
+        // Log the okay message
+        console.log(renderedMessage);
+    } else if (object instanceof Error) {
+        // Render the template
+        let renderedMessage = renderer.renderTheme('warning', object.message, config);
+
+        // Log the okay message
+        console.log(renderedMessage);
+    } else {
+        // Throw an error
+        throw new Error('Invalid format for logging a message!');
+    }
+}
+
 // Export the required functions
 module.exports = {
     success: logSuccess,
     info: logInfo,
     okay: logOkay,
     verbose: logVerbose,
+    warning: logWarning,
     config: config
 };
