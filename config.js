@@ -8,6 +8,7 @@ var config = {
     colored: true,
     typeCasing: 'lower',
     timeFormat: 'dd-mm-yyyy',
+    verboseFlags: ['--verbose', '-v'],
     theme: ':type :message'
 };
 

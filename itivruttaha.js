@@ -41,10 +41,35 @@ function logOkay(message) {
     console.log(renderedMessage);
 }
 
+// The function that will log a verbose mesage
+// Only if the provided verbose flags are found
+function logVerbose(message) {
+    // The variable that will be left as false if none of the verbose flags were provided
+    let logVerboseContinue = false;
+
+    // Loop through each verbose flag
+    config.verboseFlags.forEach(flag => {
+        // Check if any verbose flags exists in process.argv
+        if (process.argv.includes(flag)) {
+            logVerboseContinue = true;
+        }
+    });
+
+    // Only show the verbose message, if logVerboseContinue is true
+    if (logVerboseContinue == true) {
+        // Render the template
+        let renderedMessage = renderer.renderTheme('verbose', message, config);
+
+        // Log the okay message
+        console.log(renderedMessage);
+    }
+}
+
 // Export the required functions
 module.exports = {
     success: logSuccess,
     info: logInfo,
     okay: logOkay,
+    verbose: logVerbose,
     config: config
 };
