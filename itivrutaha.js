@@ -2,7 +2,7 @@
 
 //    ___    __________   |  Vasanth Srivatsa (Vasanth Developer)
 //    __ |  / /___  __ \  |   -----------------------------------------------
-//    __ | / / __  / / /  |  https://github.com/vasanthdeveloper/itivruttaha.git
+//    __ | / / __  / / /  |  https://github.com/vasanthdeveloper/itivrutaha.git
 //    __ |/ /  _  /_/ /   |
 //    _____/   /_____/    |  ( इतिवृत्तः ) - A dynamic logging module written in JavaScript
 //                        |

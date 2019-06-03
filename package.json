@@ -1,14 +1,14 @@
 {
-    "name": "itivruttaha",
+    "name": "itivrutaha",
     "version": "0.0.0",
     "description": "A dynamic logging module written in JavaScript",
     "author": "Vasanth Developer <vasanth@vasanthdeveloper.com>",
     "license": "MIT",
-    "homepage": "https://github.com/vasanthdeveloper/itivruttaha#readme",
-    "main": "itivruttaha.js",
+    "homepage": "https://github.com/vasanthdeveloper/itivrutaha#readme",
+    "main": "itivrutaha.js",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/vasanthdeveloper/itivruttaha.git"
+        "url": "git+https://github.com/vasanthdeveloper/itivrutaha.git"
     },
     "keywords": [
         "nodejs",
@@ -19,10 +19,10 @@
         "messages"
     ],
     "bugs": {
-        "url": "https://github.com/vasanthdeveloper/itivruttaha/issues"
+        "url": "https://github.com/vasanthdeveloper/itivrutaha/issues"
     },
     "scripts": {
-        "postinstall": "git clone --single-branch --branch example https://github.com/vasanthdeveloper/itivruttaha.git example & true",
+        "postinstall": "git clone --single-branch --branch example https://github.com/vasanthdeveloper/itivrutaha.git example & true",
         "test": "node ./example/example.js"
     },
     "dependencies": {
