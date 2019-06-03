@@ -9,6 +9,7 @@ var config = {
     typeCasing: 'lower',
     timeFormat: 'dd-mm-yyyy',
     verboseFlags: ['--verbose', '-v'],
+    exitOnError: true,
     theme: ':type :message'
 };
 

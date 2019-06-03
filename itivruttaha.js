@@ -86,6 +86,36 @@ function logWarning(object) {
     }
 }
 
+// The function that will log an error message
+// We can also pass an error object as a message
+function logError(object, exitCode) {
+    if (typeof object == 'string') {
+        // Render the template
+        let renderedMessage = renderer.renderTheme('error', object, config);
+
+        // Log the okay message
+        console.log(renderedMessage);
+    } else if (object instanceof Error) {
+        // Render the template
+        let renderedMessage = renderer.renderTheme('error', object.message, config);
+
+        // Log the okay message
+        console.log(renderedMessage);
+
+        // Exit the program if exitOnError is true
+        if (config.exitOnError == true) {
+            // If exitCode was not provided. Assume it is one
+            exitCode = exitCode || 1;
+
+            // Exit the NodeJS process with the exitCode
+            process.exit(exitCode);
+        }
+    } else {
+        // Throw an error
+        throw new Error('Invalid format for logging a message!');
+    }
+}
+
 // Export the required functions
 module.exports = {
     success: logSuccess,
@@ -93,5 +123,6 @@ module.exports = {
     okay: logOkay,
     verbose: logVerbose,
     warning: logWarning,
+    error: logError,
     config: config
 };
