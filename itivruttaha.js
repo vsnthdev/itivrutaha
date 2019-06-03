@@ -23,8 +23,18 @@ function logSuccess(message) {
     console.log(renderedMessage);
 }
 
+// The message that will log a info message
+function logInfo(message) {
+    // Render the template
+    let renderedMessage = renderer.renderTheme('info', message, config);
+
+    // Log the info message
+    console.log(renderedMessage);
+}
+
 // Export the required functions
 module.exports = {
     success: logSuccess,
+    info: logInfo,
     config: config
 };
