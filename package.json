@@ -22,7 +22,7 @@
         "url": "https://github.com/vasanthdeveloper/itivrutaha/issues"
     },
     "scripts": {
-        "postinstall": "git clone --single-branch --branch example https://github.com/vasanthdeveloper/itivrutaha.git example & true",
+        "postinstall": "git clone --single-branch --branch example https://github.com/vasanthdeveloper/itivrutaha.git example & yarn link & cd ./example & yarn link itivrutaha",
         "test": "node ./example/example.js"
     },
     "dependencies": {
