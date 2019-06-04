@@ -1,15 +1,19 @@
 language: node_js
 node_js:
-  - 12
+- 12
 
 deploy:
   - provider: releases
     skip_cleanup: true
-    # file: ""
-    # api_key: $GITHUB_TOKEN
+    on:
+      tags: true
+      branch: mainline
+    api_key:
+      secure: K2EXjEBfUxNpPh3wsmyI0EncYE9kcajqEOEdNZfkHY9iB3PHKoKq8Yj22DJSRiZNhXmmZqJkqakUIF8B98ArzlgkejD8DCYcJbKwWLR354yjiin3aMRnTuu9ssNsW4a0hP/YpnIE6/9s4bdwxwcROaaw9q1SAgEaeLruJlAijb1JwwmF89LiaXrg4bqYeveTs4y1O+4o7OBw6FGHuTdQT2xF3PT5DSswgdV5v1zCI/vIAkh328n9LqAW0iuVX3H20Sm6yncZBfWWRrSBc22e8e8gPh5FnLo4YxTonVyyoOAZE8JonkBL5ejQvjjWyRW9w0CdrWeQ51mXOAN3VeOubaCpXtLO1UtiSSCuvhzBAvlGHm4MofS/23i8E9iU9PWH5YE4hJcLeK8cbbwzFE8bnyysFsHeAWFJgcnTRhZOe/Fmt5BsadrCezy+tRUAMxLmwBoCDimlMxrJNoLOQ5jyRa/HsloWwCXktZ+tSqiOsnjQ72afkmfc/Xc0v6skTWSaEgg9JIdM+KE0EiAgmjogH0z8xDmqh4Mu62cBMBdYSCMba+Zj8rq9SPfwk86poOOLmehY5kdFlGdCk50Skx0CRRim1XULvs0zExQ8c01bYed0c/BXEvBaXaprouTj+shOoYYWLDFuQcnDY0qaR0xSJex5kX+yjLNcNMH+ryfdnJw=
   - provider: npm
     email: vasanthdevelopers@gmail.com
-    # api_key: ""
-  on:
-    tags: true
-    branch: production
+    on:
+      tags: true
+      branch: mainline
+    api_key:
+      secure: gEHQ+C8qFx9SaNchkuOK3ZHkoeZwlZwMCK9YX4N/1U55MxFi+RUmVK1S/1zMyPY9sHWCQ32c9m19Qrtpbj8yTrBkbiM0N1Q18ZW/eCm2KUwZo2BFhEar+iiJFRrGYHrtLA8hhB/PHtTATc5J5KZVd+gla0HLMrIvXaRnpKC4OfpDtMkLSITNcrP3NtPK1mgkvmv4xeIW6EoFiBbpAoKqAOGKTwt1IJIz4eRVtEoHZQmnU4UxV2Z7Eg9oKTcEt1LsCfwYfSlNIBGj0SfWoXHysxStR5gO3JlHdHI1MNeFGojIKX3RH24r22BQ7tLdAeDC3iBVl+rE5STksFZ6Ti5AfwEPD3wDp1nUV1wqQUNiFpCRA1MeFXjKOPCYUKxfDeO62h9MfP1V/RUxHJ7gxuhnGnCAl84WTKFR/fnRqgIa0/2b6mRPO4yDVDzYTWCDwruV/J1rDk9kO3TPgJrffmvwQeLHByBkd+WrInTPqhYcc8qYchUerZFblmhtrALtMhHFpSty3c6aEXflpbVHAWuixHICDRSahUUH6oOuWbYYW7wj+NXiBB2wMLBhrfYEkGLj2p6bMY6OYTqu81sMPlaZkGZanMgVZgGuy5mhBEXP7vwNOgc0plaMsOa5onH1Ksxh55qKVsqQ/WHhiqkSKhzvU6HVhka/N7/hfro/YXX4Vmg=
