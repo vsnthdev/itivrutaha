@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - 12
+
+deploy:
+  - provider: releases
+    skip_cleanup: true
+    # file: ""
+    # api_key: $GITHUB_TOKEN
+  - provider: npm
+    email: vasanthdevelopers@gmail.com
+    # api_key: ""
+  on:
+    tags: true
+    branch: production
