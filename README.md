@@ -65,6 +65,13 @@ To know what optional configuration options can be passed and how you can dynami
 ## 🐛 Issues
 Feel free to raise an issue in this repository for any suggestions and bugfixes.
 
+## ✔ Todo
+
+- [x] Logging messages to the console
+- [x] Dynamically modify the logging messages
+- [ ] File logging support
+- [ ] Browser support
+
 ## 📰 License
 > _The itivrutaha project is released under the [MIT license](LICENSE.md). <br> Developed &amp; Maintained By Vasanth Developer. Copyright 2019 © Vasanth Developer._
 <hr>
