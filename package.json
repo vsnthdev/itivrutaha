@@ -23,7 +23,7 @@
     },
     "scripts": {
         "postinstall": "git clone --single-branch --branch example https://github.com/vasanthdeveloper/itivrutaha.git example & yarn link & cd ./example & yarn link itivrutaha",
-        "test": "node ./example/example.js"
+        "test": "true"
     },
     "dependencies": {
         "chalk": "^2.4.2",
