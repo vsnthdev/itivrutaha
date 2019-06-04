@@ -5,7 +5,6 @@ node_js:
 before_deploy:
   - git config --local user.name "vasanthdeveloper"
   - git config --local user.email "vasanthdevelopers@gmail.com"
-  - export TRAVIS_TAG="v$(cat package.json | grep version | awk '{print $2}' | sed 's/[","]//g' | sed -e 's/^[ \t]*//'): $(git log --format=%s -1)"
   - git tag $TRAVIS_TAG
 
 
