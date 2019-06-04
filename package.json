@@ -1,6 +1,6 @@
 {
     "name": "itivrutaha",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "A dynamic logging module written in JavaScript",
     "author": "Vasanth Developer <vasanth@vasanthdeveloper.com>",
     "license": "MIT",
