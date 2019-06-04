@@ -5,7 +5,7 @@ node_js:
 before_deploy:
   - git config --local user.name "vasanthdeveloper"
   - git config --local user.email "vasanthdevelopers@gmail.com"
-  - git tag $TRAVIS_TAG
+  - git tag "$TRAVIS_TAG"
 
 
 deploy:
