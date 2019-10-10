@@ -1,0 +1,23 @@
+{
+    "name": "itivrutaha",
+    "description": "Open-source, dynamically modifiable logging system for NodeJS.",
+    "author": "Vasanth Developer <vasanth@vasanthdeveloper.com>",
+    "version": "0.0.0",
+    "license": "MIT",
+    "main": "./src/itivrutaha.js",
+    "homepage": "https://github.com/vasanthdeveloper/itivrutaha#readme",
+    "bugs": {
+        "email": "vasanth@vasanthdeveloper.com",
+        "url": "https://github.com/vasanthdeveloper/itivrutaha/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vasanthdeveloper/itivrutaha.git"
+    },
+    "scripts": {
+        "build": "rm -rf ./src && tsc"
+    },
+    "devDependencies": {
+        "typescript": "^3.6.4"
+    }
+}

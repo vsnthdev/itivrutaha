@@ -1,0 +1,28 @@
+//   ___    __________   |  Vasanth Developer (Vasanth Srivatsa)
+//   __ |  / /___  __ \  |  ------------------------------------------------
+//   __ | / / __  / / /  |  https://github.com/vasanthdeveloper/itivrutaha.git
+//   __ |/ /  _  /_/ /   |
+//   _____/   /_____/    |  Configuration for TypeScript transpiler
+//                       |
+
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "alwaysStrict": true,
+        "charset": "UTF-88",
+        "declaration": true,
+        "declarationMap": true,
+        "esModuleInterop": true,
+        "listFiles": true,
+        "module": "commonjs",
+        "newLine": "LF",
+        "noImplicitAny": true,
+        "outDir": "./src",
+        "pretty": true,
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "rootDir": "./lib",
+        "sourceMap": true,
+        "target": "es3"
+    }
+}
