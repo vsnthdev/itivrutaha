@@ -5,6 +5,7 @@
     "version": "0.0.0",
     "license": "MIT",
     "main": "./src/itivrutaha.js",
+    "types": "./src/declarations",
     "homepage": "https://github.com/vasanthdeveloper/itivrutaha#readme",
     "bugs": {
         "email": "vasanth@vasanthdeveloper.com",

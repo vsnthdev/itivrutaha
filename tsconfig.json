@@ -12,6 +12,7 @@
         "charset": "UTF-88",
         "declaration": true,
         "declarationMap": true,
+        "declarationDir": "./src/declarations",
         "esModuleInterop": true,
         "module": "commonjs",
         "newLine": "LF",
@@ -22,6 +23,6 @@
         "removeComments": true,
         "rootDir": "./lib",
         "sourceMap": true,
-        "target": "es3"
+        "target": "es5"
     }
 }
