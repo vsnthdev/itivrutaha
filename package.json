@@ -15,9 +15,14 @@
         "url": "git+https://github.com/vasanthdeveloper/itivrutaha.git"
     },
     "scripts": {
-        "build": "rm -rf ./src && tsc"
+        "test": "eslint -c './.eslintrc.js' './lib/**/*.ts'",
+        "lint": "eslint -c './.eslintrc.js' --fix './lib/**/*.ts'",
+        "build": "eslint -c './.eslintrc.js' './lib/**/*.ts' && rm -rf ./src && tsc"
     },
     "devDependencies": {
-        "typescript": "^3.6.4"
+        "eslint": "^6.5.1",
+        "typescript": "^3.6.4",
+        "@typescript-eslint/eslint-plugin": "^2.3.3",
+        "@typescript-eslint/parser": "^2.3.3"
     }
 }

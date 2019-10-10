@@ -1,3 +1,3 @@
 "use strict";
-console.log("Hello World!");
+console.log('hello world');
 //# sourceMappingURL=itivrutaha.js.map

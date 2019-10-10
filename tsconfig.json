@@ -13,7 +13,6 @@
         "declaration": true,
         "declarationMap": true,
         "esModuleInterop": true,
-        "listFiles": true,
         "module": "commonjs",
         "newLine": "LF",
         "noImplicitAny": true,
