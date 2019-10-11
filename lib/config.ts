@@ -4,4 +4,5 @@
 export interface ConfigImpl {
     colored: boolean;
     boldType: boolean;
+    theme: string;
 }

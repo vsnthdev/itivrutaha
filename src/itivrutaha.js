@@ -3,9 +3,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 var loggerClass_1 = __importDefault(require("./loggerClass"));
+var defaultConfig = {
+    colored: true,
+    boldType: true,
+    theme: ':type :message'
+};
 function createNewLogger(loggerConfig) {
-    console.log("passed logger config: " + JSON.stringify(loggerConfig, null, 4));
-    return new loggerClass_1.default(loggerConfig);
+    if (loggerConfig) {
+        for (var obj in defaultConfig) {
+            if (loggerConfig[obj] === undefined) {
+                loggerConfig[obj] = defaultConfig[obj];
+            }
+        }
+        return new loggerClass_1.default(loggerConfig);
+    }
+    else {
+        return new loggerClass_1.default(defaultConfig);
+    }
 }
 function addCustomType(logString, classToAdd) {
     var newlyAddedFunc = function (message) {

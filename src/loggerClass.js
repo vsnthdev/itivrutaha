@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var LoggerClass = (function () {
     function LoggerClass(loggerConfig) {
-        this.custom = {};
         console.log('Logger Class Initialized');
         console.log("Passed Configuration is " + JSON.stringify(loggerConfig, null, 4));
     }
