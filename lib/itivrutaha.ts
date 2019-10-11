@@ -14,9 +14,20 @@ function createNewLogger(loggerConfig: ConfigImpl): loggerClass {
     return new loggerClass(loggerConfig)
 }
 
-// [TODO]: addCustomType() will dynamically add a pre-prototyped function to logger class
+// addCustomType() will dynamically add a pre-prototyped function to logger class
+function addCustomType(logString: string, classToAdd: loggerClass): void {
+    // console.log(`Add ${typeString} to ${JSON.stringify(classToAdd, null, 4)}`)
+    const newlyAddedFunc = function(message: string): void {
+        console.log('Triggered the newly added function')
+        console.log(message)
+    }
+
+    // Add the function to the passed loggerClass
+    classToAdd[logString] = newlyAddedFunc
+}
 
 // Export the above two functions
 export = {
-    createNewLogger: createNewLogger
+    createNewLogger: createNewLogger,
+    addCustomType: addCustomType
 }

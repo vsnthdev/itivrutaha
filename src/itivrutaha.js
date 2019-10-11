@@ -7,7 +7,15 @@ function createNewLogger(loggerConfig) {
     console.log("passed logger config: " + JSON.stringify(loggerConfig, null, 4));
     return new loggerClass_1.default(loggerConfig);
 }
+function addCustomType(logString, classToAdd) {
+    var newlyAddedFunc = function (message) {
+        console.log('Triggered the newly added function');
+        console.log(message);
+    };
+    classToAdd[logString] = newlyAddedFunc;
+}
 module.exports = {
-    createNewLogger: createNewLogger
+    createNewLogger: createNewLogger,
+    addCustomType: addCustomType
 };
 //# sourceMappingURL=itivrutaha.js.map

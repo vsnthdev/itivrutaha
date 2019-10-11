@@ -1,1 +1,1 @@
-{"version":3,"file":"itivrutaha.d.ts","sourceRoot":"","sources":["../lib/itivrutaha.ts"],"names":[],"mappings":"AAOA,OAAO,EAAE,UAAU,EAAE,MAAM,UAAU,CAAA;AACrC,OAAO,WAAW,MAAM,eAAe,CAAA;AAGvC,iBAAS,eAAe,CAAC,YAAY,EAAE,UAAU,GAAG,WAAW,CAG9D;;;;AAKD,kBAEC"}
+{"version":3,"file":"itivrutaha.d.ts","sourceRoot":"","sources":["../lib/itivrutaha.ts"],"names":[],"mappings":"AAOA,OAAO,EAAE,UAAU,EAAE,MAAM,UAAU,CAAA;AACrC,OAAO,WAAW,MAAM,eAAe,CAAA;AAGvC,iBAAS,eAAe,CAAC,YAAY,EAAE,UAAU,GAAG,WAAW,CAG9D;AAGD,iBAAS,aAAa,CAAC,SAAS,EAAE,MAAM,EAAE,UAAU,EAAE,WAAW,GAAG,IAAI,CASvE;;;;;AAGD,kBAGC"}
