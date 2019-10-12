@@ -6,7 +6,8 @@
 //                       |
 
 import { ConfigImpl, typeCase } from './config'
-import loggerClass from './loggerClass'
+import { LoggerClass, validate } from './loggerClass'
+import renderTheme from './renderer'
 
 // This variable holds the default configuration
 // which acts like a replacement when no value is provided for a configuration key
@@ -19,7 +20,7 @@ const defaultConfig: ConfigImpl = {
 }
 
 // createNewLogger() will create a new instance of the logger class
-function createNewLogger(loggerConfig: ConfigImpl): loggerClass {
+function createNewLogger(loggerConfig: ConfigImpl): LoggerClass {
     // Check if any config was passed, if not just return with default config
     if (loggerConfig) {
         // Loop through all possible config keys, fill the defaults to keys
@@ -31,18 +32,20 @@ function createNewLogger(loggerConfig: ConfigImpl): loggerClass {
         }
 
         // Now return a loggerClass with the user's passed config
-        return new loggerClass(loggerConfig)
+        return new LoggerClass(loggerConfig)
     } else {
-        return new loggerClass(defaultConfig)
+        return new LoggerClass(defaultConfig)
     }
 }
 
 // addCustomType() will dynamically add a pre-prototyped function to logger class
-function addCustomType(logString: string, classToAdd: loggerClass): void {
-    // console.log(`Add ${typeString} to ${JSON.stringify(classToAdd, null, 4)}`)
+function addCustomType(logString: string, classToAdd: LoggerClass): void {
+    // Create a function that renders a message suitable for dynamically
+    // adding to the loggerClass
     const newlyAddedFunc = function(message: string): void {
-        console.log('Triggered the newly added function')
-        console.log(message)
+        if (validate(message) == true) {
+            console.log(renderTheme(logString, message, classToAdd.loggerConfig))
+        }
     }
 
     // Add the function to the passed loggerClass
