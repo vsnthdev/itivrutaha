@@ -2,6 +2,7 @@
 
 import { ConfigImpl } from './config'
 import typeRender from './variables/type'
+import timeRender from './variables/time'
 
 export default function renderTheme(type: string, message: string, loggerConfig: ConfigImpl): string {
     // Return the render result after rendering it
@@ -12,4 +13,7 @@ export default function renderTheme(type: string, message: string, loggerConfig:
 
         // Render the message string
         .replace(':message', message)
+
+        // Render the time string
+        .replace(':time', timeRender(loggerConfig))
 }

@@ -10,7 +10,8 @@ var defaultConfig = {
     boldType: true,
     typeCase: config_1.typeCase.lower,
     theme: ':type :message',
-    verboseIdentifier: ['--verbose', '-v']
+    verboseIdentifier: ['--verbose', '-v'],
+    timeFormat: 'MM:ss, dS mmm'
 };
 function createNewLogger(loggerConfig) {
     if (loggerConfig) {

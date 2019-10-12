@@ -4,6 +4,7 @@ export interface ConfigImpl {
     typeCase: typeCase;
     theme: string;
     verboseIdentifier: Array<string>;
+    timeFormat: string;
 }
 export declare enum typeCase {
     'upper' = 0,

@@ -7,6 +7,7 @@ export interface ConfigImpl {
     typeCase: typeCase;
     theme: string;
     verboseIdentifier: Array<string>;
+    timeFormat: string;
 }
 
 // typeCase enumerator will hold the int values for type string case
