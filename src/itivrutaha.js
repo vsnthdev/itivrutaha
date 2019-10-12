@@ -2,10 +2,12 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var config_1 = require("./config");
 var loggerClass_1 = __importDefault(require("./loggerClass"));
 var defaultConfig = {
     colored: true,
     boldType: true,
+    typeCase: config_1.typeCase.lower,
     theme: ':type :message'
 };
 function createNewLogger(loggerConfig) {

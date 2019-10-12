@@ -5,7 +5,7 @@
 //   _____/   /_____/    |  Entryfile for itivrutaha logging module
 //                       |
 
-import { ConfigImpl } from './config'
+import { ConfigImpl, typeCase } from './config'
 import loggerClass from './loggerClass'
 
 // This variable holds the default configuration
@@ -13,6 +13,7 @@ import loggerClass from './loggerClass'
 const defaultConfig: ConfigImpl = {
     colored: true,
     boldType: true,
+    typeCase: typeCase.lower,
     theme: ':type :message'
 }
 

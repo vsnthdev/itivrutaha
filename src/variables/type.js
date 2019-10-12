@@ -4,6 +4,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var chalk_1 = __importDefault(require("chalk"));
+function bold(type, loggerConfig) {
+    if (loggerConfig.boldType === true) {
+        return chalk_1.default.bold(type);
+    }
+    else {
+        return type;
+    }
+}
 function colorize(type, loggerConfig) {
     if (loggerConfig.colored == true) {
         switch (type.toLowerCase()) {
@@ -27,18 +35,27 @@ function colorize(type, loggerConfig) {
                 break;
         }
     }
-    return type;
+    return bold(type, loggerConfig);
+}
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+}
+function casing(type, loggerConfig) {
+    switch (loggerConfig.typeCase) {
+        case 0:
+            return colorize(type.toUpperCase(), loggerConfig);
+        case 1:
+            return colorize(type.toLowerCase(), loggerConfig);
+        case 2:
+            return colorize(toTitleCase(type), loggerConfig);
+        default:
+            return colorize(type, loggerConfig);
+    }
 }
 function typeRender(type, loggerConfig) {
-    var returnable = '';
-    var colorized = colorize(type, loggerConfig);
-    if (loggerConfig.boldType == true) {
-        returnable = chalk_1.default.bold(colorized);
-    }
-    else {
-        returnable = colorized;
-    }
-    return returnable;
+    return casing(type, loggerConfig);
 }
 exports.default = typeRender;
 //# sourceMappingURL=type.js.map

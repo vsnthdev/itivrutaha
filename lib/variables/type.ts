@@ -16,7 +16,20 @@ import chalk from 'chalk'
 
 import { ConfigImpl } from '../config'
 
-// colorize() will apply chalk stylings
+
+
+// bold() will make the text bold
+function bold(type: string, loggerConfig: ConfigImpl): string {
+    if (loggerConfig.boldType === true) {
+        return chalk.bold(type)
+    } else {
+        return type
+    }
+}
+
+// colorize() will apply a color depending on the type input received
+// only colorize() will be called. As this function will call the rest of the styling
+// functions will make a function chain like that
 function colorize(type: string, loggerConfig: ConfigImpl): string {
     // Color accordingly
     if (loggerConfig.colored == true) {
@@ -44,22 +57,31 @@ function colorize(type: string, loggerConfig: ConfigImpl): string {
     }
 
     // Return the styled string
-    return type
+    return bold(type, loggerConfig)
+}
+
+// toTitleCase() will convert a given string into title case
+function toTitleCase(str): string {
+    return str.replace(/\w\S*/g, (txt) => {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    })
+}
+
+// casing() will set the character casing
+function casing(type: string, loggerConfig: ConfigImpl): string {
+    switch (loggerConfig.typeCase) {
+    case 0:
+        return colorize(type.toUpperCase(), loggerConfig)
+    case 1:
+        return colorize(type.toLowerCase(), loggerConfig)
+    case 2:
+        return colorize(toTitleCase(type), loggerConfig)
+    default:
+        return colorize(type, loggerConfig)
+    }
 }
 
 export default function typeRender(type: string, loggerConfig: ConfigImpl): string {
-    // The variable that we will later return
-    let returnable = ''
-
     // Render according to the type received
-    const colorized = colorize(type, loggerConfig)
-
-    // Bold if configured
-    if (loggerConfig.boldType == true) {
-        returnable = chalk.bold(colorized)
-    } else {
-        returnable = colorized
-    }
-
-    return returnable
+    return casing(type, loggerConfig)
 }

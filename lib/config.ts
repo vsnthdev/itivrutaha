@@ -4,5 +4,11 @@
 export interface ConfigImpl {
     colored: boolean;
     boldType: boolean;
+    typeCase: typeCase;
     theme: string;
+}
+
+// typeCase enumerator will hold the int values for type string case
+export enum typeCase {
+    'upper', 'lower', 'title'
 }
