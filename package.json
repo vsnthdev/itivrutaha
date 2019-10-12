@@ -2,7 +2,7 @@
     "name": "itivrutaha",
     "description": "Open-source, dynamically modifiable logging system for NodeJS.",
     "author": "Vasanth Developer <vasanth@vasanthdeveloper.com>",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "license": "MIT",
     "main": "./src/itivrutaha.js",
     "homepage": "https://github.com/vasanthdeveloper/itivrutaha#readme",
