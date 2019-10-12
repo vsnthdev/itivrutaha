@@ -1,5 +1,7 @@
 // This file will replace all the placeholders with real values
 
+import * as path from 'path'
+
 import { ConfigImpl } from './config'
 import typeRender from './variables/type'
 import timeRender from './variables/time'
@@ -16,4 +18,16 @@ export default function renderTheme(type: string, message: string, loggerConfig:
 
         // Render the time string
         .replace(':time', timeRender(loggerConfig))
+
+        // Render the filename string
+        .replace(':filename', path.basename(process.argv[1]))
+
+        // Render the node_path variable
+        .replace(':node_path', process.argv[0])
+
+        // Render the script_path variable
+        .replace(':script_path', process.argv[1])
+
+        // Render the node_version variable
+        .replace(':node_version', process.version)
 }
