@@ -27,6 +27,9 @@ function colorize(type, loggerConfig) {
             case 'okay':
                 type = chalk_1.default.gray(type);
                 break;
+            case 'verbose':
+                type = chalk_1.default.cyanBright(type);
+                break;
             case 'warning':
                 type = chalk_1.default.yellowBright(type);
                 break;

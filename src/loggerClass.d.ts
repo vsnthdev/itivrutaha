@@ -6,6 +6,7 @@ export default class LoggerClass {
     note(message: string): void;
     info(message: string): void;
     okay(message: string): void;
+    verbose(message: string): void;
     warning(message: string | Error): void;
     error(message: string | Error): void;
     private validate;

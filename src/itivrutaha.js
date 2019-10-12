@@ -8,7 +8,8 @@ var defaultConfig = {
     colored: true,
     boldType: true,
     typeCase: config_1.typeCase.lower,
-    theme: ':type :message'
+    theme: ':type :message',
+    verboseIdentifier: ['--verbose', '-v']
 };
 function createNewLogger(loggerConfig) {
     if (loggerConfig) {

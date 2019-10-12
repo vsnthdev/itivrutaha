@@ -28,6 +28,14 @@ var LoggerClass = (function () {
             console.log(renderer_1.default('okay', message, this.loggerConfig));
         }
     };
+    LoggerClass.prototype.verbose = function (message) {
+        var found = this.loggerConfig.verboseIdentifier.some(function (argument) { return process.argv.includes(argument); });
+        if (found) {
+            if (this.validate(message) == true) {
+                console.log(renderer_1.default('verbose', message, this.loggerConfig));
+            }
+        }
+    };
     LoggerClass.prototype.warning = function (message) {
         if (this.validate(message) == true) {
             if (typeof message === 'string') {

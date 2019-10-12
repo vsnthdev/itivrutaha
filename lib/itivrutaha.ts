@@ -14,7 +14,8 @@ const defaultConfig: ConfigImpl = {
     colored: true,
     boldType: true,
     typeCase: typeCase.lower,
-    theme: ':type :message'
+    theme: ':type :message',
+    verboseIdentifier: ['--verbose', '-v']
 }
 
 // createNewLogger() will create a new instance of the logger class

@@ -16,8 +16,6 @@ import chalk from 'chalk'
 
 import { ConfigImpl } from '../config'
 
-
-
 // bold() will make the text bold
 function bold(type: string, loggerConfig: ConfigImpl): string {
     if (loggerConfig.boldType === true) {
@@ -46,6 +44,9 @@ function colorize(type: string, loggerConfig: ConfigImpl): string {
             break
         case 'okay':
             type = chalk.gray(type)
+            break
+        case 'verbose':
+            type = chalk.cyanBright(type)
             break
         case 'warning':
             type = chalk.yellowBright(type)

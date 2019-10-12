@@ -42,6 +42,19 @@ export default class LoggerClass {
         }
     }
 
+    // verbose() will only log the message when a flag/command/option is found in the command-line arguments
+    public verbose(message: string): void {
+        // Check if the verbose identifier was passed by the end user
+        const found = this.loggerConfig.verboseIdentifier.some(argument => process.argv.includes(argument))
+
+        // Only log if found was found
+        if (found) {
+            if (this.validate(message) == true) {
+                console.log(renderTheme('verbose', message, this.loggerConfig))
+            }
+        }
+    }
+
     // warning() will log a warning message
     // it can take an error or a string as input
     // when an error is sent, the message will be logged.

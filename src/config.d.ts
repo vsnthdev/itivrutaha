@@ -3,6 +3,7 @@ export interface ConfigImpl {
     boldType: boolean;
     typeCase: typeCase;
     theme: string;
+    verboseIdentifier: Array<string>;
 }
 export declare enum typeCase {
     'upper' = 0,
