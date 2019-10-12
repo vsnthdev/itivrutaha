@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var type_1 = __importDefault(require("./variables/type"));
 function renderTheme(type, message, loggerConfig) {
     return loggerConfig.theme
-        .replace(':type', type_1.default(type, loggerConfig));
+        .replace(':type', type_1.default(type, loggerConfig))
+        .replace(':message', message);
 }
 exports.default = renderTheme;
 //# sourceMappingURL=renderer.js.map

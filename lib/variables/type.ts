@@ -1,6 +1,7 @@
 // This file will render the ":type" variable in the theme
 // Possible message types:
 // success
+// note
 // info
 // okay
 // verbose
@@ -8,9 +9,9 @@
 // error
 
 // Possible message type casing values are:
-// upper
-// lower
-// title
+// upper = 0
+// lower = 1
+// title = 2
 
 import chalk from 'chalk'
 
