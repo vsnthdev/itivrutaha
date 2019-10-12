@@ -55,13 +55,16 @@ var LoggerClass = (function () {
             }
         }
     };
-    LoggerClass.prototype.error = function (message) {
+    LoggerClass.prototype.error = function (message, exitCode) {
         if (validate(message) == true) {
             if (typeof message === 'string') {
                 console.log(renderer_1.default('error', message, this.loggerConfig));
             }
             else {
                 console.log(renderer_1.default('error', message.message, this.loggerConfig));
+            }
+            if (exitCode) {
+                process.exit(exitCode);
             }
         }
     };

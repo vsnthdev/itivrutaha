@@ -9,6 +9,6 @@ export declare class LoggerClass {
     okay(message: string): void;
     verbose(message: string): void;
     warning(message: string | Error): void;
-    error(message: string | Error): void;
+    error(message: string | Error, exitCode?: number): void;
 }
 //# sourceMappingURL=loggerClass.d.ts.map

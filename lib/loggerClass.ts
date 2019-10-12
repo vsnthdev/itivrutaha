@@ -81,13 +81,18 @@ export class LoggerClass {
     // error() will log an error message
     // optionally an exit code can be given
     // if given, the program will exit instantly with the specified exit code
-    public error(message: string | Error): void {
+    public error(message: string | Error, exitCode?: number): void {
         if (validate(message) == true) {
             // Check if an error was passed or a message
             if (typeof message === 'string') {
                 console.log(renderTheme('error', message, this.loggerConfig))
             } else {
                 console.log(renderTheme('error', message.message, this.loggerConfig))
+            }
+
+            // If exitCode was provided, just exit
+            if (exitCode) {
+                process.exit(exitCode)
             }
         }
     }   
