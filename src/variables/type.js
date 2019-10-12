@@ -35,6 +35,9 @@ function typeRender(type, loggerConfig) {
     if (loggerConfig.boldType == true) {
         returnable = chalk_1.default.bold(colorized);
     }
+    else {
+        returnable = colorized;
+    }
     return returnable;
 }
 exports.default = typeRender;

@@ -57,6 +57,8 @@ export default function typeRender(type: string, loggerConfig: ConfigImpl): stri
     // Bold if configured
     if (loggerConfig.boldType == true) {
         returnable = chalk.bold(colorized)
+    } else {
+        returnable = colorized
     }
 
     return returnable
