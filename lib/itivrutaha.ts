@@ -21,7 +21,7 @@ const defaultConfig: ConfigImpl = {
 }
 
 // createNewLogger() will create a new instance of the logger class
-function createNewLogger(loggerConfig: ConfigImpl): LoggerClass {
+function createNewLogger(loggerConfig?: ConfigImpl): LoggerClass {
     // Check if any config was passed, if not just return with default config
     if (loggerConfig) {
         // Loop through all possible config keys, fill the defaults to keys
