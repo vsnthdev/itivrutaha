@@ -19,9 +19,9 @@
         "url": "git+https://github.com/vasanthdeveloper/itivrutaha.git"
     },
     "scripts": {
-        "test": "eslint -c './.eslintrc.js' './lib/**/*.ts'",
-        "lint": "eslint -c './.eslintrc.js' --fix './lib/**/*.ts'",
-        "build": "eslint -c './.eslintrc.js' './lib/**/*.ts' && rm -rf ./src && tsc"
+        "lint": "eslint -c './.eslintrc.js' './lib/**/*.ts'",
+        "build": "rm -rf ./src && tsc",
+        "watch": "tsc --watch"
     },
     "devDependencies": {
         "@types/node": "^13.1.6",
