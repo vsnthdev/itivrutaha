@@ -1,11 +1,15 @@
 {
     "name": "itivrutaha",
     "description": "Open-source, dynamically modifiable logging system for NodeJS.",
-    "author": "Vasanth Developer <vasanth@vasanthdeveloper.com>",
     "version": "0.1.1",
     "license": "MIT",
     "main": "./src/itivrutaha.js",
     "homepage": "https://github.com/vasanthdeveloper/itivrutaha#readme",
+    "author": {
+        "name": "Vasanth Developer",
+        "url": "https://vasanth.tech",
+        "email": "vasanth@vasanthdeveloper.com"
+    },
     "bugs": {
         "email": "vasanth@vasanthdeveloper.com",
         "url": "https://github.com/vasanthdeveloper/itivrutaha/issues"
@@ -20,15 +24,14 @@
         "build": "eslint -c './.eslintrc.js' './lib/**/*.ts' && rm -rf ./src && tsc"
     },
     "devDependencies": {
-        "@types/node": "^12.7.12",
+        "@types/node": "^13.1.6",
         "@typescript-eslint/eslint-plugin": "^2.3.3",
         "@typescript-eslint/parser": "^2.3.3",
         "eslint": "^6.5.1",
-        "np": "^5.1.1",
         "typescript": "^3.6.4"
     },
     "dependencies": {
-        "chalk": "^2.4.2",
+        "chalk": "^3.0.0",
         "dateformat": "^3.0.3"
     }
 }
