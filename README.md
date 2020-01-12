@@ -1,4 +1,4 @@
-<h1 align="center"><a href="https://itivrutaha.vasanthdeveloper.com"><img src="https://raw.githubusercontent.com/vasanthdeveloper/itivrutaha/media/PNG/Hero%20Image.png" alt="itivrutaha"></a></h1>
+<h1 align="center"><a href="https://itivrutaha.vasanthdeveloper.com"><img src="media/PNG/hero.png" alt="itivrutaha"></a></h1>
 
 <p align="center"><b>itivrutaha is an open-source, dynamically modifiable logging system for NodeJS.</b></p>
 <p align="center">
