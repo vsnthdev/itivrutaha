@@ -10,6 +10,7 @@ export interface ConfigImpl {
     theme?: string;
     verboseIdentifier?: Array<string>;
     timeFormat?: string;
+    invertedTypes: boolean;
 }
 
 // The interface skeleton that has all possible options to customize/define a message type

@@ -54,7 +54,12 @@ function colorize(type, loggerConfig) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             if (loggerConfig.colored == true) {
-                type.text = type.color(type.text);
+                if (loggerConfig.invertedTypes == true) {
+                    type.text = type.backgroundColor.whiteBright(type.text);
+                }
+                else {
+                    type.text = type.color(type.text);
+                }
             }
             return [2, type];
         });

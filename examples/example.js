@@ -13,6 +13,7 @@ const itivrutaha = require('../src/itivrutaha')
 const logger = itivrutaha.createNewLogger({
     boldType: true,
     typeCase: 0,
+    invertedTypes: true,
 })
 
 // Logging messages with itivrutaha

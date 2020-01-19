@@ -17,7 +17,8 @@ const defaultConfig: ConfigImpl = {
     typeCase: typeCase.lower,
     theme: ':type :message',
     verboseIdentifier: ['--verbose', '-v'],
-    timeFormat: 'MM:ss, dS mmm'
+    timeFormat: 'MM:ss, dS mmm',
+    invertedTypes: false
 }
 
 // createNewLogger() will create a new instance of the logger class

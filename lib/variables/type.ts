@@ -32,7 +32,11 @@ async function bold(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<Me
 async function colorize(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
     // Color accordingly
     if (loggerConfig.colored == true) {
-        type.text = type.color(type.text)
+        if (loggerConfig.invertedTypes == true) {
+            type.text = type.backgroundColor.whiteBright(type.text)
+        } else {
+            type.text = type.color(type.text)
+        }
     }
 
     // Return the styled string

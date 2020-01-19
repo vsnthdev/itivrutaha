@@ -7,7 +7,8 @@ var defaultConfig = {
     typeCase: config_1.typeCase.lower,
     theme: ':type :message',
     verboseIdentifier: ['--verbose', '-v'],
-    timeFormat: 'MM:ss, dS mmm'
+    timeFormat: 'MM:ss, dS mmm',
+    invertedTypes: false
 };
 function createNewLogger(loggerConfig) {
     if (loggerConfig) {
