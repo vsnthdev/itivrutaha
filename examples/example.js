@@ -14,6 +14,7 @@ const logger = itivrutaha.createNewLogger({
     boldType: true,
     typeCase: 0,
     invertedTypes: true,
+    typePadding: 1,
 })
 
 // Logging messages with itivrutaha

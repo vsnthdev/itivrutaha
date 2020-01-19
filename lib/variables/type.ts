@@ -43,6 +43,12 @@ async function colorize(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promis
     return type
 }
 
+// padding() will set the configured padding
+async function padding(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
+    type.text = ' '.repeat(loggerConfig.typePadding) + type.text + ' '.repeat(loggerConfig.typePadding)
+    return type
+}
+
 // toTitleCase() will convert a given string into title case
 function toTitleCase(str): string {
     return str.replace(/\w\S*/g, (txt) => {
@@ -73,6 +79,7 @@ async function casing(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<
 export default async function typeRender(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<string> {
     // Render according to the type received
     type = await casing(type, loggerConfig)
+    type = await padding(type, loggerConfig)
     type = await bold(type, loggerConfig)
     type = await colorize(type, loggerConfig)
 

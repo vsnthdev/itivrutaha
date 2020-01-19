@@ -8,7 +8,8 @@ var defaultConfig = {
     theme: ':type :message',
     verboseIdentifier: ['--verbose', '-v'],
     timeFormat: 'MM:ss, dS mmm',
-    invertedTypes: false
+    invertedTypes: false,
+    typePadding: 0,
 };
 function createNewLogger(loggerConfig) {
     if (loggerConfig) {

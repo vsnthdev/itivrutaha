@@ -65,6 +65,14 @@ function colorize(type, loggerConfig) {
         });
     });
 }
+function padding(type, loggerConfig) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            type.text = ' '.repeat(loggerConfig.typePadding) + type.text + ' '.repeat(loggerConfig.typePadding);
+            return [2, type];
+        });
+    });
+}
 function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
@@ -98,11 +106,14 @@ function typeRender(type, loggerConfig) {
                 case 0: return [4, casing(type, loggerConfig)];
                 case 1:
                     type = _a.sent();
-                    return [4, bold(type, loggerConfig)];
+                    return [4, padding(type, loggerConfig)];
                 case 2:
                     type = _a.sent();
-                    return [4, colorize(type, loggerConfig)];
+                    return [4, bold(type, loggerConfig)];
                 case 3:
+                    type = _a.sent();
+                    return [4, colorize(type, loggerConfig)];
+                case 4:
                     type = _a.sent();
                     return [2, type.text];
             }

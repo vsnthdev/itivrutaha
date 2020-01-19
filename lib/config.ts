@@ -11,6 +11,7 @@ export interface ConfigImpl {
     verboseIdentifier?: Array<string>;
     timeFormat?: string;
     invertedTypes: boolean;
+    typePadding: number;
 }
 
 // The interface skeleton that has all possible options to customize/define a message type

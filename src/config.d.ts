@@ -7,6 +7,7 @@ export interface ConfigImpl {
     verboseIdentifier?: Array<string>;
     timeFormat?: string;
     invertedTypes: boolean;
+    typePadding: number;
 }
 export interface MessageTypeImpl {
     text: string;
