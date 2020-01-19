@@ -10,6 +10,8 @@ var defaultConfig = {
     timeFormat: 'MM:ss, dS mmm',
     invertedTypes: false,
     typePadding: 0,
+    centerAlignTypes: false,
+    underlineType: false,
 };
 function createNewLogger(loggerConfig) {
     if (loggerConfig) {

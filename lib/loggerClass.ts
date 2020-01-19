@@ -1,6 +1,6 @@
 // This class which holds all the log functions
 
-import { ConfigImpl } from './config'
+import { ConfigImpl, MessageTypeImpl } from './config'
 import renderTheme from './renderer'
 import { successType, noteType, infoType, okayType, verboseType, warningType, errorType } from './messageTypes'
 
@@ -14,6 +14,9 @@ export function validate(message: string | Error): boolean {
 }
 
 export class LoggerClass {
+    // The variable that stores the length of longest message type
+    private messageTypeLongestLength = 0
+
     // Store the config globally relative to this class
     public loggerConfig: ConfigImpl
     
@@ -22,33 +25,50 @@ export class LoggerClass {
         // [TODO]: Log a message that the application was start as per user's request
         // Make the loggerConfig globally relative accessible
         this.loggerConfig = loggerConfig
+
+        // calculate the length of longest message type for default messages
+        this.registerMessageType(successType, false)
+        this.registerMessageType(noteType, false)
+        this.registerMessageType(infoType, false)
+        this.registerMessageType(okayType, false)
+        this.registerMessageType(verboseType, false)
+        this.registerMessageType(warningType, false)
+        this.registerMessageType(errorType, false)
+    }
+
+    // registerMessageType() will calculate the message type text string length
+    // and add it to our custom object
+    public async registerMessageType(type: MessageTypeImpl, addToClass: boolean): Promise<void> {
+        if (type.text.length > this.messageTypeLongestLength) {
+            this.messageTypeLongestLength = type.text.length
+        }
     }
 
     // success() will log a successful message
     public async success(message: string): Promise<void> {
         if (validate(message) == true) {
-            console.log(await renderTheme(successType, message, this.loggerConfig))
+            console.log(await renderTheme(successType, message, this.messageTypeLongestLength, this.loggerConfig))
         }
     }
 
     // note() will log a note message
     public async note(message: string): Promise<void> {
         if (validate(message) == true) {
-            console.log(await renderTheme(noteType, message, this.loggerConfig))
+            console.log(await renderTheme(noteType, message, this.messageTypeLongestLength, this.loggerConfig))
         }
     }
 
     // info() will log an info message
     public async info(message: string): Promise<void> {
         if (validate(message) == true) {
-            console.log(await renderTheme(infoType, message, this.loggerConfig))
+            console.log(await renderTheme(infoType, message, this.messageTypeLongestLength, this.loggerConfig))
         }
     }
 
     // okay() will log a message that is not an info, or a note
     public async okay(message: string): Promise<void> {
         if (validate(message) == true) {
-            console.log(await renderTheme(okayType, message, this.loggerConfig))
+            console.log(await renderTheme(okayType, message, this.messageTypeLongestLength, this.loggerConfig))
         }
     }
 
@@ -60,7 +80,7 @@ export class LoggerClass {
         // Only log if found was found
         if (found) {
             if (validate(message) == true) {
-                console.log(await renderTheme(verboseType, message, this.loggerConfig))
+                console.log(await renderTheme(verboseType, message, this.messageTypeLongestLength, this.loggerConfig))
             }
         }
     }
@@ -72,9 +92,9 @@ export class LoggerClass {
         if (validate(message) == true) {
             // Check if an error was passed or a message
             if (typeof message === 'string') {
-                console.log(await renderTheme(warningType, message, this.loggerConfig))
+                console.log(await renderTheme(warningType, message, this.messageTypeLongestLength, this.loggerConfig))
             } else {
-                console.log(await renderTheme(warningType, message.message, this.loggerConfig))
+                console.log(await renderTheme(warningType, message.message, this.messageTypeLongestLength, this.loggerConfig))
             }
         }
     }
@@ -86,9 +106,9 @@ export class LoggerClass {
         if (validate(message) == true) {
             // Check if an error was passed or a message
             if (typeof message === 'string') {
-                console.log(await renderTheme(errorType, message, this.loggerConfig))
+                console.log(await renderTheme(errorType, message, this.messageTypeLongestLength, this.loggerConfig))
             } else {
-                console.log(await renderTheme(errorType, message.message, this.loggerConfig))
+                console.log(await renderTheme(errorType, message.message, this.messageTypeLongestLength, this.loggerConfig))
             }
 
             // If exitCode was provided, just exit

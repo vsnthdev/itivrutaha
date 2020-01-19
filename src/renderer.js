@@ -49,7 +49,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var path = __importStar(require("path"));
 var type_1 = __importDefault(require("./variables/type"));
 var time_1 = __importDefault(require("./variables/time"));
-function renderTheme(type, message, loggerConfig) {
+function renderTheme(type, message, messageTypeLongestLength, loggerConfig) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, _b, _c;
         return __generator(this, function (_d) {
@@ -57,7 +57,7 @@ function renderTheme(type, message, loggerConfig) {
                 case 0:
                     _b = (_a = loggerConfig.theme).replace;
                     _c = [':type'];
-                    return [4, type_1.default(type, loggerConfig)];
+                    return [4, type_1.default(type, messageTypeLongestLength, loggerConfig)];
                 case 1: return [2, _b.apply(_a, _c.concat([_d.sent()]))
                         .replace(':message', message)
                         .replace(':time', time_1.default(loggerConfig))

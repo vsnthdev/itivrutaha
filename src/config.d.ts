@@ -8,6 +8,8 @@ export interface ConfigImpl {
     timeFormat?: string;
     invertedTypes: boolean;
     typePadding: number;
+    centerAlignTypes: boolean;
+    underlineType: boolean;
 }
 export interface MessageTypeImpl {
     text: string;
@@ -15,8 +17,8 @@ export interface MessageTypeImpl {
     backgroundColor: chalk.Chalk;
 }
 export declare enum typeCase {
-    'upper' = 0,
-    'lower' = 1,
-    'title' = 2
+    upper = "upper",
+    lower = "lower",
+    title = "title"
 }
 //# sourceMappingURL=config.d.ts.map

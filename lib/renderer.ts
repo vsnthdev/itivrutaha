@@ -6,12 +6,12 @@ import { ConfigImpl, MessageTypeImpl } from './config'
 import typeRender from './variables/type'
 import timeRender from './variables/time'
 
-export default async function renderTheme(type: MessageTypeImpl, message: string, loggerConfig: ConfigImpl): Promise<string> {
+export default async function renderTheme(type: MessageTypeImpl, message: string, messageTypeLongestLength: number,loggerConfig: ConfigImpl): Promise<string> {
     // Return the render result after rendering it
     return loggerConfig.theme
 
         // Render the message type
-        .replace(':type', await typeRender(type, loggerConfig))
+        .replace(':type', await typeRender(type, messageTypeLongestLength, loggerConfig))
 
         // Render the message string
         .replace(':message', message)

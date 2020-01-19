@@ -52,8 +52,26 @@ function validate(message) {
 exports.validate = validate;
 var LoggerClass = (function () {
     function LoggerClass(loggerConfig) {
+        this.messageTypeLongestLength = 0;
         this.loggerConfig = loggerConfig;
+        this.registerMessageType(messageTypes_1.successType, false);
+        this.registerMessageType(messageTypes_1.noteType, false);
+        this.registerMessageType(messageTypes_1.infoType, false);
+        this.registerMessageType(messageTypes_1.okayType, false);
+        this.registerMessageType(messageTypes_1.verboseType, false);
+        this.registerMessageType(messageTypes_1.warningType, false);
+        this.registerMessageType(messageTypes_1.errorType, false);
     }
+    LoggerClass.prototype.registerMessageType = function (type, addToClass) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                if (type.text.length > this.messageTypeLongestLength) {
+                    this.messageTypeLongestLength = type.text.length;
+                }
+                return [2];
+            });
+        });
+    };
     LoggerClass.prototype.success = function (message) {
         return __awaiter(this, void 0, void 0, function () {
             var _a, _b;
@@ -62,7 +80,7 @@ var LoggerClass = (function () {
                     case 0:
                         if (!(validate(message) == true)) return [3, 2];
                         _b = (_a = console).log;
-                        return [4, renderer_1.default(messageTypes_1.successType, message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.successType, message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 1:
                         _b.apply(_a, [_c.sent()]);
                         _c.label = 2;
@@ -79,7 +97,7 @@ var LoggerClass = (function () {
                     case 0:
                         if (!(validate(message) == true)) return [3, 2];
                         _b = (_a = console).log;
-                        return [4, renderer_1.default(messageTypes_1.noteType, message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.noteType, message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 1:
                         _b.apply(_a, [_c.sent()]);
                         _c.label = 2;
@@ -96,7 +114,7 @@ var LoggerClass = (function () {
                     case 0:
                         if (!(validate(message) == true)) return [3, 2];
                         _b = (_a = console).log;
-                        return [4, renderer_1.default(messageTypes_1.infoType, message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.infoType, message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 1:
                         _b.apply(_a, [_c.sent()]);
                         _c.label = 2;
@@ -113,7 +131,7 @@ var LoggerClass = (function () {
                     case 0:
                         if (!(validate(message) == true)) return [3, 2];
                         _b = (_a = console).log;
-                        return [4, renderer_1.default(messageTypes_1.okayType, message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.okayType, message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 1:
                         _b.apply(_a, [_c.sent()]);
                         _c.label = 2;
@@ -132,7 +150,7 @@ var LoggerClass = (function () {
                         if (!found) return [3, 2];
                         if (!(validate(message) == true)) return [3, 2];
                         _b = (_a = console).log;
-                        return [4, renderer_1.default(messageTypes_1.verboseType, message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.verboseType, message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 1:
                         _b.apply(_a, [_c.sent()]);
                         _c.label = 2;
@@ -150,13 +168,13 @@ var LoggerClass = (function () {
                         if (!(validate(message) == true)) return [3, 4];
                         if (!(typeof message === 'string')) return [3, 2];
                         _b = (_a = console).log;
-                        return [4, renderer_1.default(messageTypes_1.warningType, message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.warningType, message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 1:
                         _b.apply(_a, [_e.sent()]);
                         return [3, 4];
                     case 2:
                         _d = (_c = console).log;
-                        return [4, renderer_1.default(messageTypes_1.warningType, message.message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.warningType, message.message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 3:
                         _d.apply(_c, [_e.sent()]);
                         _e.label = 4;
@@ -174,13 +192,13 @@ var LoggerClass = (function () {
                         if (!(validate(message) == true)) return [3, 5];
                         if (!(typeof message === 'string')) return [3, 2];
                         _b = (_a = console).log;
-                        return [4, renderer_1.default(messageTypes_1.errorType, message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.errorType, message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 1:
                         _b.apply(_a, [_e.sent()]);
                         return [3, 4];
                     case 2:
                         _d = (_c = console).log;
-                        return [4, renderer_1.default(messageTypes_1.errorType, message.message, this.loggerConfig)];
+                        return [4, renderer_1.default(messageTypes_1.errorType, message.message, this.messageTypeLongestLength, this.loggerConfig)];
                     case 3:
                         _d.apply(_c, [_e.sent()]);
                         _e.label = 4;

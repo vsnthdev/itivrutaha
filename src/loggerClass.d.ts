@@ -1,8 +1,10 @@
-import { ConfigImpl } from './config';
+import { ConfigImpl, MessageTypeImpl } from './config';
 export declare function validate(message: string | Error): boolean;
 export declare class LoggerClass {
+    private messageTypeLongestLength;
     loggerConfig: ConfigImpl;
     constructor(loggerConfig: ConfigImpl);
+    registerMessageType(type: MessageTypeImpl, addToClass: boolean): Promise<void>;
     success(message: string): Promise<void>;
     note(message: string): Promise<void>;
     info(message: string): Promise<void>;

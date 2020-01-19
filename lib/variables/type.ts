@@ -14,8 +14,9 @@
 // title = 2
 
 import chalk from 'chalk'
+import align from 'wide-align'
 
-import { ConfigImpl, MessageTypeImpl } from '../config'
+import { ConfigImpl, MessageTypeImpl, typeCase } from '../config'
 
 // bold() will make the text bold
 async function bold(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
@@ -44,8 +45,24 @@ async function colorize(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promis
 }
 
 // padding() will set the configured padding
-async function padding(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
-    type.text = ' '.repeat(loggerConfig.typePadding) + type.text + ' '.repeat(loggerConfig.typePadding)
+async function padding(type: MessageTypeImpl, messageTypeLongestLength: number, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
+    // type.text = ' '.repeat(loggerConfig.typePadding) + type.text + ' '.repeat(loggerConfig.typePadding)
+
+    if (loggerConfig.centerAlignTypes == true) {
+        type.text = align.center(type.text, messageTypeLongestLength + loggerConfig.typePadding)
+    } else {
+        type.text = ' '.repeat(loggerConfig.typePadding) + type.text + ' '.repeat(loggerConfig.typePadding)
+    }
+
+    return type
+}
+
+// underline() will add an underline if requested
+async function underline(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
+    if (loggerConfig.underlineType == true) {
+        type.text = chalk.underline(type.text)
+    }
+
     return type
 }
 
@@ -59,13 +76,13 @@ function toTitleCase(str): string {
 // casing() will set the character casing
 async function casing(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
     switch (loggerConfig.typeCase) {
-    case 0:
+    case typeCase.lower:
+        type.text = type.text.toLowerCase()
+        break
+    case typeCase.upper:
         type.text = type.text.toUpperCase()
         break
-    case 1:
-        type.text = type.text.toUpperCase()
-        break
-    case 2:
+    case typeCase.title:
         type.text = toTitleCase(type.text)
         break
     default:
@@ -76,10 +93,11 @@ async function casing(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<
     return type
 }
 
-export default async function typeRender(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<string> {
+export default async function typeRender(type: MessageTypeImpl, messageTypeLongestLength: number, loggerConfig: ConfigImpl): Promise<string> {
     // Render according to the type received
     type = await casing(type, loggerConfig)
-    type = await padding(type, loggerConfig)
+    type = await underline(type, loggerConfig)
+    type = await padding(type, messageTypeLongestLength, loggerConfig)
     type = await bold(type, loggerConfig)
     type = await colorize(type, loggerConfig)
 

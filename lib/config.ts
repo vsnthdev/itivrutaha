@@ -12,6 +12,8 @@ export interface ConfigImpl {
     timeFormat?: string;
     invertedTypes: boolean;
     typePadding: number;
+    centerAlignTypes: boolean;
+    underlineType: boolean;
 }
 
 // The interface skeleton that has all possible options to customize/define a message type
@@ -24,5 +26,7 @@ export interface MessageTypeImpl {
 
 // typeCase enumerator will hold the int values for type string case
 export enum typeCase {
-    'upper', 'lower', 'title'
+    upper = 'upper', 
+    lower = 'lower',
+    title = 'title'
 }

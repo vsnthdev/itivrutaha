@@ -32,6 +32,7 @@
     },
     "dependencies": {
         "chalk": "^3.0.0",
-        "dateformat": "^3.0.3"
+        "dateformat": "^3.0.3",
+        "wide-align": "^1.1.3"
     }
 }

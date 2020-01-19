@@ -40,6 +40,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var chalk_1 = __importDefault(require("chalk"));
+var wide_align_1 = __importDefault(require("wide-align"));
+var config_1 = require("../config");
 function bold(type, loggerConfig) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -65,10 +67,25 @@ function colorize(type, loggerConfig) {
         });
     });
 }
-function padding(type, loggerConfig) {
+function padding(type, messageTypeLongestLength, loggerConfig) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            type.text = ' '.repeat(loggerConfig.typePadding) + type.text + ' '.repeat(loggerConfig.typePadding);
+            if (loggerConfig.centerAlignTypes == true) {
+                type.text = wide_align_1.default.center(type.text, messageTypeLongestLength + loggerConfig.typePadding);
+            }
+            else {
+                type.text = ' '.repeat(loggerConfig.typePadding) + type.text + ' '.repeat(loggerConfig.typePadding);
+            }
+            return [2, type];
+        });
+    });
+}
+function underline(type, loggerConfig) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (loggerConfig.underlineType == true) {
+                type.text = chalk_1.default.underline(type.text);
+            }
             return [2, type];
         });
     });
@@ -82,13 +99,13 @@ function casing(type, loggerConfig) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (loggerConfig.typeCase) {
-                case 0:
+                case config_1.typeCase.lower:
+                    type.text = type.text.toLowerCase();
+                    break;
+                case config_1.typeCase.upper:
                     type.text = type.text.toUpperCase();
                     break;
-                case 1:
-                    type.text = type.text.toUpperCase();
-                    break;
-                case 2:
+                case config_1.typeCase.title:
                     type.text = toTitleCase(type.text);
                     break;
                 default:
@@ -99,21 +116,24 @@ function casing(type, loggerConfig) {
         });
     });
 }
-function typeRender(type, loggerConfig) {
+function typeRender(type, messageTypeLongestLength, loggerConfig) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4, casing(type, loggerConfig)];
                 case 1:
                     type = _a.sent();
-                    return [4, padding(type, loggerConfig)];
+                    return [4, underline(type, loggerConfig)];
                 case 2:
                     type = _a.sent();
-                    return [4, bold(type, loggerConfig)];
+                    return [4, padding(type, messageTypeLongestLength, loggerConfig)];
                 case 3:
                     type = _a.sent();
-                    return [4, colorize(type, loggerConfig)];
+                    return [4, bold(type, loggerConfig)];
                 case 4:
+                    type = _a.sent();
+                    return [4, colorize(type, loggerConfig)];
+                case 5:
                     type = _a.sent();
                     return [2, type.text];
             }

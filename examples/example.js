@@ -12,9 +12,10 @@ const itivrutaha = require('../src/itivrutaha')
 // Create a new instance of the logger
 const logger = itivrutaha.createNewLogger({
     boldType: true,
-    typeCase: 0,
+    typeCase: 1,
     invertedTypes: true,
-    typePadding: 1,
+    typePadding: 0,
+    centerAlignTypes: true,
 })
 
 // Logging messages with itivrutaha
@@ -23,4 +24,5 @@ logger.note('Point to be noted')
 logger.info('User will know something is happening')
 logger.okay('Not an info message, but tells the user something')
 logger.verbose('Always makes developer\'s lives easy')
+logger.warning('Something broke, but it\'s okay.')
 logger.error('Should never happen')

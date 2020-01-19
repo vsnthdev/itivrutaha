@@ -20,6 +20,8 @@ const defaultConfig: ConfigImpl = {
     timeFormat: 'MM:ss, dS mmm',
     invertedTypes: false,
     typePadding: 0,
+    centerAlignTypes: false,
+    underlineType: false,
 }
 
 // createNewLogger() will create a new instance of the logger class
