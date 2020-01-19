@@ -15,51 +15,28 @@
 
 import chalk from 'chalk'
 
-import { ConfigImpl } from '../config'
+import { ConfigImpl, MessageTypeImpl } from '../config'
 
 // bold() will make the text bold
-function bold(type: string, loggerConfig: ConfigImpl): string {
+async function bold(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
     if (loggerConfig.boldType === true) {
-        return chalk.bold(type)
-    } else {
-        return type
+        type.text = chalk.bold(type.text)
     }
+
+    return type
 }
 
 // colorize() will apply a color depending on the type input received
 // only colorize() will be called. As this function will call the rest of the styling
 // functions will make a function chain like that
-function colorize(type: string, loggerConfig: ConfigImpl): string {
+async function colorize(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
     // Color accordingly
     if (loggerConfig.colored == true) {
-        // Color depending on type of message
-        switch (type.toLowerCase()) {
-        case 'success':
-            type = chalk.greenBright(type)
-            break
-        case 'note':
-            type = chalk.magentaBright(type)
-            break
-        case 'info':
-            type = chalk.blueBright(type)
-            break
-        case 'okay':
-            type = chalk.gray(type)
-            break
-        case 'verbose':
-            type = chalk.cyanBright(type)
-            break
-        case 'warning':
-            type = chalk.yellowBright(type)
-            break
-        case 'error':
-            type = chalk.redBright(type)
-            break
-        }
+        type.text = type.color(type.text)
     }
 
     // Return the styled string
-    return bold(type, loggerConfig)
+    return type
 }
 
 // toTitleCase() will convert a given string into title case
@@ -70,20 +47,30 @@ function toTitleCase(str): string {
 }
 
 // casing() will set the character casing
-function casing(type: string, loggerConfig: ConfigImpl): string {
+async function casing(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<MessageTypeImpl> {
     switch (loggerConfig.typeCase) {
     case 0:
-        return colorize(type.toUpperCase(), loggerConfig)
+        type.text = type.text.toUpperCase()
+        break
     case 1:
-        return colorize(type.toLowerCase(), loggerConfig)
+        type.text = type.text.toUpperCase()
+        break
     case 2:
-        return colorize(toTitleCase(type), loggerConfig)
+        type.text = toTitleCase(type.text)
+        break
     default:
-        return colorize(type, loggerConfig)
+        type.text = type.text.toLowerCase()
+        break
     }
+
+    return type
 }
 
-export default function typeRender(type: string, loggerConfig: ConfigImpl): string {
+export default async function typeRender(type: MessageTypeImpl, loggerConfig: ConfigImpl): Promise<string> {
     // Render according to the type received
-    return casing(type, loggerConfig)
+    type = await casing(type, loggerConfig)
+    type = await bold(type, loggerConfig)
+    type = await colorize(type, loggerConfig)
+
+    return type.text
 }

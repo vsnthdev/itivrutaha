@@ -1,5 +1,7 @@
 // This file will contain code related to loading and storing configuration
 
+import chalk from 'chalk'
+
 // The skeleton which has all possible settings passable to the loggerClass
 export interface ConfigImpl {
     colored?: boolean;
@@ -8,6 +10,14 @@ export interface ConfigImpl {
     theme?: string;
     verboseIdentifier?: Array<string>;
     timeFormat?: string;
+}
+
+// The interface skeleton that has all possible options to customize/define a message type
+export interface MessageTypeImpl {
+    text: string;
+    // symbol: string;
+    color: chalk.Chalk;
+    backgroundColor: chalk.Chalk;
 }
 
 // typeCase enumerator will hold the int values for type string case

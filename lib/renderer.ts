@@ -2,16 +2,16 @@
 
 import * as path from 'path'
 
-import { ConfigImpl } from './config'
+import { ConfigImpl, MessageTypeImpl } from './config'
 import typeRender from './variables/type'
 import timeRender from './variables/time'
 
-export default function renderTheme(type: string, message: string, loggerConfig: ConfigImpl): string {
+export default async function renderTheme(type: MessageTypeImpl, message: string, loggerConfig: ConfigImpl): Promise<string> {
     // Return the render result after rendering it
     return loggerConfig.theme
 
         // Render the message type
-        .replace(':type', typeRender(type, loggerConfig))
+        .replace(':type', await typeRender(type, loggerConfig))
 
         // Render the message string
         .replace(':message', message)

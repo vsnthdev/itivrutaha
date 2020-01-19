@@ -1,3 +1,4 @@
+import chalk from 'chalk';
 export interface ConfigImpl {
     colored?: boolean;
     boldType?: boolean;
@@ -5,6 +6,11 @@ export interface ConfigImpl {
     theme?: string;
     verboseIdentifier?: Array<string>;
     timeFormat?: string;
+}
+export interface MessageTypeImpl {
+    text: string;
+    color: chalk.Chalk;
+    backgroundColor: chalk.Chalk;
 }
 export declare enum typeCase {
     'upper' = 0,
