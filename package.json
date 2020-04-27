@@ -20,7 +20,7 @@
         "build": "eslint -c './.eslintrc.js' './lib/**/*.ts' && rm -rf ./src && tsc"
     },
     "devDependencies": {
-        "@types/node": "^12.7.12",
+        "@types/node": "^13.13.4",
         "@typescript-eslint/eslint-plugin": "^2.3.3",
         "@typescript-eslint/parser": "^2.3.3",
         "eslint": "^6.5.1",
