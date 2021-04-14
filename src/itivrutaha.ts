@@ -4,8 +4,7 @@
  */
 
 import { ConfigImpl, typeCase } from './config.js'
-import { LoggerClass, validate } from './loggerClass.js'
-import renderTheme from './renderer.js'
+import { LoggerClass } from './loggerClass.js'
 
 // This variable holds the default configuration
 // which acts like a replacement when no value is provided for a configuration key
@@ -37,24 +36,7 @@ const createNewLogger = (loggerConfig?: ConfigImpl): LoggerClass => {
     }
 }
 
-// addCustomType() will dynamically add a pre-prototyped function to logger class
-const addCustomType = (logString: string, classToAdd: LoggerClass): void => {
-    // Create a function that renders a message suitable for dynamically
-    // adding to the loggerClass
-    const newlyAddedFunc = function (message: string): void {
-        if (validate(message) == true) {
-            console.log(
-                renderTheme(logString, message, classToAdd.loggerConfig),
-            )
-        }
-    }
-
-    // Add the function to the passed loggerClass
-    classToAdd[logString] = newlyAddedFunc
-}
-
 // Export the above two functions
 export default {
     createNewLogger: createNewLogger,
-    addCustomType: addCustomType,
 }

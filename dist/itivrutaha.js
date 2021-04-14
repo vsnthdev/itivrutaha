@@ -1,6 +1,5 @@
 import { typeCase } from './config.js';
-import { LoggerClass, validate } from './loggerClass.js';
-import renderTheme from './renderer.js';
+import { LoggerClass } from './loggerClass.js';
 const defaultConfig = {
     colored: true,
     boldType: true,
@@ -22,15 +21,6 @@ const createNewLogger = (loggerConfig) => {
         return new LoggerClass(defaultConfig);
     }
 };
-const addCustomType = (logString, classToAdd) => {
-    const newlyAddedFunc = function (message) {
-        if (validate(message) == true) {
-            console.log(renderTheme(logString, message, classToAdd.loggerConfig));
-        }
-    };
-    classToAdd[logString] = newlyAddedFunc;
-};
 export default {
     createNewLogger: createNewLogger,
-    addCustomType: addCustomType,
 };
