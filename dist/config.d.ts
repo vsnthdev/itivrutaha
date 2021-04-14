@@ -1,10 +1,12 @@
 export interface ConfigImpl {
+    theme?: string;
+    appName?: string;
+    bootLog: boolean;
     colored?: boolean;
     boldType?: boolean;
     typeCase?: typeCase;
-    theme?: string;
-    verboseIdentifier?: Array<string>;
     timeFormat?: string;
+    verboseIdentifier?: Array<string>;
 }
 export declare enum typeCase {
     'upper' = 0,

@@ -12,13 +12,15 @@ const getType = (): string =>
 
 export default ({
     msg,
+    type,
     config,
     exitCode,
     condition,
 }: {
-    msg: string | Error
-    config: ConfigImpl
+    type?: string
     exitCode?: number
+    config: ConfigImpl
+    msg: string | Error
     condition?: (config: ConfigImpl) => boolean
 }): void => {
     // check if there's a condition
@@ -29,7 +31,7 @@ export default ({
     if (typeof msg == 'object') msg = msg.message
 
     // render the log message
-    console.log(renderer(getType(), msg, config))
+    console.log(renderer(type || getType(), msg, config))
 
     // handle the exitCode
     if (exitCode) process.exit(exitCode)

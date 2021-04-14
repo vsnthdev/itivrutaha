@@ -24,7 +24,8 @@
     "keywords": [],
     "dependencies": {
         "chalk": "^4.1.0",
-        "luxon": "^1.26.0"
+        "luxon": "^1.26.0",
+        "read-pkg-up": "^2.0.0"
     },
     "devDependencies": {
         "@types/chalk": "^2.2.0",

@@ -5,12 +5,14 @@
 
 // The skeleton which has all possible settings passable to the loggerClass
 export interface ConfigImpl {
+    theme?: string
+    appName?: string
+    bootLog: boolean
     colored?: boolean
     boldType?: boolean
     typeCase?: typeCase
-    theme?: string
-    verboseIdentifier?: Array<string>
     timeFormat?: string
+    verboseIdentifier?: Array<string>
 }
 
 // typeCase enumerator will hold the int values for type string case
