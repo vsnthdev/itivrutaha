@@ -1,4 +1,7 @@
-// This file will render the :time variables
+/*
+ *  This file will render the ":time" variable.
+ *  Created On 12 October 2019
+ */
 
 import { DateTime } from 'luxon'
 

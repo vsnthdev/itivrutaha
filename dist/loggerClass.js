@@ -1,12 +1,12 @@
 import renderTheme from './renderer.js';
-export function validate(message) {
+export const validate = (message) => {
     if (message === undefined) {
         return false;
     }
     else {
         return true;
     }
-}
+};
 export class LoggerClass {
     constructor(loggerConfig) {
         this.loggerConfig = loggerConfig;

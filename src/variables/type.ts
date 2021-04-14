@@ -1,4 +1,8 @@
-// This file will render the ":type" variable in the theme
+/*
+ *  This file will render the ":type" variable in the theme.
+ *  Created On 12 October 2019
+ */
+
 // Possible message types:
 // success
 // note
@@ -34,27 +38,27 @@ function colorize(type: string, loggerConfig: ConfigImpl): string {
     if (loggerConfig.colored == true) {
         // Color depending on type of message
         switch (type.toLowerCase()) {
-        case 'success':
-            type = chalk.greenBright(type)
-            break
-        case 'note':
-            type = chalk.magentaBright(type)
-            break
-        case 'info':
-            type = chalk.blueBright(type)
-            break
-        case 'okay':
-            type = chalk.gray(type)
-            break
-        case 'verbose':
-            type = chalk.cyanBright(type)
-            break
-        case 'warning':
-            type = chalk.yellowBright(type)
-            break
-        case 'error':
-            type = chalk.redBright(type)
-            break
+            case 'success':
+                type = chalk.greenBright(type)
+                break
+            case 'note':
+                type = chalk.magentaBright(type)
+                break
+            case 'info':
+                type = chalk.blueBright(type)
+                break
+            case 'okay':
+                type = chalk.gray(type)
+                break
+            case 'verbose':
+                type = chalk.cyanBright(type)
+                break
+            case 'warning':
+                type = chalk.yellowBright(type)
+                break
+            case 'error':
+                type = chalk.redBright(type)
+                break
         }
     }
 
@@ -72,14 +76,14 @@ function toTitleCase(str): string {
 // casing() will set the character casing
 function casing(type: string, loggerConfig: ConfigImpl): string {
     switch (loggerConfig.typeCase) {
-    case 0:
-        return colorize(type.toUpperCase(), loggerConfig)
-    case 1:
-        return colorize(type.toLowerCase(), loggerConfig)
-    case 2:
-        return colorize(toTitleCase(type), loggerConfig)
-    default:
-        return colorize(type, loggerConfig)
+        case 0:
+            return colorize(type.toUpperCase(), loggerConfig)
+        case 1:
+            return colorize(type.toLowerCase(), loggerConfig)
+        case 2:
+            return colorize(toTitleCase(type), loggerConfig)
+        default:
+            return colorize(type, loggerConfig)
     }
 }
 

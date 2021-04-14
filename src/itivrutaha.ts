@@ -1,9 +1,7 @@
-//   ___    __________   |  Vasanth Developer (Vasanth Srivatsa)
-//   __ |  / /___  __ \  |  ------------------------------------------------
-//   __ | / / __  / / /  |  https://github.com/vasanthdeveloper/itivrutaha.git
-//   __ |/ /  _  /_/ /   |
-//   _____/   /_____/    |  Entryfile for itivrutaha logging module
-//                       |
+/*
+ *  Entryfile for itivrutaha logging module.
+ *  Created On 10 October 2019
+ */
 
 import { ConfigImpl, typeCase } from './config.js'
 import { LoggerClass, validate } from './loggerClass.js'
@@ -21,7 +19,7 @@ const defaultConfig: ConfigImpl = {
 }
 
 // createNewLogger() will create a new instance of the logger class
-function createNewLogger(loggerConfig?: ConfigImpl): LoggerClass {
+const createNewLogger = (loggerConfig?: ConfigImpl): LoggerClass => {
     // Check if any config was passed, if not just return with default config
     if (loggerConfig) {
         // Loop through all possible config keys, fill the defaults to keys
@@ -40,7 +38,7 @@ function createNewLogger(loggerConfig?: ConfigImpl): LoggerClass {
 }
 
 // addCustomType() will dynamically add a pre-prototyped function to logger class
-function addCustomType(logString: string, classToAdd: LoggerClass): void {
+const addCustomType = (logString: string, classToAdd: LoggerClass): void => {
     // Create a function that renders a message suitable for dynamically
     // adding to the loggerClass
     const newlyAddedFunc = function (message: string): void {

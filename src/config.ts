@@ -1,4 +1,7 @@
-// This file will contain code related to loading and storing configuration
+/*
+ *  This file will contain code related to loading and storing configuration.
+ *  Created On 11 October 2019
+ */
 
 // The skeleton which has all possible settings passable to the loggerClass
 export interface ConfigImpl {

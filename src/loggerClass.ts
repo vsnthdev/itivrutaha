@@ -1,10 +1,13 @@
-// This class which holds all the log functions
+/*
+ *  This class which holds all the log functions.
+ *  Created On 11 October 2019
+ */
 
 import { ConfigImpl } from './config.js'
 import renderTheme from './renderer.js'
 
 // validate() will suppress the log call if no message was provided
-export function validate(message: string | Error): boolean {
+export const validate = (message: string | Error): boolean => {
     if (message === undefined) {
         return false
     } else {
