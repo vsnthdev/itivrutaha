@@ -5,7 +5,7 @@
 
 import { DateTime } from 'luxon'
 
-import { ConfigImpl } from '../config.js'
+import { ConfigImpl } from '../../config.js'
 
 export default (config: ConfigImpl): string =>
     DateTime.local().toFormat(config.timeFormat)

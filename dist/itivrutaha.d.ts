@@ -1,6 +1,6 @@
+import { Logger } from './class/index.js';
 import { ConfigImpl } from './config.js';
-import { LoggerClass } from './loggerClass.js';
 declare const _default: {
-    createNewLogger: (loggerConfig?: ConfigImpl) => LoggerClass;
+    createNewLogger: (config?: ConfigImpl) => Logger;
 };
 export default _default;

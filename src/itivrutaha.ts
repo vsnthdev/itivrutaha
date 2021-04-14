@@ -3,12 +3,13 @@
  *  Created On 10 October 2019
  */
 
+import { Logger } from './class/index.js'
 import { ConfigImpl, typeCase } from './config.js'
-import { LoggerClass } from './loggerClass.js'
 
-// This variable holds the default configuration
-// which acts like a replacement when no value is provided for a configuration key
-const defaultConfig: ConfigImpl = {
+// Holds the default configuration which acts like a
+// replacement when no value is provided for a
+// particular configuration key
+const defaults: ConfigImpl = {
     colored: true,
     boldType: true,
     typeCase: typeCase.lower,
@@ -18,22 +19,13 @@ const defaultConfig: ConfigImpl = {
 }
 
 // createNewLogger() will create a new instance of the logger class
-const createNewLogger = (loggerConfig?: ConfigImpl): LoggerClass => {
-    // Check if any config was passed, if not just return with default config
-    if (loggerConfig) {
-        // Loop through all possible config keys, fill the defaults to keys
-        // for which the user hasn't specified any value
-        for (const obj in defaultConfig) {
-            if (loggerConfig[obj] === undefined) {
-                loggerConfig[obj] = defaultConfig[obj]
-            }
-        }
+const createNewLogger = (config: ConfigImpl = defaults): Logger => {
+    // if custom properties were given merge those together
+    // with defaults so we have all properties defined
+    config = { ...defaults, ...config }
 
-        // Now return a loggerClass with the user's passed config
-        return new LoggerClass(loggerConfig)
-    } else {
-        return new LoggerClass(defaultConfig)
-    }
+    // return a new LoggerClass instance
+    return new Logger(config)
 }
 
 // Export the above two functions

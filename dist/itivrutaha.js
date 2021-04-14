@@ -1,6 +1,6 @@
+import { Logger } from './class/index.js';
 import { typeCase } from './config.js';
-import { LoggerClass } from './loggerClass.js';
-const defaultConfig = {
+const defaults = {
     colored: true,
     boldType: true,
     typeCase: typeCase.lower,
@@ -8,18 +8,9 @@ const defaultConfig = {
     verboseIdentifier: ['--verbose', '-v'],
     timeFormat: 'HH:mm:ss dd-LL-yyyy',
 };
-const createNewLogger = (loggerConfig) => {
-    if (loggerConfig) {
-        for (const obj in defaultConfig) {
-            if (loggerConfig[obj] === undefined) {
-                loggerConfig[obj] = defaultConfig[obj];
-            }
-        }
-        return new LoggerClass(loggerConfig);
-    }
-    else {
-        return new LoggerClass(defaultConfig);
-    }
+const createNewLogger = (config = defaults) => {
+    config = Object.assign(Object.assign({}, defaults), config);
+    return new Logger(config);
 };
 export default {
     createNewLogger: createNewLogger,
