@@ -1,2 +1,3 @@
-import { ConfigImpl } from '../config';
-export default function timeRender(loggerConfig: ConfigImpl): string;
+import { ConfigImpl } from '../config.js';
+declare const _default: (config: ConfigImpl) => string;
+export default _default;

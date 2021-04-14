@@ -1,13 +1,8 @@
 // This file will render the :time variables
 
-import dateformat from 'dateformat'
+import { DateTime } from 'luxon'
 
-import { ConfigImpl } from '../config'
+import { ConfigImpl } from '../config.js'
 
-export default function timeRender(loggerConfig: ConfigImpl): string {
-    // Get the current time
-    const now = new Date()
-
-    // Return the formatted date
-    return dateformat(now, loggerConfig.timeFormat)
-}
+export default (config: ConfigImpl): string =>
+    DateTime.local().toFormat(config.timeFormat)

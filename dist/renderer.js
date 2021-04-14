@@ -1,6 +1,6 @@
 import * as path from 'path';
-import timeRender from './variables/time';
-import typeRender from './variables/type';
+import timeRender from './variables/time.js';
+import typeRender from './variables/type.js';
 export default function renderTheme(type, message, loggerConfig) {
     return (loggerConfig.theme
         .replace(':type', typeRender(type, loggerConfig))

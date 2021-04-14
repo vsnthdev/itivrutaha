@@ -2,9 +2,9 @@
 
 import * as path from 'path'
 
-import { ConfigImpl } from './config'
-import timeRender from './variables/time'
-import typeRender from './variables/type'
+import { ConfigImpl } from './config.js'
+import timeRender from './variables/time.js'
+import typeRender from './variables/type.js'
 
 export default function renderTheme(
     type: string,

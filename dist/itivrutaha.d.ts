@@ -1,5 +1,5 @@
-import { ConfigImpl } from './config';
-import { LoggerClass } from './loggerClass';
+import { ConfigImpl } from './config.js';
+import { LoggerClass } from './loggerClass.js';
 declare function createNewLogger(loggerConfig?: ConfigImpl): LoggerClass;
 declare function addCustomType(logString: string, classToAdd: LoggerClass): void;
 declare const _default: {

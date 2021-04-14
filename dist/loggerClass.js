@@ -1,4 +1,4 @@
-import renderTheme from './renderer';
+import renderTheme from './renderer.js';
 export function validate(message) {
     if (message === undefined) {
         return false;

@@ -5,9 +5,9 @@
 //   _____/   /_____/    |  Entryfile for itivrutaha logging module
 //                       |
 
-import { ConfigImpl, typeCase } from './config'
-import { LoggerClass, validate } from './loggerClass'
-import renderTheme from './renderer'
+import { ConfigImpl, typeCase } from './config.js'
+import { LoggerClass, validate } from './loggerClass.js'
+import renderTheme from './renderer.js'
 
 // This variable holds the default configuration
 // which acts like a replacement when no value is provided for a configuration key
@@ -17,7 +17,7 @@ const defaultConfig: ConfigImpl = {
     typeCase: typeCase.lower,
     theme: ':type :message',
     verboseIdentifier: ['--verbose', '-v'],
-    timeFormat: 'MM:ss, dS mmm',
+    timeFormat: 'HH:mm:ss dd-LL-yyyy',
 }
 
 // createNewLogger() will create a new instance of the logger class

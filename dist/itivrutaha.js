@@ -1,13 +1,13 @@
-import { typeCase } from './config';
-import { LoggerClass, validate } from './loggerClass';
-import renderTheme from './renderer';
+import { typeCase } from './config.js';
+import { LoggerClass, validate } from './loggerClass.js';
+import renderTheme from './renderer.js';
 const defaultConfig = {
     colored: true,
     boldType: true,
     typeCase: typeCase.lower,
     theme: ':type :message',
     verboseIdentifier: ['--verbose', '-v'],
-    timeFormat: 'MM:ss, dS mmm',
+    timeFormat: 'HH:mm:ss dd-LL-yyyy',
 };
 function createNewLogger(loggerConfig) {
     if (loggerConfig) {

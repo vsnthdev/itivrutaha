@@ -1,4 +1,4 @@
-import { ConfigImpl } from './config';
+import { ConfigImpl } from './config.js';
 export declare function validate(message: string | Error): boolean;
 export declare class LoggerClass {
     loggerConfig: ConfigImpl;

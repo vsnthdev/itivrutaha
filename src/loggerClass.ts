@@ -1,7 +1,7 @@
 // This class which holds all the log functions
 
-import { ConfigImpl } from './config'
-import renderTheme from './renderer'
+import { ConfigImpl } from './config.js'
+import renderTheme from './renderer.js'
 
 // validate() will suppress the log call if no message was provided
 export function validate(message: string | Error): boolean {
