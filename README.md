@@ -1,8 +1,7 @@
 <h1 align="center">
     <br>
     <a href="#">
-        <img src="https://raw.githubusercontent.com/vasanthdeveloper/itivrutaha/media/PNG/Hero%20Image.png"
-            alt="itivrutaha">
+        itivrutaha
     </a>
 </h1>
 <h4 align="center">itivrutaha is an open-source, dynamically modifiable logging system for NodeJS.</h4>
@@ -21,17 +20,11 @@
             alt="">
     </a>
 </p>
-<p align="center">
-    <a href="#">Docs</a> •
-    <a href="#💿-installation">Installation</a> •
-    <a href="#🚴♂️-quick-start">Quick Start</a> •
-    <a href="LICENSE.md">License</a>
-</p>
 
 ## 💿 Installation
 ![](https://nodei.co/npm/itivrutaha.png?downloads=true&downloadRank=true&stars=true)
 ```
-npm install --save itivrutaha
+npm i itivrutaha
 ```
 Or, if you are using Yarn, then
 ```
@@ -39,7 +32,7 @@ yarn add itivrutaha
 ```
 
 ## 🚴‍♂️ Quick Start
-After installing itivrutaha using the above commands, you can use it in the following way:
+After installing `itivrutaha` using the above commands, you can use it in the following way:
 
 ```javascript
 // Require the itivrutaha logging system
@@ -60,17 +53,17 @@ logger.error('Should never happen')
 ```
 To know what optional configuration options can be passed and how you can dynamically change the theme (layout of the log message) and styles, checkout the [customization page](#).
 
-## ✔ Todo
+## ✅ Todo
 
 - [x] Logging messages to the console
 - [x] Dynamically modify the logging messages
 - [ ] File logging support
 
 ## 📰 License
-> _The itivrutaha project is released under the [MIT license](LICENSE.md). <br> Developed &amp; Maintained By Vasanth Developer. Copyright 2019 © Vasanth Developer._
+> The **itivrutaha** project is released under the [MIT license](LICENSE.md). <br> Developed &amp; maintained By Vasanth Srivatsa. Copyright 2021 © Vasanth Developer.
 <hr>
 
-> [vasanth.tech](https://vasanth.tech) &nbsp;&middot;&nbsp;
-> YouTube [@vasanthdeveloper](https://youtube.com/vasanthdeveloper?sub_confirmation=1) &nbsp;&middot;&nbsp;
-> Twitter [@vasanthdevelope](https://twitter.com/vasanthdevelope) &nbsp;&middot;&nbsp;
-> Discord [Vasanth Developer](https://discord.gg/UQuhrxE)
+> <a href="https://vasanth.tech" target="_blank" rel="noopener">vasanth.tech</a> &nbsp;&middot;&nbsp;
+> YouTube <a href="https://vas.cx/videos" target="_blank" rel="noopener">@vasanthdeveloper</a> &nbsp;&middot;&nbsp;
+> Twitter <a href="https://vas.cx/twitter" target="_blank" rel="noopener">@vasanthdevelop</a> &nbsp;&middot;&nbsp;
+> Discord <a href="https://vas.cx/discord" target="_blank" rel="noopener">Vasanth Developer</a>
