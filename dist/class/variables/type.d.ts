@@ -1,2 +1,3 @@
 import { ConfigImpl } from '../../config.js';
-export default function typeRender(type: string, loggerConfig: ConfigImpl): string;
+declare const _default: (type: string, config: ConfigImpl) => string;
+export default _default;

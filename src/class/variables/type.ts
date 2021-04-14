@@ -3,94 +3,48 @@
  *  Created On 12 October 2019
  */
 
-// Possible message types:
-// success
-// note
-// info
-// okay
-// verbose
-// warning
-// error
-
-// Possible message type casing values are:
-// upper = 0
-// lower = 1
-// title = 2
-
 import chalk from 'chalk'
 
 import { ConfigImpl } from '../../config.js'
 
 // bold() will make the text bold
-function bold(type: string, loggerConfig: ConfigImpl): string {
-    if (loggerConfig.boldType === true) {
-        return chalk.bold(type)
-    } else {
-        return type
-    }
-}
+const bold = (type: string, config: ConfigImpl): string =>
+    config.boldType ? chalk.bold(type) : type
 
-// colorize() will apply a color depending on the type input received
-// only colorize() will be called. As this function will call the rest of the styling
+// this function will call the rest of the styling
 // functions will make a function chain like that
-function colorize(type: string, loggerConfig: ConfigImpl): string {
-    // Color accordingly
-    if (loggerConfig.colored == true) {
-        // Color depending on type of message
-        switch (type.toLowerCase()) {
-        case 'success':
-            type = chalk.greenBright(type)
-            break
-        case 'note':
-            type = chalk.magentaBright(type)
-            break
-        case 'info':
-            type = chalk.blueBright(type)
-            break
-        case 'okay':
-            type = chalk.gray(type)
-            break
-        case 'verbose':
-            type = chalk.cyanBright(type)
-            break
-        case 'warning':
-            type = chalk.yellowBright(type)
-            break
-        case 'error':
-            type = chalk.redBright(type)
-            break
-        }
+const colorize = (type: string, config: ConfigImpl): string => {
+    if (!config.colored) return bold(type, config)
+
+    const colors = {
+        okay: chalk.gray,
+        info: chalk.blueBright,
+        error: chalk.redBright,
+        note: chalk.magentaBright,
+        verbose: chalk.cyanBright,
+        success: chalk.greenBright,
+        warning: chalk.yellowBright,
     }
 
-    // Return the styled string
-    return bold(type, loggerConfig)
-}
-
-// toTitleCase() will convert a given string into title case
-function toTitleCase(str): string {
-    return str.replace(/\w\S*/g, txt => {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-    })
+    return bold(colors[type](type), config)
 }
 
 // casing() will set the character casing
-function casing(type: string, loggerConfig: ConfigImpl): string {
-    switch (loggerConfig.typeCase) {
-    case 0:
-        return colorize(type.toUpperCase(), loggerConfig)
-    case 1:
-        return colorize(type.toLowerCase(), loggerConfig)
-    case 2:
-        return colorize(toTitleCase(type), loggerConfig)
-    default:
-        return colorize(type, loggerConfig)
+const casing = (type: string, config: ConfigImpl): string => {
+    const toTitleCase = (str): string =>
+        str.replace(
+            /\w\S*/g,
+            txt => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase(),
+        )
+
+    const func = {
+        0: (str: string) => str.toUpperCase(),
+        1: (str: string) => str.toLowerCase(),
+        2: (str: string) => toTitleCase(str),
     }
+
+    return colorize(func[config.typeCase](type), config)
 }
 
-export default function typeRender(
-    type: string,
-    loggerConfig: ConfigImpl,
-): string {
-    // Render according to the type received
-    return casing(type, loggerConfig)
-}
+export default (type: string, config: ConfigImpl): string =>
+    casing(type, config)

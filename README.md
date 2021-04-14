@@ -53,12 +53,6 @@ logger.error('Should never happen')
 ```
 To know what optional configuration options can be passed and how you can dynamically change the theme (layout of the log message) and styles, checkout the [customization page](#).
 
-## ✅ Todo
-
-- [x] Logging messages to the console
-- [x] Dynamically modify the logging messages
-- [ ] File logging support
-
 ## 📰 License
 > The **itivrutaha** project is released under the [MIT license](LICENSE.md). <br> Developed &amp; maintained By Vasanth Srivatsa. Copyright 2021 © Vasanth Developer.
 <hr>
