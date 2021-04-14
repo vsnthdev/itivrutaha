@@ -5,3 +5,4 @@ const logger = itivrutaha.createNewLogger({
 })
 
 logger.info('hey 👋')
+logger.verbose('useful to developers')

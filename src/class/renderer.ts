@@ -9,17 +9,14 @@ import { ConfigImpl } from '../config.js'
 import timeRender from './variables/time.js'
 import typeRender from './variables/type.js'
 
-const getType = (): string =>
-    new Error().stack.split('\n')[3].trim().slice(10).split(' ')[0]
-
-export default (message: string, config: ConfigImpl): string => {
+export default (type: string, msg: string, config: ConfigImpl): string => {
     return (
         config.theme
             // Render the message type
-            .replace(':type', typeRender(getType(), config))
+            .replace(':type', typeRender(type, config))
 
             // Render the message string
-            .replace(':message', message)
+            .replace(':message', msg)
 
             // Render the time string
             .replace(':time', timeRender(config))

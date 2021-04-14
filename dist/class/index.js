@@ -1,35 +1,17 @@
-import renderTheme from './renderer.js';
+import render from './wrapper.js';
 export class Logger {
     constructor(config) {
-        this.success = (msg) => console.log(renderTheme(msg, this.config));
-        this.note = (msg) => console.log(renderTheme(msg, this.config));
-        this.info = (msg) => console.log(renderTheme(msg, this.config));
-        this.okay = (msg) => console.log(renderTheme(msg, this.config));
-        this.verbose = (message) => {
-            const found = this.config.verboseIdentifier.some(argument => process.argv.includes(argument));
-            if (found) {
-                console.log(renderTheme(message, this.config));
-            }
-        };
-        this.warning = (msg) => {
-            if (typeof msg === 'string') {
-                console.log(renderTheme(msg, this.config));
-            }
-            else {
-                console.log(renderTheme(msg.message, this.config));
-            }
-        };
-        this.error = (msg, exitCode) => {
-            if (typeof msg === 'string') {
-                console.log(renderTheme(msg, this.config));
-            }
-            else {
-                console.log(renderTheme(msg.message, this.config));
-            }
-            if (exitCode) {
-                process.exit(exitCode);
-            }
-        };
+        this.success = (msg) => render({ msg, config: this.config });
+        this.note = (msg) => render({ msg, config: this.config });
+        this.info = (msg) => render({ msg, config: this.config });
+        this.okay = (msg) => render({ msg, config: this.config });
+        this.warning = (msg) => render({ msg, config: this.config });
+        this.error = (msg, exitCode) => render({ msg, config: this.config, exitCode });
+        this.verbose = (msg) => render({
+            msg,
+            config: this.config,
+            condition: () => this.config.verboseIdentifier.some(argument => process.argv.includes(argument)),
+        });
         this.config = config;
     }
 }
