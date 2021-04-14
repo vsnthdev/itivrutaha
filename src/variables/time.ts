@@ -1,6 +1,6 @@
 // This file will render the :time variables
 
-import dateformat = require('dateformat')
+import dateformat from 'dateformat'
 
 import { ConfigImpl } from '../config'
 

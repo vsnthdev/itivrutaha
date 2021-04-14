@@ -1,12 +1,7 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var chalk_1 = __importDefault(require("chalk"));
+import chalk from 'chalk';
 function bold(type, loggerConfig) {
     if (loggerConfig.boldType === true) {
-        return chalk_1.default.bold(type);
+        return chalk.bold(type);
     }
     else {
         return type;
@@ -16,32 +11,32 @@ function colorize(type, loggerConfig) {
     if (loggerConfig.colored == true) {
         switch (type.toLowerCase()) {
             case 'success':
-                type = chalk_1.default.greenBright(type);
+                type = chalk.greenBright(type);
                 break;
             case 'note':
-                type = chalk_1.default.magentaBright(type);
+                type = chalk.magentaBright(type);
                 break;
             case 'info':
-                type = chalk_1.default.blueBright(type);
+                type = chalk.blueBright(type);
                 break;
             case 'okay':
-                type = chalk_1.default.gray(type);
+                type = chalk.gray(type);
                 break;
             case 'verbose':
-                type = chalk_1.default.cyanBright(type);
+                type = chalk.cyanBright(type);
                 break;
             case 'warning':
-                type = chalk_1.default.yellowBright(type);
+                type = chalk.yellowBright(type);
                 break;
             case 'error':
-                type = chalk_1.default.redBright(type);
+                type = chalk.redBright(type);
                 break;
         }
     }
     return bold(type, loggerConfig);
 }
 function toTitleCase(str) {
-    return str.replace(/\w\S*/g, function (txt) {
+    return str.replace(/\w\S*/g, txt => {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
 }
@@ -57,8 +52,6 @@ function casing(type, loggerConfig) {
             return colorize(type, loggerConfig);
     }
 }
-function typeRender(type, loggerConfig) {
+export default function typeRender(type, loggerConfig) {
     return casing(type, loggerConfig);
 }
-exports.default = typeRender;
-//# sourceMappingURL=type.js.map

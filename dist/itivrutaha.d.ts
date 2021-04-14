@@ -6,5 +6,4 @@ declare const _default: {
     createNewLogger: typeof createNewLogger;
     addCustomType: typeof addCustomType;
 };
-export = _default;
-//# sourceMappingURL=itivrutaha.d.ts.map
+export default _default;

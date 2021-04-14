@@ -17,7 +17,7 @@ const defaultConfig: ConfigImpl = {
     typeCase: typeCase.lower,
     theme: ':type :message',
     verboseIdentifier: ['--verbose', '-v'],
-    timeFormat: 'MM:ss, dS mmm'
+    timeFormat: 'MM:ss, dS mmm',
 }
 
 // createNewLogger() will create a new instance of the logger class
@@ -43,9 +43,11 @@ function createNewLogger(loggerConfig?: ConfigImpl): LoggerClass {
 function addCustomType(logString: string, classToAdd: LoggerClass): void {
     // Create a function that renders a message suitable for dynamically
     // adding to the loggerClass
-    const newlyAddedFunc = function(message: string): void {
+    const newlyAddedFunc = function (message: string): void {
         if (validate(message) == true) {
-            console.log(renderTheme(logString, message, classToAdd.loggerConfig))
+            console.log(
+                renderTheme(logString, message, classToAdd.loggerConfig),
+            )
         }
     }
 
@@ -54,7 +56,7 @@ function addCustomType(logString: string, classToAdd: LoggerClass): void {
 }
 
 // Export the above two functions
-export = {
+export default {
     createNewLogger: createNewLogger,
-    addCustomType: addCustomType
+    addCustomType: addCustomType,
 }

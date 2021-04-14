@@ -15,7 +15,7 @@ export function validate(message: string | Error): boolean {
 export class LoggerClass {
     // Store the config globally relative to this class
     public loggerConfig: ConfigImpl
-    
+
     // constructor() executes when the class is created
     constructor(loggerConfig: ConfigImpl) {
         // [TODO]: Log a message that the application was start as per user's request
@@ -54,7 +54,9 @@ export class LoggerClass {
     // verbose() will only log the message when a flag/command/option is found in the command-line arguments
     public verbose(message: string): void {
         // Check if the verbose identifier was passed by the end user
-        const found = this.loggerConfig.verboseIdentifier.some(argument => process.argv.includes(argument))
+        const found = this.loggerConfig.verboseIdentifier.some(argument =>
+            process.argv.includes(argument),
+        )
 
         // Only log if found was found
         if (found) {
@@ -73,7 +75,9 @@ export class LoggerClass {
             if (typeof message === 'string') {
                 console.log(renderTheme('warning', message, this.loggerConfig))
             } else {
-                console.log(renderTheme('warning', message.message, this.loggerConfig))
+                console.log(
+                    renderTheme('warning', message.message, this.loggerConfig),
+                )
             }
         }
     }
@@ -87,7 +91,9 @@ export class LoggerClass {
             if (typeof message === 'string') {
                 console.log(renderTheme('error', message, this.loggerConfig))
             } else {
-                console.log(renderTheme('error', message.message, this.loggerConfig))
+                console.log(
+                    renderTheme('error', message.message, this.loggerConfig),
+                )
             }
 
             // If exitCode was provided, just exit
@@ -95,5 +101,5 @@ export class LoggerClass {
                 process.exit(exitCode)
             }
         }
-    }   
+    }
 }

@@ -34,27 +34,27 @@ function colorize(type: string, loggerConfig: ConfigImpl): string {
     if (loggerConfig.colored == true) {
         // Color depending on type of message
         switch (type.toLowerCase()) {
-        case 'success':
-            type = chalk.greenBright(type)
-            break
-        case 'note':
-            type = chalk.magentaBright(type)
-            break
-        case 'info':
-            type = chalk.blueBright(type)
-            break
-        case 'okay':
-            type = chalk.gray(type)
-            break
-        case 'verbose':
-            type = chalk.cyanBright(type)
-            break
-        case 'warning':
-            type = chalk.yellowBright(type)
-            break
-        case 'error':
-            type = chalk.redBright(type)
-            break
+            case 'success':
+                type = chalk.greenBright(type)
+                break
+            case 'note':
+                type = chalk.magentaBright(type)
+                break
+            case 'info':
+                type = chalk.blueBright(type)
+                break
+            case 'okay':
+                type = chalk.gray(type)
+                break
+            case 'verbose':
+                type = chalk.cyanBright(type)
+                break
+            case 'warning':
+                type = chalk.yellowBright(type)
+                break
+            case 'error':
+                type = chalk.redBright(type)
+                break
         }
     }
 
@@ -64,7 +64,7 @@ function colorize(type: string, loggerConfig: ConfigImpl): string {
 
 // toTitleCase() will convert a given string into title case
 function toTitleCase(str): string {
-    return str.replace(/\w\S*/g, (txt) => {
+    return str.replace(/\w\S*/g, txt => {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
     })
 }
@@ -72,18 +72,21 @@ function toTitleCase(str): string {
 // casing() will set the character casing
 function casing(type: string, loggerConfig: ConfigImpl): string {
     switch (loggerConfig.typeCase) {
-    case 0:
-        return colorize(type.toUpperCase(), loggerConfig)
-    case 1:
-        return colorize(type.toLowerCase(), loggerConfig)
-    case 2:
-        return colorize(toTitleCase(type), loggerConfig)
-    default:
-        return colorize(type, loggerConfig)
+        case 0:
+            return colorize(type.toUpperCase(), loggerConfig)
+        case 1:
+            return colorize(type.toLowerCase(), loggerConfig)
+        case 2:
+            return colorize(toTitleCase(type), loggerConfig)
+        default:
+            return colorize(type, loggerConfig)
     }
 }
 
-export default function typeRender(type: string, loggerConfig: ConfigImpl): string {
+export default function typeRender(
+    type: string,
+    loggerConfig: ConfigImpl,
+): string {
     // Render according to the type received
     return casing(type, loggerConfig)
 }

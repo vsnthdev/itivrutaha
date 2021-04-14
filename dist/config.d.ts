@@ -11,4 +11,3 @@ export declare enum typeCase {
     'lower' = 1,
     'title' = 2
 }
-//# sourceMappingURL=config.d.ts.map
