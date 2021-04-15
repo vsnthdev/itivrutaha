@@ -16,3 +16,7 @@ logger.okay(`it's okay`)
 logger.success('that is a success')
 logger.verbose('useful for developers')
 logger.warning('something is going wrong')
+
+setTimeout(async () => {
+    await itivrutaha.clearLogs(logger)
+}, 3000)

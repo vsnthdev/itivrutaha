@@ -32,7 +32,7 @@ export const open = async (config: ConfigImpl): Promise<DataImpl> => {
     }
     if (config.logs.enable) {
         // make sure that the folder exists
-        await mkdirp(path.dirname(config.logs.dir))
+        await mkdirp(config.logs.dir)
 
         // open log files
         data.output = await fs.open(

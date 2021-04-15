@@ -25,6 +25,7 @@
     "dependencies": {
         "chalk": "^4.1.0",
         "deepmerge": "^4.2.2",
+        "del": "^6.0.0",
         "env-paths": "^2.2.1",
         "joi": "^17.4.0",
         "luxon": "^1.26.0",
@@ -37,6 +38,7 @@
     "devDependencies": {
         "@types/chalk": "^2.2.0",
         "@types/deepmerge": "^2.2.0",
+        "@types/del": "^4.0.0",
         "@types/env-paths": "^2.1.0",
         "@types/joi": "^17.2.3",
         "@types/luxon": "^1.26.3",

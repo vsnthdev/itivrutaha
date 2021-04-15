@@ -28,7 +28,7 @@ export const open = (config) => __awaiter(void 0, void 0, void 0, function* () {
         config.logs.dir = log;
     }
     if (config.logs.enable) {
-        yield mkdirp(path.dirname(config.logs.dir));
+        yield mkdirp(config.logs.dir);
         data.output = yield fs.open(path.join(config.logs.dir, config.logs.output), 'a', 0o666);
         data.error = yield fs.open(path.join(config.logs.dir, config.logs.error), 'a', 0o666);
     }

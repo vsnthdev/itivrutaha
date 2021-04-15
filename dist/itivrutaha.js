@@ -8,6 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import merge from 'deepmerge';
+import del from 'del';
+import { DateTime } from 'luxon';
 import readPkg from 'read-pkg-up';
 import { Logger } from './class/index.js';
 import { open } from './class/log.js';
@@ -25,8 +27,8 @@ const defaults = {
     },
     logs: {
         enable: false,
-        output: 'output.log',
-        error: 'error.log',
+        output: `output-${DateTime.local().toFormat('dd-LL-yyyy')}.log`,
+        error: `error-${DateTime.local().toFormat('dd-LL-yyyy')}.log`,
     },
 };
 const createNewLogger = (config = defaults) => __awaiter(void 0, void 0, void 0, function* () {
@@ -36,6 +38,8 @@ const createNewLogger = (config = defaults) => __awaiter(void 0, void 0, void 0,
     const data = yield open(config);
     return new Logger(config, data);
 });
+const clearLogs = (logger) => __awaiter(void 0, void 0, void 0, function* () { return yield del(logger.config.logs.dir, { force: true }); });
 export default {
-    createNewLogger: createNewLogger,
+    createNewLogger,
+    clearLogs,
 };

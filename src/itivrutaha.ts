@@ -4,6 +4,8 @@
  */
 
 import merge from 'deepmerge'
+import del from 'del'
+import { DateTime } from 'luxon'
 import readPkg from 'read-pkg-up'
 
 import { Logger } from './class/index.js'
@@ -26,8 +28,8 @@ const defaults: ConfigImpl = {
     },
     logs: {
         enable: false,
-        output: 'output.log',
-        error: 'error.log',
+        output: `output-${DateTime.local().toFormat('dd-LL-yyyy')}.log`,
+        error: `error-${DateTime.local().toFormat('dd-LL-yyyy')}.log`,
     },
 }
 
@@ -50,7 +52,11 @@ const createNewLogger = async (
     return new Logger(config, data)
 }
 
+const clearLogs = async (logger: Logger): Promise<string[]> =>
+    await del(logger.config.logs.dir, { force: true })
+
 // Export the above two functions
 export default {
-    createNewLogger: createNewLogger,
+    createNewLogger,
+    clearLogs,
 }
