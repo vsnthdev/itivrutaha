@@ -1,7 +1,8 @@
-import { ConfigImpl } from '../config.js';
+import { ConfigImpl, DataImpl } from '../config.js';
 export declare class Logger {
     config: ConfigImpl;
-    constructor(config: ConfigImpl);
+    data: DataImpl;
+    constructor(config: ConfigImpl, data: DataImpl);
     success: (msg: string) => void;
     note: (msg: string) => void;
     info: (msg: string) => void;

@@ -12,7 +12,7 @@ import time from './variables/time.js'
 import type from './variables/type.js'
 
 export default (typeStr: string, msg: string, config: ConfigImpl): string =>
-    config.theme
+    config.theme.string
         .replace(':type', type(typeStr, config))
         .replace(':message', ne.emojify(msg))
         .replace(':time', time(config))

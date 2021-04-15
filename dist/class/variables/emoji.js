@@ -8,4 +8,4 @@ const emojis = {
     success: 'white_check_mark',
     warning: 'construction',
 };
-export default (type) => emoji.emojify(emojis[type]).trim();
+export default (type) => emoji.emojify(`:${emojis[type]}:`).trim();

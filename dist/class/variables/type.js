@@ -1,7 +1,7 @@
 import chalk from 'chalk';
-const bold = (type, config) => config.boldType ? chalk.bold(type) : type;
+const bold = (type, config) => config.theme.boldType ? chalk.bold(type) : type;
 const colorize = (type, config) => {
-    if (!config.colored)
+    if (!config.theme.colored)
         return bold(type, config);
     const colors = {
         okay: chalk.gray,
@@ -21,6 +21,6 @@ const casing = (type, config) => {
         1: (str) => str.toLowerCase(),
         2: (str) => toTitleCase(str),
     };
-    return colorize(func[config.typeCase](type), config);
+    return colorize(func[config.theme.typeCase](type), config);
 };
 export default (type, config) => casing(type, config);

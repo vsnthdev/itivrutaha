@@ -9,12 +9,12 @@ import { ConfigImpl } from '../../config.js'
 
 // bold() will make the text bold
 const bold = (type: string, config: ConfigImpl): string =>
-    config.boldType ? chalk.bold(type) : type
+    config.theme.boldType ? chalk.bold(type) : type
 
 // this function will call the rest of the styling
 // functions will make a function chain like that
 const colorize = (type: string, config: ConfigImpl): string => {
-    if (!config.colored) return bold(type, config)
+    if (!config.theme.colored) return bold(type, config)
 
     const colors = {
         okay: chalk.gray,
@@ -43,7 +43,7 @@ const casing = (type: string, config: ConfigImpl): string => {
         2: (str: string) => toTitleCase(str),
     }
 
-    return colorize(func[config.typeCase](type), config)
+    return colorize(func[config.theme.typeCase](type), config)
 }
 
 export default (type: string, config: ConfigImpl): string =>

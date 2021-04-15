@@ -15,4 +15,5 @@ const emojis = {
     warning: 'construction',
 }
 
-export default (type: string): string => emoji.emojify(emojis[type]).trim()
+export default (type: string): string =>
+    emoji.emojify(`:${emojis[type]}:`).trim()

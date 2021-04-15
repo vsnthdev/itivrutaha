@@ -4,7 +4,8 @@
  *  Created On 14 April 2021
  */
 
-import { ConfigImpl } from '../config.js'
+import { ConfigImpl, DataImpl } from '../config.js'
+import writeLog from './log.js'
 import renderer from './renderer.js'
 
 const getType = (): string =>
@@ -13,11 +14,13 @@ const getType = (): string =>
 export default ({
     msg,
     type,
+    data,
     config,
     exitCode,
     condition,
 }: {
     type?: string
+    data: DataImpl
     exitCode?: number
     config: ConfigImpl
     msg: string | Error
@@ -27,11 +30,16 @@ export default ({
     const goForward = condition ? condition(config) : true
     if (!goForward) return
 
+    // set the type, incase it isn't already
+    if (!type) type = getType()
+
     // handle if Error or message string
     if (typeof msg == 'object') msg = msg.message
 
     // render the log message
-    console.log(renderer(type || getType(), msg, config))
+    const log = renderer(type, msg, config)
+    console.log(log)
+    writeLog(log, type, config, data)
 
     // handle the exitCode
     if (exitCode) process.exit(exitCode)

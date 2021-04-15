@@ -8,4 +8,4 @@ import { DateTime } from 'luxon'
 import { ConfigImpl } from '../../config.js'
 
 export default (config: ConfigImpl): string =>
-    DateTime.local().toFormat(config.timeFormat)
+    DateTime.local().toFormat(config.theme.timeFormat)

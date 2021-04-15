@@ -1,6 +1,7 @@
-import { ConfigImpl } from '../config.js';
-declare const _default: ({ msg, type, config, exitCode, condition, }: {
+import { ConfigImpl, DataImpl } from '../config.js';
+declare const _default: ({ msg, type, data, config, exitCode, condition, }: {
     type?: string;
+    data: DataImpl;
     exitCode?: number;
     config: ConfigImpl;
     msg: string | Error;

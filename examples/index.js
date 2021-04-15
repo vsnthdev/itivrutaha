@@ -1,7 +1,12 @@
 import itivrutaha from '../dist/itivrutaha.js'
 
-const logger = itivrutaha.createNewLogger({
-    theme: ':time :emoji :type :message',
+const logger = await itivrutaha.createNewLogger({
+    theme: {
+        string: ':time :emoji :type :message',
+    },
+    logs: {
+        enable: true,
+    },
 })
 
 logger.error('some error')
