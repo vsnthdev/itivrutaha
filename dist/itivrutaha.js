@@ -5,7 +5,7 @@ const defaults = {
     colored: true,
     boldType: true,
     typeCase: typeCase.lower,
-    theme: ':type :message',
+    theme: ':emoji :type :message',
     verboseIdentifier: ['--verbose', '-v'],
     timeFormat: 'HH:mm:ss dd-LL-yyyy',
     bootLog: true,

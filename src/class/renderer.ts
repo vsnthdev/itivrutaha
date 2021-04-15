@@ -3,34 +3,21 @@
  *  Created On 12 October 2019
  */
 
+import ne from 'node-emoji'
 import path from 'path'
 
 import { ConfigImpl } from '../config.js'
-import timeRender from './variables/time.js'
-import typeRender from './variables/type.js'
+import emoji from './variables/emoji.js'
+import time from './variables/time.js'
+import type from './variables/type.js'
 
-export default (type: string, msg: string, config: ConfigImpl): string => {
-    return (
-        config.theme
-            // Render the message type
-            .replace(':type', typeRender(type, config))
-
-            // Render the message string
-            .replace(':message', msg)
-
-            // Render the time string
-            .replace(':time', timeRender(config))
-
-            // Render the filename string
-            .replace(':filename', path.basename(process.argv[1]))
-
-            // Render the node_path variable
-            .replace(':node_path', process.argv[0])
-
-            // Render the script_path variable
-            .replace(':script_path', process.argv[1])
-
-            // Render the node_version variable
-            .replace(':node_version', process.version)
-    )
-}
+export default (typeStr: string, msg: string, config: ConfigImpl): string =>
+    config.theme
+        .replace(':type', type(typeStr, config))
+        .replace(':message', ne.emojify(msg))
+        .replace(':time', time(config))
+        .replace(':filename', path.basename(process.argv[1]))
+        .replace(':node_path', process.argv[0])
+        .replace(':script_path', process.argv[1])
+        .replace(':node_version', process.version)
+        .replace(':emoji', emoji(typeStr))
