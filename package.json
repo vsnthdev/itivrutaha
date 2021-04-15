@@ -1,6 +1,6 @@
 {
     "name": "itivrutaha",
-    "description": "( इतिवृत्तः ) -Open-source, dynamically modifiable logging system for NodeJS.",
+    "description": "( इतिवृत्तः ) — Logging system ✍ for Node.js with 🍬 theming and file 🗃 logging support.",
     "version": "0.1.1",
     "license": "MIT",
     "type": "module",
@@ -21,7 +21,17 @@
         "build": "npm run clean && tsc",
         "clean": "rm -rf tsconfig.tsbuildinfo dist/"
     },
-    "keywords": [],
+    "keywords": [
+        "cli",
+        "tty",
+        "log",
+        "logs",
+        "shell",
+        "logger",
+        "logging",
+        "terminal",
+        "command-line"
+    ],
     "dependencies": {
         "chalk": "^4.1.0",
         "deepmerge": "^4.2.2",
