@@ -1,10 +1,7 @@
 <h1 align="center">
-    <br>
-    <a href="#">
-        itivrutaha
-    </a>
+    <img src="https://github.com/vasanthdeveloper/itivrutaha/blob/designs/header.png?raw=true" alt="itivrutaha">
 </h1>
-<h4 align="center">itivrutaha is an open-source, dynamically modifiable logging system for NodeJS.</h4>
+<h4 align="center">( इतिवृत्तः ) — Logging system ✍ for Node.js with 🍬 theming and file 🗃 logging support.</h4>
 <p align="center">
     <a href="#">
         <img src="https://img.shields.io/npm/v/itivrutaha.svg?style=flat-square" alt="">
@@ -26,24 +23,19 @@
 ```
 npm i itivrutaha
 ```
-Or, if you are using Yarn, then
-```
-yarn add itivrutaha
-```
 
 ## 🚴‍♂️ Quick Start
 After installing `itivrutaha` using the above commands, you can use it in the following way:
 
 ```javascript
-// Require the itivrutaha logging system
-const itivrutaha = require('itivrutaha')
+import itivrutaha from 'itivrutaha'
 
-// Create a new instance of the Logger
-let logger = itivrutaha.createNewLogger({
-    // Optional configuration
+// create a new instance of the logger
+const logger = await itivrutaha.createNewLogger({
+    // optional configuration
 })
 
-// Examples of logging with itivrutaha
+// examples of logging with itivrutaha
 logger.success('Always makes users happy')
 logger.note('Point to be noted')
 logger.info('User knows something is happening')
