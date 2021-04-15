@@ -4,14 +4,11 @@
  */
 
 import merge from 'deepmerge'
-import paths from 'env-paths'
-import fs from 'fs/promises'
-import mkdirp from 'mkdirp'
-import path from 'path'
 import readPkg from 'read-pkg-up'
 
 import { Logger } from './class/index.js'
-import { ConfigImpl, DataImpl, typeCase } from './config.js'
+import { open } from './class/log.js'
+import { ConfigImpl, typeCase } from './config.js'
 
 // Holds the default configuration which acts like a
 // replacement when no value is provided for a
@@ -41,36 +38,12 @@ const createNewLogger = async (
     // with defaults so we have all properties defined
     config = merge(defaults, config)
 
-    // variable to store data
-    const data: DataImpl = {}
-
     // fill out the fields which are specific to this
     // particular instance of Logger
     if (!config.appName) config.appName = readPkg.sync().pkg.name
-    if (config.logs.enable == true && !config.logs.dir) {
-        const { log } = paths(config.appName, {
-            suffix: '',
-        })
 
-        config.logs.dir = log
-    }
-    if (config.logs.enable) {
-        // make sure that the folder exists
-        await mkdirp(path.dirname(config.logs.dir))
-
-        // open log files
-        data.output = await fs.open(
-            path.join(config.logs.dir, config.logs.output),
-            'a',
-            0o666,
-        )
-
-        data.error = await fs.open(
-            path.join(config.logs.dir, config.logs.error),
-            'a',
-            0o666,
-        )
-    }
+    // initialize file logging according to the configuration
+    const data = await open(config)
 
     // return a new LoggerClass instance
     return new Logger(config, data)

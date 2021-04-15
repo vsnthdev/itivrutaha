@@ -29,6 +29,7 @@
         "joi": "^17.4.0",
         "luxon": "^1.26.0",
         "mkdirp": "^1.0.4",
+        "node-cleanup": "^2.1.2",
         "node-emoji": "^1.10.0",
         "read-pkg-up": "^2.0.0",
         "strip-ansi": "^6.0.0"
@@ -41,6 +42,7 @@
         "@types/luxon": "^1.26.3",
         "@types/mkdirp": "^1.0.1",
         "@types/node": "^14.14.37",
+        "@types/node-cleanup": "^2.1.1",
         "@types/node-emoji": "^1.8.1",
         "@typescript-eslint/eslint-plugin": "^4.22.0",
         "@typescript-eslint/parser": "^4.22.0",
