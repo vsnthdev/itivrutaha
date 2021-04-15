@@ -15,6 +15,7 @@ import { ConfigImpl, typeCase } from './config.js'
 // particular configuration key
 const defaults: ConfigImpl = {
     bootLog: true,
+    shutdownLog: true,
     verboseIdentifier: ['--verbose', '-v'],
     theme: {
         typeCase: typeCase.lower,

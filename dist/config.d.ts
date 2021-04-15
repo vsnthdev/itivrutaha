@@ -9,6 +9,7 @@ export declare enum typeCase {
 export interface ConfigImpl {
     appName?: string;
     bootLog: boolean;
+    shutdownLog: boolean;
     verboseIdentifier?: Array<string>;
     theme?: {
         string: string;

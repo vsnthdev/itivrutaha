@@ -13,9 +13,11 @@ import mkdirp from 'mkdirp';
 import cleanup from 'node-cleanup';
 import path from 'path';
 import strip from 'strip-ansi';
-export const close = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    yield data.output.close();
-    yield data.error.close();
+export const close = (close, data) => __awaiter(void 0, void 0, void 0, function* () {
+    if (close) {
+        yield data.output.close();
+        yield data.error.close();
+    }
 });
 export const open = (config) => __awaiter(void 0, void 0, void 0, function* () {
     const data = {};
@@ -31,7 +33,7 @@ export const open = (config) => __awaiter(void 0, void 0, void 0, function* () {
         data.error = yield fs.open(path.join(config.logs.dir, config.logs.error), 'a', 0o666);
     }
     cleanup(() => {
-        close(data);
+        close(!config.shutdownLog, data);
     });
     return data;
 });

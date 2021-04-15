@@ -8,6 +8,7 @@ export var typeCase;
 export const configSchema = Joi.object({
     appName: Joi.string(),
     bootLog: Joi.bool().required(),
+    shutdownLog: Joi.bool().required(),
     verboseIdentifier: Joi.array().items(Joi.string()),
     theme: Joi.object({
         string: Joi.string().required(),

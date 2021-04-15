@@ -1,22 +1,6 @@
-import { DateTime } from 'luxon';
 import { configSchema } from '../config.js';
+import lifecycle from './lifecycle.js';
 import render from './wrapper.js';
-const startup = (config, data) => {
-    render({
-        data,
-        config,
-        msg: `${config.appName} boot`,
-        type: 'note',
-        condition: () => config.bootLog,
-    });
-    render({
-        data,
-        config,
-        msg: `Started on ${DateTime.local().toFormat('hh:mm:ss a, LLL dd yyyy')}`,
-        type: 'info',
-        condition: () => config.bootLog,
-    });
-};
 export class Logger {
     constructor(config, data) {
         this.success = (msg) => render({ msg, config: this.config, data: this.data });
@@ -36,6 +20,6 @@ export class Logger {
             throw new Error(`itivrutaha was misconfigured: ${valid.error.message}`);
         this.config = valid.value;
         this.data = data;
-        startup(config, data);
+        lifecycle(valid.value, data);
     }
 }

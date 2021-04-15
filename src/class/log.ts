@@ -12,9 +12,11 @@ import strip from 'strip-ansi'
 
 import { ConfigImpl, DataImpl } from '../config'
 
-export const close = async (data: DataImpl): Promise<void> => {
-    await data.output.close()
-    await data.error.close()
+export const close = async (close: boolean, data: DataImpl): Promise<void> => {
+    if (close) {
+        await data.output.close()
+        await data.error.close()
+    }
 }
 
 export const open = async (config: ConfigImpl): Promise<DataImpl> => {
@@ -48,7 +50,7 @@ export const open = async (config: ConfigImpl): Promise<DataImpl> => {
 
     // attach the closing hook
     cleanup(() => {
-        close(data)
+        close(!config.shutdownLog, data)
     })
 
     return data

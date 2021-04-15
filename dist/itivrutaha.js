@@ -14,6 +14,7 @@ import { open } from './class/log.js';
 import { typeCase } from './config.js';
 const defaults = {
     bootLog: true,
+    shutdownLog: true,
     verboseIdentifier: ['--verbose', '-v'],
     theme: {
         typeCase: typeCase.lower,

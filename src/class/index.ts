@@ -3,30 +3,9 @@
  *  Created On 11 October 2019
  */
 
-import { DateTime } from 'luxon'
-
 import { ConfigImpl, configSchema, DataImpl } from '../config.js'
+import lifecycle from './lifecycle.js'
 import render from './wrapper.js'
-
-const startup = (config: ConfigImpl, data: DataImpl): void => {
-    render({
-        data,
-        config,
-        msg: `${config.appName} boot`,
-        type: 'note',
-        condition: () => config.bootLog,
-    })
-
-    render({
-        data,
-        config,
-        msg: `Started on ${DateTime.local().toFormat(
-            'hh:mm:ss a, LLL dd yyyy',
-        )}`,
-        type: 'info',
-        condition: () => config.bootLog,
-    })
-}
 
 export class Logger {
     // store the config and data globally
@@ -47,8 +26,8 @@ export class Logger {
         this.data = data
 
         // log a message that the the application has
-        // started as per user's request
-        startup(config, data)
+        // started/stopped as per user's request
+        lifecycle(valid.value, data)
     }
 
     public success = (msg: string): void =>
