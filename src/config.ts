@@ -20,7 +20,12 @@ export interface ConfigImpl {
     appName?: string
     bootLog: boolean
     shutdownLog: boolean
-    verboseIdentifier?: Array<string>
+    quietIdentifier: Array<string>
+    verboseIdentifier: Array<string>
+    context?: {
+        name: string
+        color: (str: string) => string
+    }
     theme?: {
         string: string
         colored?: boolean
@@ -40,7 +45,12 @@ export const configSchema = Joi.object({
     appName: Joi.string(),
     bootLog: Joi.bool().required(),
     shutdownLog: Joi.bool().required(),
+    quietIdentifier: Joi.array().items(Joi.string()),
     verboseIdentifier: Joi.array().items(Joi.string()),
+    context: Joi.object({
+        color: Joi.any().required(),
+        name: Joi.string().required(),
+    }),
     theme: Joi.object({
         string: Joi.string().required(),
         colored: Joi.bool(),

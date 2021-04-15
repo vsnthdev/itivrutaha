@@ -27,8 +27,7 @@ export default ({
     condition?: (config: ConfigImpl) => boolean
 }): void => {
     // check if there's a condition
-    const goForward = condition ? condition(config) : true
-    if (!goForward) return
+    const showOutput = condition ? condition(config) : true
 
     // set the type, incase it isn't already
     if (!type) type = getType()
@@ -38,8 +37,15 @@ export default ({
 
     // render the log message
     const log = renderer(type, msg, config)
-    console.log(log)
     writeLog(log, type, config, data)
+    if (!showOutput) return
+    if (
+        config.quietIdentifier.some(argument =>
+            process.argv.includes(argument),
+        ) == false
+    ) {
+        console.log(log)
+    }
 
     // handle the exitCode
     if (exitCode) process.exit(exitCode)

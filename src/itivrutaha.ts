@@ -3,6 +3,7 @@
  *  Created On 10 October 2019
  */
 
+import chalk from 'chalk'
 import merge from 'deepmerge'
 import del from 'del'
 import { DateTime } from 'luxon'
@@ -18,12 +19,13 @@ import { ConfigImpl, typeCase } from './config.js'
 const defaults: ConfigImpl = {
     bootLog: true,
     shutdownLog: true,
+    quietIdentifier: ['--quiet', '-q'],
     verboseIdentifier: ['--verbose', '-v'],
     theme: {
         typeCase: typeCase.lower,
         colored: true,
         boldType: true,
-        string: ':emoji :type :message',
+        string: `:time ${chalk.gray.dim('•')} :emoji :type :message`,
         timeFormat: 'HH:mm:ss dd-LL-yyyy',
     },
     logs: {
@@ -44,6 +46,10 @@ const createNewLogger = async (
     // fill out the fields which are specific to this
     // particular instance of Logger
     if (!config.appName) config.appName = readPkg.sync().pkg.name
+    if (config.context)
+        config.theme.string = `:time ${chalk.gray.dim(
+            '•',
+        )} ${config.context.color(config.context.name)} :emoji :type :message`
 
     // initialize file logging according to the configuration
     const data = await open(config)

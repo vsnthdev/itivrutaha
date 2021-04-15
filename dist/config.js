@@ -9,7 +9,12 @@ export const configSchema = Joi.object({
     appName: Joi.string(),
     bootLog: Joi.bool().required(),
     shutdownLog: Joi.bool().required(),
+    quietIdentifier: Joi.array().items(Joi.string()),
     verboseIdentifier: Joi.array().items(Joi.string()),
+    context: Joi.object({
+        color: Joi.any().required(),
+        name: Joi.string().required(),
+    }),
     theme: Joi.object({
         string: Joi.string().required(),
         colored: Joi.bool(),

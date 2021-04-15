@@ -7,6 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import chalk from 'chalk';
 import merge from 'deepmerge';
 import del from 'del';
 import { DateTime } from 'luxon';
@@ -17,12 +18,13 @@ import { typeCase } from './config.js';
 const defaults = {
     bootLog: true,
     shutdownLog: true,
+    quietIdentifier: ['--quiet', '-q'],
     verboseIdentifier: ['--verbose', '-v'],
     theme: {
         typeCase: typeCase.lower,
         colored: true,
         boldType: true,
-        string: ':emoji :type :message',
+        string: `:time ${chalk.gray.dim('•')} :emoji :type :message`,
         timeFormat: 'HH:mm:ss dd-LL-yyyy',
     },
     logs: {
@@ -35,6 +37,8 @@ const createNewLogger = (config = defaults) => __awaiter(void 0, void 0, void 0,
     config = merge(defaults, config);
     if (!config.appName)
         config.appName = readPkg.sync().pkg.name;
+    if (config.context)
+        config.theme.string = `:time ${chalk.gray.dim('•')} ${config.context.color(config.context.name)} :emoji :type :message`;
     const data = yield open(config);
     return new Logger(config, data);
 });
