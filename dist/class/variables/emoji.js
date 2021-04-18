@@ -1,3 +1,7 @@
+/*
+ *  Renders ":emoji" variable in log messages.
+ *  Created On 15 April 2021
+ */
 import emoji from 'node-emoji';
 const emojis = {
     okay: 'thumbsup',

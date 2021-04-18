@@ -9,7 +9,6 @@
         "module": "ESNext",
         "newLine": "LF",
         "preserveConstEnums": true,
-        "removeComments": true,
         "rootDir": "src/",
         "outDir": "dist/",
         "target": "ES2015",

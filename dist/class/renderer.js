@@ -1,3 +1,7 @@
+/*
+ *  This file will replace all the placeholders with real values.
+ *  Created On 12 October 2019
+ */
 import ne from 'node-emoji';
 import path from 'path';
 import emoji from './variables/emoji.js';

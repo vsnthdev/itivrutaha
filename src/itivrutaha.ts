@@ -63,6 +63,17 @@ const clearLogs = async (logger: Logger): Promise<string[]> =>
 
 // Export the above two functions
 export default {
+    /**
+     * Creates a new instance of a logger.
+     * @param config {ConfigImpl}
+     * @returns Logger
+     */
     createNewLogger,
+
+    /**
+     * Deletes the log directory for a given logger.
+     * @param logger {Logger}
+     * @returns string[]
+     */
     clearLogs,
 }

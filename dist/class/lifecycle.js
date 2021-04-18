@@ -1,3 +1,7 @@
+/*
+ *  Logs when application starts or stops.
+ *  Created On 15 April 2021
+ */
 import { DateTime } from 'luxon';
 import cleanup from 'node-cleanup';
 import { close } from './log.js';

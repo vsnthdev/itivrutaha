@@ -1,4 +1,10 @@
+/*
+ *  This file will contain code related to loading and storing configuration.
+ *  Created On 11 October 2019
+ */
 import Joi from 'joi';
+// typeCase enumerator will hold the
+// int values for type string case
 export var typeCase;
 (function (typeCase) {
     typeCase[typeCase["upper"] = 0] = "upper";
