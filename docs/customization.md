@@ -114,6 +114,9 @@ const logger = await itivrutaha.createNewLogger({
 | `:node_path` | Full path to Node.js executable. |
 | `:script_path` | Full path of the Node.js entry JavaScript file. |
 | `:node_version` | Version of Node.js running. |
+| `:electron_version` | Version of Electron.js running. Returns `undefined` if not Electron. |
+| `:v8_version` | Version of V8 engine running along with Node.js. |
+| `:openssl_version` | Version of OpenSSL running along with Node.js. |
 
 ## 📰 License
 > The **itivrutaha** project is released under the [MIT license](../LICENSE.md). <br> Developed &amp; maintained By Vasanth Srivatsa. Copyright 2021 © Vasanth Developer.
