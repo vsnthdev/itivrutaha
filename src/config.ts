@@ -49,7 +49,7 @@ export const configSchema = Joi.object({
     verboseIdentifier: Joi.array().items(Joi.string()),
     context: Joi.object({
         color: Joi.any().required(),
-        name: Joi.string().required(),
+        name: Joi.string().allow(null).required(),
     }),
     theme: Joi.object({
         string: Joi.string().required(),

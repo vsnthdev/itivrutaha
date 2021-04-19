@@ -88,7 +88,7 @@ const logger = await itivrutaha.createNewLogger({
         enable: false,
 
         // The directory where log files are saved.
-        dir: '/var/log/[appname]',
+        dir: null,
 
         // Filename for writing output (stdout)
         // logs.
