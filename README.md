@@ -43,7 +43,7 @@ logger.okay('Not an info message')
 logger.verbose('Always makes developer\'s live easy')
 logger.error('Should never happen')
 ```
-To know what optional configuration options can be passed and how you can dynamically change the theme (layout of the log message) and styles, checkout the [customization page](#).
+To know what optional configuration options can be passed and how you can dynamically change the theme (layout of the log message) and styles, checkout the [customization page](docs/customization.md).
 
 ## 📰 License
 > The **itivrutaha** project is released under the [MIT license](LICENSE.md). <br> Developed &amp; maintained By Vasanth Srivatsa. Copyright 2021 © Vasanth Developer.
