@@ -1,0 +1,9 @@
+{
+    "quiet": true,
+    "verbose": false,
+    "ext": "ts",
+    "exec": "node scripts/docs.js",
+    "watch": [
+        "./src"
+    ]
+}
