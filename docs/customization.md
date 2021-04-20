@@ -1,22 +1,23 @@
-<h1 align="center">
+<h5 align="center">
     <img src="https://github.com/vasanthdeveloper/itivrutaha/blob/designs/header.png?raw=true" alt="itivrutaha">
-</h1>
-<h4 align="center">( इतिवृत्तः ) — Logging system ✍ for Node.js with 🍬 theming and file 🗃 logging support.</h4>
+</h5>
+<p align="center"><strong>( इतिवृत्तः ) — Logging system ✍ for Node.js with 🍬 theming and file 🗃 logging support.</strong></p>
 <p align="center">
-    <a href="#">
+    <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/itivrutaha">
         <img src="https://img.shields.io/npm/v/itivrutaha.svg?style=flat-square" alt="">
     </a>
-    <a href="#">
+    <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/itivrutaha?activeTab=versions">
         <img src="https://img.shields.io/npm/dm/itivrutaha.svg?style=flat-square" alt="">
     </a>
-    <a href="#">
+    <a href="https://github.com/vasanthdeveloper/itivrutaha/issues">
         <img src="https://img.shields.io/github/issues/vasanthdeveloper/itivrutaha.svg?style=flat-square" alt="">
     </a>
-    <a href="#">
+    <a href="https://github.com/vasanthdeveloper/itivrutaha/commits/main">
         <img src="https://img.shields.io/github/last-commit/vasanthdeveloper/itivrutaha.svg?style=flat-square"
             alt="">
     </a>
 </p>
+<br>
 
 ## 🛠 Customization
 
