@@ -34,7 +34,7 @@
 5. Written in TypeScript
 
 ## 💿 Installation
-![](https://nodei.co/npm/itivrutaha.png?downloads=true&downloadRank=true&stars=true)
+<a href="https://www.npmjs.com/package/itivrutaha"><img src="https://nodei.co/npm/itivrutaha.png?downloads=true&downloadRank=true&stars=true" alt="npm module badge"></a>
 ```
 npm i itivrutaha
 ```
