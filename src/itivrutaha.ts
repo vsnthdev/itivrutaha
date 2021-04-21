@@ -102,9 +102,10 @@ const createNewLogger = async (
     // fill out the fields which are specific to this
     // particular instance of Logger
     if (config.appName == null) config.appName = readPkg.sync().pkg.name
-    config.theme.string = `:time ${chalk.gray.dim('•')} ${config.context.color(
-        config.context.name,
-    )} :emoji :type :message`
+    if (config.context.name)
+        config.theme.string = `:time ${chalk.gray.dim(
+            '•',
+        )} ${config.context.color(config.context.name)} :emoji :type :message`
 
     // initialize file logging according to the configuration
     const data = await open(config)
