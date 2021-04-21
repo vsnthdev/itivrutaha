@@ -18,7 +18,7 @@ import cleanup from 'node-cleanup';
 import path from 'path';
 import strip from 'strip-ansi';
 export const close = (close, data) => __awaiter(void 0, void 0, void 0, function* () {
-    if (close) {
+    if (close && Object.keys(data).length > 0) {
         yield data.output.close();
         yield data.error.close();
     }

@@ -1,10 +1,6 @@
 import itivrutaha from '../dist/itivrutaha.js'
 
-const logger = await itivrutaha.createNewLogger({
-    logs: {
-        enable: true,
-    },
-})
+const logger = await itivrutaha.createNewLogger()
 
 logger.error('some error')
 logger.info('nice info')

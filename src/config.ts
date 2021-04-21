@@ -17,7 +17,7 @@ export enum typeCase {
 // The skeleton which has all possible
 // settings passable to the Logger
 export interface ConfigImpl {
-    appName?: string
+    appName: string
     bootLog: boolean
     shutdownLog: boolean
     quietIdentifier: Array<string>
@@ -28,13 +28,13 @@ export interface ConfigImpl {
     }
     theme?: {
         string: string
-        colored?: boolean
-        boldType?: boolean
-        typeCase?: typeCase
-        timeFormat?: string
+        colored: boolean
+        boldType: boolean
+        typeCase: typeCase
+        timeFormat: string
     }
     logs: {
-        dir?: string
+        dir: string
         error: string
         output: string
         enable: boolean
@@ -59,7 +59,7 @@ export const configSchema = Joi.object({
         timeFormat: Joi.string(),
     }),
     logs: Joi.object({
-        dir: Joi.string(),
+        dir: Joi.string().allow(null).required(),
         output: Joi.string().required(),
         error: Joi.string().required(),
         enable: Joi.bool().required(),

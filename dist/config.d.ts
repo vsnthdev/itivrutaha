@@ -7,7 +7,7 @@ export declare enum typeCase {
     'title' = 2
 }
 export interface ConfigImpl {
-    appName?: string;
+    appName: string;
     bootLog: boolean;
     shutdownLog: boolean;
     quietIdentifier: Array<string>;
@@ -18,13 +18,13 @@ export interface ConfigImpl {
     };
     theme?: {
         string: string;
-        colored?: boolean;
-        boldType?: boolean;
-        typeCase?: typeCase;
-        timeFormat?: string;
+        colored: boolean;
+        boldType: boolean;
+        typeCase: typeCase;
+        timeFormat: string;
     };
     logs: {
-        dir?: string;
+        dir: string;
         error: string;
         output: string;
         enable: boolean;

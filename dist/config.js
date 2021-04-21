@@ -29,7 +29,7 @@ export const configSchema = Joi.object({
         timeFormat: Joi.string(),
     }),
     logs: Joi.object({
-        dir: Joi.string(),
+        dir: Joi.string().allow(null).required(),
         output: Joi.string().required(),
         error: Joi.string().required(),
         enable: Joi.bool().required(),

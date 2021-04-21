@@ -13,7 +13,7 @@ import strip from 'strip-ansi'
 import { ConfigImpl, DataImpl } from '../config'
 
 export const close = async (close: boolean, data: DataImpl): Promise<void> => {
-    if (close) {
+    if (close && Object.keys(data).length > 0) {
         await data.output.close()
         await data.error.close()
     }
