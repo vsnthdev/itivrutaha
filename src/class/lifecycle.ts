@@ -55,7 +55,7 @@ const shutdown = (config: ConfigImpl, data: DataImpl, signal: string): void => {
     render({
         data,
         config,
-        msg: `Bye 👋 ran for ${time.join(',')}`,
+        msg: `Bye 👋 ran for ${time.slice(-3).join(', ')}`,
         type: 'info',
         condition: () => config.shutdownLog,
     })
