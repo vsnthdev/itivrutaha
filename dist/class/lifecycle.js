@@ -2,6 +2,7 @@
  *  Logs when application starts or stops.
  *  Created On 15 April 2021
  */
+import ctl from 'clear-terminal-line';
 import { DateTime } from 'luxon';
 import cleanup from 'node-cleanup';
 import { close } from './log.js';
@@ -22,7 +23,31 @@ const startup = (config, data) => {
         condition: () => config.bootLog,
     });
 };
-const shutdown = (config, data) => {
+const shutdown = (config, data, signal) => {
+    const now = DateTime.local().diff(data.startedOn, [
+        'days',
+        'hours',
+        'minutes',
+        'seconds',
+        'milliseconds',
+    ]);
+    const time = [];
+    now.days && time.push(`${Math.round(now.days)} days`);
+    now.hours && time.push(`${Math.round(now.hours)} hours`);
+    now.minutes && time.push(`${Math.round(now.minutes)} minutes`);
+    now.seconds && time.push(`${Math.round(now.seconds)} seconds`);
+    now.milliseconds && time.push(`${Math.round(now.milliseconds)} ms`);
+    if (signal == 'SIGINT' && config.clearOnSIGINT) {
+        ctl();
+        process.stdout.write('\r');
+    }
+    render({
+        data,
+        config,
+        msg: `Bye 👋 ran for ${time.join(',')}`,
+        type: 'info',
+        condition: () => config.shutdownLog,
+    });
     render({
         data,
         config,
@@ -30,18 +55,11 @@ const shutdown = (config, data) => {
         type: 'note',
         condition: () => config.shutdownLog,
     });
-    render({
-        data,
-        config,
-        msg: `Shutting down on ${DateTime.local().toFormat('hh:mm:ss a, LLL dd yyyy')}`,
-        type: 'info',
-        condition: () => config.shutdownLog,
-    });
     close(true, data);
 };
 export default (config, data) => {
     startup(config, data);
-    cleanup(() => {
-        shutdown(config, data);
+    cleanup((exitCode, signal) => {
+        shutdown(config, data, signal);
     });
 };

@@ -5,6 +5,7 @@
 
 import paths from 'env-paths'
 import fs from 'fs/promises'
+import { DateTime } from 'luxon'
 import mkdirp from 'mkdirp'
 import cleanup from 'node-cleanup'
 import path from 'path'
@@ -13,7 +14,7 @@ import strip from 'strip-ansi'
 import { ConfigImpl, DataImpl } from '../config'
 
 export const close = async (close: boolean, data: DataImpl): Promise<void> => {
-    if (close && Object.keys(data).length > 0) {
+    if (close && (data.error || data.output)) {
         await data.output.close()
         await data.error.close()
     }
@@ -21,7 +22,9 @@ export const close = async (close: boolean, data: DataImpl): Promise<void> => {
 
 export const open = async (config: ConfigImpl): Promise<DataImpl> => {
     // variable to store data
-    const data: DataImpl = {}
+    const data: DataImpl = {
+        startedOn: DateTime.local(),
+    }
 
     if (config.logs.enable == true && !config.logs.dir) {
         const { log } = paths(config.appName, {

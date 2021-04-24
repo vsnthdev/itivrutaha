@@ -15,6 +15,7 @@ export const configSchema = Joi.object({
     appName: Joi.string(),
     bootLog: Joi.bool().required(),
     shutdownLog: Joi.bool().required(),
+    clearOnSIGINT: Joi.bool().required(),
     quietIdentifier: Joi.array().items(Joi.string()),
     verboseIdentifier: Joi.array().items(Joi.string()),
     context: Joi.object({

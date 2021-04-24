@@ -5,6 +5,7 @@
 
 import { FileHandle } from 'fs/promises'
 import Joi from 'joi'
+import { DateTime } from 'luxon'
 
 // typeCase enumerator will hold the
 // int values for type string case
@@ -20,6 +21,7 @@ export interface ConfigImpl {
     appName: string
     bootLog: boolean
     shutdownLog: boolean
+    clearOnSIGINT: boolean
     quietIdentifier: Array<string>
     verboseIdentifier: Array<string>
     context?: {
@@ -45,6 +47,7 @@ export const configSchema = Joi.object({
     appName: Joi.string(),
     bootLog: Joi.bool().required(),
     shutdownLog: Joi.bool().required(),
+    clearOnSIGINT: Joi.bool().required(),
     quietIdentifier: Joi.array().items(Joi.string()),
     verboseIdentifier: Joi.array().items(Joi.string()),
     context: Joi.object({
@@ -69,4 +72,5 @@ export const configSchema = Joi.object({
 export interface DataImpl {
     output?: FileHandle
     error?: FileHandle
+    startedOn: DateTime
 }

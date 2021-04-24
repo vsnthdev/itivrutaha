@@ -13,19 +13,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import paths from 'env-paths';
 import fs from 'fs/promises';
+import { DateTime } from 'luxon';
 import mkdirp from 'mkdirp';
 import cleanup from 'node-cleanup';
 import path from 'path';
 import strip from 'strip-ansi';
 export const close = (close, data) => __awaiter(void 0, void 0, void 0, function* () {
-    if (close && Object.keys(data).length > 0) {
+    if (close && (data.error || data.output)) {
         yield data.output.close();
         yield data.error.close();
     }
 });
 export const open = (config) => __awaiter(void 0, void 0, void 0, function* () {
     // variable to store data
-    const data = {};
+    const data = {
+        startedOn: DateTime.local(),
+    };
     if (config.logs.enable == true && !config.logs.dir) {
         const { log } = paths(config.appName, {
             suffix: '',

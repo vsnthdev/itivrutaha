@@ -1,6 +1,7 @@
 /// <reference types="node" />
 import { FileHandle } from 'fs/promises';
 import Joi from 'joi';
+import { DateTime } from 'luxon';
 export declare enum typeCase {
     'upper' = 0,
     'lower' = 1,
@@ -10,6 +11,7 @@ export interface ConfigImpl {
     appName: string;
     bootLog: boolean;
     shutdownLog: boolean;
+    clearOnSIGINT: boolean;
     quietIdentifier: Array<string>;
     verboseIdentifier: Array<string>;
     context?: {
@@ -34,4 +36,5 @@ export declare const configSchema: Joi.ObjectSchema<any>;
 export interface DataImpl {
     output?: FileHandle;
     error?: FileHandle;
+    startedOn: DateTime;
 }

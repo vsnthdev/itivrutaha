@@ -33,6 +33,9 @@ const defaults = {
     // Logs when terminating gracefully, due to an error
     // or when POSIX signals are received.
     shutdownLog: true,
+    // remove the "^C⏎" after terminating the process
+    // when Ctrl+C is pressed
+    clearOnSIGINT: true,
     // Command-line arguments that suppress the output
     // to the console if found.
     quietIdentifier: ['--quiet', '-q'],
