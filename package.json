@@ -1,7 +1,7 @@
 {
     "name": "itivrutaha",
     "description": "( इतिवृत्तः ) — Logging system ✍ for Node.js with 🍬 theming and file 🗃 logging support.",
-    "version": "2.0.8",
+    "version": "2.0.9",
     "license": "MIT",
     "type": "module",
     "main": "dist/itivrutaha.js",
