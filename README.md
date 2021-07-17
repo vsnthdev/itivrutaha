@@ -68,7 +68,7 @@ To know more configuration options like **file logging**, **themes**, and **time
 * `npm run build` — Deletes existing build files & freshly compiles TypeScript code.
 * `npm run docs` — Deletes existing docs and freshly builds by reading code.
 
-**Note:** Run `node src/example.js` to test `itivrutaha` with the latest compiled code.
+**Note:** Run `node examples/index.js` to test `itivrutaha` with the latest code.
 
 <!-- footer -->
 
