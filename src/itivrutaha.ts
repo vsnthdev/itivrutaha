@@ -7,7 +7,7 @@ import chalk from 'chalk'
 import merge from 'deepmerge'
 import del from 'del'
 import { DateTime } from 'luxon'
-import readPkg from 'read-pkg-up'
+import { readPackageUpSync } from 'read-pkg-up'
 
 import { Logger } from './class/index.js'
 import { open } from './class/log.js'
@@ -105,7 +105,8 @@ const createNewLogger = async (
 
     // fill out the fields which are specific to this
     // particular instance of Logger
-    if (config.appName == null) config.appName = readPkg.sync().pkg.name
+    if (config.appName == null)
+        config.appName = readPackageUpSync().packageJson.name
     if (config.context.name)
         config.theme.string = `:time ${chalk.gray.dim(
             '•',
