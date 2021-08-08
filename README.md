@@ -23,7 +23,7 @@
 
 **itivrutaha** is my first ever JavaScript (initially) project. It is a console logging module for Node.js to be used in CLIs, GUI desktop frameworks (like <a href="https://github.com/electron/electron" target="_blank" rel="noopener">Electron</a> & <a href="https://github.com/nodegui/nodegui" target="_blank" rel="noopener">NodeGUI</a>) and for web servers.
 
-> Tweet me <a target="_blank" rel="noopener" href="https://vas.cx/twitter">@vasanthdevelop</a>, I would love to know your opinion/experience on this project 😍
+> Tweet me <a target="_blank" rel="noopener" href="https://vas.cx/twitter">@vsnthdev</a>, I would love to know your opinion/experience on this project 😍
 
 ## ⚡️ Features
 
@@ -76,7 +76,7 @@ To know more configuration options like **file logging**, **themes**, and **time
 > The **itivrutaha** project is released under the [MIT license](https://github.com/vasanthdeveloper/itivrutaha/blob/main/LICENSE.md). <br> Developed &amp; maintained By Vasanth Srivatsa. Copyright 2021 © Vasanth Developer.
 <hr>
 
-> <a href="https://vasanth.tech" target="_blank" rel="noopener">vasanth.tech</a> &nbsp;&middot;&nbsp;
+> <a href="https://vsnth.dev" target="_blank" rel="noopener">vsnth.dev</a> &nbsp;&middot;&nbsp;
 > YouTube <a href="https://vas.cx/videos" target="_blank" rel="noopener">@vasanthdeveloper</a> &nbsp;&middot;&nbsp;
-> Twitter <a href="https://vas.cx/twitter" target="_blank" rel="noopener">@vasanthdevelop</a> &nbsp;&middot;&nbsp;
+> Twitter <a href="https://vas.cx/twitter" target="_blank" rel="noopener">@vsnthdev</a> &nbsp;&middot;&nbsp;
 > Discord <a href="https://vas.cx/discord" target="_blank" rel="noopener">Vasanth Developer</a>
