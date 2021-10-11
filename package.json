@@ -8,7 +8,7 @@
     "homepage": "https://github.com/vsnthdev/itivrutaha#readme",
     "bugs": "https://github.com/vsnthdev/itivrutaha/issues",
     "author": {
-        "name": "Vasanth Developer",
+        "name": "Vasanth Srivatsa",
         "email": "vasanth@vasanthdeveloper.com",
         "url": "https://vsnth.dev"
     },
@@ -34,17 +34,17 @@
     ],
     "dependencies": {
         "chalk": "^4.1.2",
-        "clear-terminal-line": "0.0.1",
+        "clear-terminal-line": "^0.0.1",
         "deepmerge": "^4.2.2",
         "del": "^6.0.0",
-        "env-paths": "^2.2.1",
+        "env-paths": "^3.0.0",
         "joi": "^17.4.2",
         "luxon": "^2.0.2",
         "mkdirp": "^1.0.4",
         "node-cleanup": "^2.1.2",
         "node-emoji": "^1.11.0",
         "read-pkg-up": "^8.0.0",
-        "strip-ansi": "^7.0.0"
+        "strip-ansi": "^7.0.1"
     },
     "devDependencies": {
         "@types/chalk": "^2.2.0",
@@ -52,22 +52,22 @@
         "@types/del": "^4.0.0",
         "@types/env-paths": "^2.1.0",
         "@types/joi": "^17.2.3",
-        "@types/luxon": "^2.0.0",
+        "@types/luxon": "^2.0.5",
         "@types/mkdirp": "^1.0.2",
-        "@types/node": "^16.6.0",
-        "@types/node-cleanup": "^2.1.1",
+        "@types/node": "^16.10.3",
+        "@types/node-cleanup": "^2.1.2",
         "@types/node-emoji": "^1.8.1",
-        "@typescript-eslint/eslint-plugin": "^4.29.1",
-        "@typescript-eslint/parser": "^4.29.1",
-        "concurrently": "^6.2.1",
+        "@typescript-eslint/eslint-plugin": "^4.33.0",
+        "@typescript-eslint/parser": "^4.33.0",
+        "concurrently": "^6.3.0",
         "es-dirname": "^0.1.0",
-        "eslint": "^7.32.0",
+        "eslint": "^8.0.0",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-import": "^2.24.0",
-        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-import": "^2.24.2",
+        "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-simple-import-sort": "^7.0.0",
-        "nodemon": "^2.0.12",
-        "prettier": "^2.3.2",
-        "typescript": "^4.3.5"
+        "nodemon": "^2.0.13",
+        "prettier": "^2.4.1",
+        "typescript": "^4.4.3"
     }
 }
