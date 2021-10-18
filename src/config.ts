@@ -18,28 +18,28 @@ export enum typeCase {
 // The skeleton which has all possible
 // settings passable to the Logger
 export interface ConfigImpl {
-    appName: string
-    bootLog: boolean
-    shutdownLog: boolean
-    clearOnSIGINT: boolean
-    quietIdentifier: Array<string>
-    verboseIdentifier: Array<string>
+    appName?: string
+    bootLog?: boolean
+    shutdownLog?: boolean
+    clearOnSIGINT?: boolean
+    quietIdentifier?: Array<string>
+    verboseIdentifier?: Array<string>
     context?: {
         name: string
         color: (str: string) => string
     }
     theme?: {
-        string: string
-        colored: boolean
-        boldType: boolean
-        typeCase: typeCase
-        timeFormat: string
+        string?: string
+        colored?: boolean
+        boldType?: boolean
+        typeCase?: typeCase
+        timeFormat?: string
     }
-    logs: {
-        dir: string
-        error: string
-        output: string
-        enable: boolean
+    logs?: {
+        dir?: string
+        error?: string
+        output?: string
+        enable?: boolean
     }
 }
 
