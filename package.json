@@ -47,11 +47,6 @@
         "strip-ansi": "^7.0.1"
     },
     "devDependencies": {
-        "@types/chalk": "^2.2.0",
-        "@types/deepmerge": "^2.2.0",
-        "@types/del": "^4.0.0",
-        "@types/env-paths": "^2.1.0",
-        "@types/joi": "^17.2.3",
         "@types/luxon": "^2.0.5",
         "@types/mkdirp": "^1.0.2",
         "@types/node": "^16.10.3",
