@@ -1,0 +1,7 @@
+src/
+docs/
+examples/
+scripts/
+tsconfig.json
+prettier.config.cjs
+.eslintrc.cjs
