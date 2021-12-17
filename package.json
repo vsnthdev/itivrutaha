@@ -18,8 +18,8 @@
     },
     "scripts": {
         "dev": "concurrently 'tsc --watch' 'nodemon'",
-        "build": "rm -rf tsconfig.tsbuildinfo dist/ && tsc",
-        "docs": "rm -rf docs/ && node scripts/docs.js"
+        "build": "rimraf ./dist && tsc --incremental false",
+        "docs": "rimraf docs/ && node scripts/docs.js"
     },
     "keywords": [
         "cli",
@@ -63,6 +63,7 @@
         "eslint-plugin-simple-import-sort": "^7.0.0",
         "nodemon": "^2.0.13",
         "prettier": "^2.4.1",
+        "rimraf": "^3.0.2",
         "typescript": "^4.4.3"
     }
 }
