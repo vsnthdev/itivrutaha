@@ -5,7 +5,7 @@
 
 import chalk from 'chalk'
 import merge from 'deepmerge'
-import del from 'del'
+import { deleteAsync } from 'del'
 import { DateTime } from 'luxon'
 import { readPackageUpSync } from 'read-pkg-up'
 
@@ -120,7 +120,7 @@ const createNewLogger = async (
 }
 
 const clearLogs = async (logger: Logger): Promise<string[]> =>
-    await del(logger.config.logs.dir, { force: true })
+    await deleteAsync(logger.config.logs.dir, { force: true })
 
 // Export the above two functions
 export default {
