@@ -6,7 +6,7 @@
 import paths from 'env-paths'
 import fs from 'fs/promises'
 import { DateTime } from 'luxon'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 import cleanup from 'node-cleanup'
 import path from 'path'
 import strip from 'strip-ansi'

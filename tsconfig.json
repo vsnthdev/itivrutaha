@@ -1,17 +1,16 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-        "alwaysStrict": true,
-        "charset": "UTF-8",
-        "declaration": true,
-        "esModuleInterop": true,
-        "moduleResolution": "node",
-        "module": "ESNext",
         "newLine": "LF",
-        "preserveConstEnums": true,
         "rootDir": "src/",
         "outDir": "dist/",
+        "module": "ESNext",
         "target": "ES2015",
-        "incremental": true
+        "declaration": true,
+        "incremental": true,
+        "alwaysStrict": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "preserveConstEnums": true
     }
 }
