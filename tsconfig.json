@@ -1,0 +1,17 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "newLine": "LF",
+        "rootDir": "src/",
+        "outDir": "dist/",
+        "target": "ESNext",
+        "declaration": true,
+        "incremental": false,
+        "module": "NodeNext",
+        "alwaysStrict": true,
+        "removeComments": true,
+        "esModuleInterop": true,
+        "preserveConstEnums": true,
+        "moduleResolution": "NodeNext"
+    }
+}

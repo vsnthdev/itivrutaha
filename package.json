@@ -1,0 +1,29 @@
+{
+    "name": "itivrutaha",
+    "description": "",
+    "version": "3.0.0",
+    "license": "MIT",
+    "type": "module",
+    "main": "dist/index.js",
+    "homepage": "https://github.com/vsnthdev/itivrutaha#readme",
+    "bugs": "https://github.com/vsnthdev/itivrutaha/issues",
+    "author": {
+        "name": "Vasanth Srivatsa",
+        "email": "hey@vsnth.dev",
+        "url": "https://vsnth.dev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vsnthdev/itivrutaha.git"
+    },
+    "scripts": {
+        "dev": "tsc --watch",
+        "clean": "rimraf dist",
+        "build": "rimraf dist && tsc"
+    },
+    "devDependencies": {
+        "@types/node": "^20.8.9",
+        "rimraf": "^5.0.5",
+        "typescript": "^5.2.2"
+    }
+}
