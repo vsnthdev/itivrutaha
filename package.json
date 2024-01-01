@@ -22,8 +22,8 @@
         "build": "rimraf dist && tsc"
     },
     "devDependencies": {
-        "@types/node": "^20.8.9",
+        "@types/node": "^20.10.6",
         "rimraf": "^5.0.5",
-        "typescript": "^5.2.2"
+        "typescript": "^5.3.3"
     }
 }
