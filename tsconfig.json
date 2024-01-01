@@ -2,7 +2,6 @@
     "compileOnSave": true,
     "compilerOptions": {
         "newLine": "LF",
-        "rootDir": "src/",
         "outDir": "dist/",
         "target": "ESNext",
         "declaration": true,
@@ -13,5 +12,8 @@
         "esModuleInterop": true,
         "preserveConstEnums": true,
         "moduleResolution": "NodeNext"
-    }
+    },
+    "include": [
+        "src"
+    ]
 }

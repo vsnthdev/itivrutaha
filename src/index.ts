@@ -3,4 +3,4 @@
  *  Created On 29 October 2023
  */
 
-console.log('this works 🤘')
+export { itivrutaha } from './itivrutaha.js'
