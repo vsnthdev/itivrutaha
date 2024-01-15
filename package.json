@@ -1,16 +1,16 @@
 {
     "name": "itivrutaha",
     "description": "",
-    "version": "3.0.0",
+    "version": "3.0.0-beta.1",
     "license": "MIT",
     "type": "module",
     "main": "dist/index.js",
     "homepage": "https://github.com/vsnthdev/itivrutaha#readme",
     "bugs": "https://github.com/vsnthdev/itivrutaha/issues",
     "author": {
-        "name": "Vasanth Srivatsa",
         "email": "hey@vsnth.dev",
-        "url": "https://vsnth.dev"
+        "url": "https://vsnth.dev",
+        "name": "Vasanth Srivatsa"
     },
     "repository": {
         "type": "git",
