@@ -8,16 +8,14 @@ import { Config, LogType, UnifiedData } from './itivrutaha.js'
 import { emojify } from 'node-emoji';
 import * as variables from './variables/index.js'
 
-function line<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>, type: LogType<LogTypeName>, msg: string, scope?: string, data?: any) {
-    // default value for scope
-    scope = scope || config.scopes[0]
-
+function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, msg: string, scopeName?: ScopeName, data?: any) {
     // filter internal keys from data
     if (data) data = filterObject(data, ['msg', 'scope'])
 
     console.log(
         config.theme
             .replace(/:time/g, variables.time(config))
+            .replace(/:scope/g, variables.scope(config, scopeName))
             .replace(/:emoji/g, variables.emoji(type))
             .replace(/:type/g, variables.type(type))
             .replace(/:msg/g, emojify(msg))
@@ -25,10 +23,10 @@ function line<Scope extends string, LogTypeName extends string>(config: Config<S
     )
 }
 
-export function render<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>, type: LogType<LogTypeName>) {
+export function render<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>) {
     // consume all the log objects
 
-    return (msgOrData: string | UnifiedData<Scope>, data?: any, scope?: Scope) => {
+    return (msgOrData: string | UnifiedData<ScopeName>, data?: any, scope?: ScopeName) => {
         // determine whether we're using unified data or seperate arguments
         if (typeof msgOrData == 'string') {
             // seperate arguments

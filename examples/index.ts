@@ -2,9 +2,18 @@ import chalk from 'chalk'
 import { itivrutaha } from '../dist/index.js'
 
 const log = itivrutaha({
-    theme: `:time ${chalk.gray.dim('•')} :emoji :type :msg :data`,
+    theme: `:time ${chalk.gray.dim('•')} :scope :emoji :type :msg :data`,
     timeFormat: 'hh:mm:ss dd-MM-yyyy',
-    scopes: ['app'],
+    scopes: [
+        {
+            name: 'app',
+            color: chalk.redBright
+        },
+        {
+            name: 'web',
+            color: chalk.cyanBright
+        }
+    ],
     types: [
         {
             name: 'error',
@@ -26,4 +35,14 @@ log.warning('a simple warning message', {
         some: 'wow!'
     },
     world: '🎊'
+})
+
+log.error({
+    msg: 'hellow rold',
+    scope: 'app'
+})
+
+log.warning({
+    msg: 'wow!',
+    scope: 'web'
 })

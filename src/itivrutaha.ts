@@ -6,21 +6,26 @@
 import { ChalkInstance } from "chalk"
 import { render } from "./renderer.js"
 
+export interface IScope<ScopeName> {
+    name: ScopeName
+    color: ChalkInstance
+}
+
 export interface LogType<Name> {
     name: Name
     emoji: string
     color: ChalkInstance
 }
 
-export interface Config<Scope, LogTypeName> {
+export interface Config<ScopeName, LogTypeName> {
     theme: string
     timeFormat: string
-    scopes: Scope[]
+    scopes: IScope<ScopeName>[]
     types: LogType<LogTypeName>[]
 }
 
-export interface UnifiedData<Scope> {
-    scope?: Scope
+export interface UnifiedData<ScopeName> {
+    scope?: ScopeName
     msg: string
     [key: string]: any
 }
