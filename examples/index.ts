@@ -2,7 +2,7 @@ import chalk from 'chalk'
 import { itivrutaha } from '../dist/index.js'
 
 const log = itivrutaha({
-    theme: `:time ${chalk.gray.dim('•')} :emoji :type :msg`,
+    theme: `:time ${chalk.gray.dim('•')} :emoji :type :msg :data`,
     timeFormat: 'hh:mm:ss dd-MM-yyyy',
     scopes: ['app'],
     types: [
@@ -20,4 +20,10 @@ const log = itivrutaha({
 })
 
 log.error('a simple error message')
-log.warning('a simple warning message')
+log.warning('a simple warning message', {
+    hello: {
+        works: false,
+        some: 'wow!'
+    },
+    world: '🎊'
+})

@@ -21,13 +21,14 @@ function line<Scope extends string, LogTypeName extends string>(config: Config<S
             .replace(/:emoji/g, variables.emoji(type))
             .replace(/:type/g, variables.type(type))
             .replace(/:msg/g, emojify(msg))
+            .replace(/:data/g, variables.data(data))
     )
 }
 
 export function render<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>, type: LogType<LogTypeName>) {
     // consume all the log objects
 
-    return (msgOrData: string | UnifiedData<Scope>, scope?: Scope, data?: any) => {
+    return (msgOrData: string | UnifiedData<Scope>, data?: any, scope?: Scope) => {
         // determine whether we're using unified data or seperate arguments
         if (typeof msgOrData == 'string') {
             // seperate arguments

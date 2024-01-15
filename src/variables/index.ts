@@ -4,5 +4,6 @@
  */
 
 export * from './time.js'
-export * from './emoji.js'
 export * from './type.js'
+export * from './data.js'
+export * from './emoji.js'
