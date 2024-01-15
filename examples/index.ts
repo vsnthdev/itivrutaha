@@ -2,6 +2,8 @@ import chalk from 'chalk'
 import { itivrutaha } from '../dist/index.js'
 
 const log = itivrutaha({
+    theme: `:time ${chalk.gray.dim('•')} :emoji :type :message`,
+    timeFormat: 'hh:mm:ss dd-MM-yyyy',
     scopes: ['app'],
     types: [
         {
@@ -15,3 +17,4 @@ const log = itivrutaha({
     ]
 })
 
+log.error('hello world')

@@ -4,18 +4,21 @@
  */
 
 import { ChalkInstance } from "chalk"
+import { render } from "./renderer.js"
 
-interface LogType<Name> {
+export interface LogType<Name> {
     name: Name
     color: ChalkInstance
 }
 
-interface Config<Scope, LogTypeName> {
+export interface Config<Scope, LogTypeName> {
+    theme: string
+    timeFormat: string
     scopes: Scope[]
     types: LogType<LogTypeName>[]
 }
 
-interface UnifiedData<Scope> {
+export interface UnifiedData<Scope> {
     scope?: Scope
     msg: string
     [key: string]: any
@@ -29,12 +32,9 @@ export function itivrutaha<Scope extends string, LogTypeName extends string>(con
         [Type in Types]: Signature
     }
 
-    // function error(data: UnifiedData<Scope>): void
-    // function error(msg: string, scope?: Scope, data?: any): void
-
-    // function error(msgOrData: UnifiedData<Scope> | string, scope?: Scope, data?: any) {
-    //     // 
-    // }
-
-    return {} as ReturnSignature
+    // return all the log functions
+    return config.types.reduce((previous, current) => ({
+        ...previous,
+        [current.name]: render(config, current)
+    }), {}) as ReturnSignature
 }
