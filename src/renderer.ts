@@ -6,8 +6,9 @@
 import { filterObject } from './utilts.js';
 import { Config, LogType, UnifiedData } from './itivrutaha.js'
 import { time } from './variables/time.js';
+import { emoji } from './variables/emoji.js';
 
-function line<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>, msg: string, scope?: string, data?: any) {
+function line<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>, type: LogType<LogTypeName>, msg: string, scope?: string, data?: any) {
     // default value for scope
     scope = scope || config.scopes[0]
 
@@ -17,6 +18,7 @@ function line<Scope extends string, LogTypeName extends string>(config: Config<S
     console.log(
         config.theme
             .replace(/:time/g, time(config))
+            .replace(/:emoji/g, emoji(type))
     )
 }
 
@@ -27,14 +29,14 @@ export function render<Scope extends string, LogTypeName extends string>(config:
         // determine whether we're using unified data or seperate arguments
         if (typeof msgOrData == 'string') {
             // seperate arguments
-            line(config, msgOrData, scope, data)
+            line(config, type, msgOrData, scope, data)
         } else {
             // unified data
             // ensure scope & data are not given in both placces
             if (scope) throw Error(`Specifying scope as argument is not allowed`)
             if (data) throw Error(`Specifying data separately is not allowed`)
 
-            line(config, msgOrData.msg, msgOrData.scope, msgOrData)
+            line(config, type, msgOrData.msg, msgOrData.scope, msgOrData)
         }
     }
 }

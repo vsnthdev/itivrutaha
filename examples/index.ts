@@ -8,13 +8,16 @@ const log = itivrutaha({
     types: [
         {
             name: 'error',
+            emoji: 'x',
             color: chalk.redBright
         },
         {
             name: 'warning',
+            emoji: 'construction',
             color: chalk.yellowBright
         }
     ]
 })
 
-log.error('hello world')
+log.error('a simple error message')
+log.warning('a simple warning message')

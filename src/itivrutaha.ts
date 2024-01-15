@@ -8,6 +8,7 @@ import { render } from "./renderer.js"
 
 export interface LogType<Name> {
     name: Name
+    emoji: string
     color: ChalkInstance
 }
 
