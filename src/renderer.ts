@@ -5,9 +5,8 @@
 
 import { filterObject } from './utilts.js';
 import { Config, LogType, UnifiedData } from './itivrutaha.js'
-import { time } from './variables/time.js';
-import { emoji } from './variables/emoji.js';
 import { emojify } from 'node-emoji';
+import * as variables from './variables/index.js'
 
 function line<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>, type: LogType<LogTypeName>, msg: string, scope?: string, data?: any) {
     // default value for scope
@@ -18,8 +17,9 @@ function line<Scope extends string, LogTypeName extends string>(config: Config<S
 
     console.log(
         config.theme
-            .replace(/:time/g, time(config))
-            .replace(/:emoji/g, emoji(type))
+            .replace(/:time/g, variables.time(config))
+            .replace(/:emoji/g, variables.emoji(type))
+            .replace(/:type/g, variables.type(type))
             .replace(/:msg/g, emojify(msg))
     )
 }
