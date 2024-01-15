@@ -45,37 +45,37 @@ export const defaultConfig = makeConfig({
     types: [
         {
             name: 'success',
-            emoji: 'white_check_mark',
+            emoji: '✅',
             color: chalk.greenBright,
         },
         {
             name: 'info',
-            emoji: 'loudspeaker',
+            emoji: 'ℹ️',
             color: chalk.blueBright,
         },
         {
             name: 'okay',
-            emoji: 'thumbsup',
+            emoji: '👍',
             color: chalk.gray,
         },
         {
             name: 'note',
-            emoji: 'memo',
+            emoji: '✍️',
             color: chalk.magentaBright,
         },
         {
             name: 'verbose',
-            emoji: 'face_with_monocle',
+            emoji: '🧐',
             color: chalk.cyanBright,
         },
         {
             name: 'warning',
-            emoji: 'warning',
+            emoji: '⚠️',
             color: chalk.yellowBright
         },
         {
             name: 'error',
-            emoji: 'rotating_light',
+            emoji: '🚨',
             color: chalk.redBright
         },
     ]

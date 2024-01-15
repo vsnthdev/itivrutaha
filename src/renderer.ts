@@ -4,7 +4,6 @@
  */
 
 import { filterObject } from './utilts.js';
-import { emojify } from 'node-emoji';
 import * as variables from './variables/index.js'
 import { Config, LogType, UnifiedData } from './config.js';
 
@@ -18,7 +17,7 @@ function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, L
             .replace(/:scope/g, variables.scope(config, scopeName))
             .replace(/:emoji/g, variables.emoji(type))
             .replace(/:type/g, variables.type(type))
-            .replace(/:msg/g, emojify(msg))
+            .replace(/:msg/g, msg)
             .replace(/:data/g, variables.data(data))
     )
 }

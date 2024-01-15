@@ -3,9 +3,8 @@
  *  Created On 15 January 2024
  */
 
-import { get } from "node-emoji";
 import { LogType } from "../config.js";
 
 export function emoji<LogTypeName extends string>(type: LogType<LogTypeName>) {
-    return get(type.emoji)
+    return type.emoji.trim()
 }
