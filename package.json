@@ -21,6 +21,9 @@
         "clean": "rimraf dist",
         "build": "rimraf dist && tsc"
     },
+    "dependencies": {
+        "chalk": "^5.3.0"
+    },
     "devDependencies": {
         "@types/node": "^20.10.6",
         "rimraf": "^5.0.5",

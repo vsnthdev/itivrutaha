@@ -3,8 +3,16 @@
  *  Created On 29 October 2023
  */
 
-interface Config<Scope> {
+import { ChalkInstance } from "chalk"
+
+interface LogType<Name> {
+    name: Name
+    color: ChalkInstance
+}
+
+interface Config<Scope, LogTypeName> {
     scopes: Scope[]
+    types: LogType<LogTypeName>[]
 }
 
 interface UnifiedData<Scope> {
@@ -13,15 +21,20 @@ interface UnifiedData<Scope> {
     [key: string]: any
 }
 
-export function itivrutaha<Scope extends string>(config: Config<Scope>) {
-    function error(data: UnifiedData<Scope>): void
-    function error(msg: string, scope?: Scope, data?: any): void
+export function itivrutaha<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>) {
+    type Types = typeof config['types'][0]['name']
+    type Signature = (msgOrData: string | UnifiedData<Scope>, scope?: Scope, data?: any) => void
 
-    function error(msgOrData: UnifiedData<Scope> | string, scope?: Scope, data?: any) {
-        // 
+    type ReturnSignature = {
+        [Type in Types]: Signature
     }
 
-    return {
-        error,
-    }
+    // function error(data: UnifiedData<Scope>): void
+    // function error(msg: string, scope?: Scope, data?: any): void
+
+    // function error(msgOrData: UnifiedData<Scope> | string, scope?: Scope, data?: any) {
+    //     // 
+    // }
+
+    return {} as ReturnSignature
 }
