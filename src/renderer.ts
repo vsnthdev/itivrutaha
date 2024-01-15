@@ -4,9 +4,9 @@
  */
 
 import { filterObject } from './utilts.js';
-import { Config, LogType, UnifiedData } from './itivrutaha.js'
 import { emojify } from 'node-emoji';
 import * as variables from './variables/index.js'
+import { Config, LogType, UnifiedData } from './config.js';
 
 function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, msg: string, scopeName?: ScopeName, data?: any) {
     // filter internal keys from data

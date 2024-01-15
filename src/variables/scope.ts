@@ -3,7 +3,7 @@
  *  Created On 15 January 2024
  */
 
-import { Config } from "../itivrutaha.js"
+import { Config } from "../config.js"
 
 export function scope<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, scopeName?: ScopeName) {
     const scope = scopeName ? config.scopes.find(sco => sco.name == scopeName) : config.scopes[0]

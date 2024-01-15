@@ -4,7 +4,7 @@
  */
 
 import { get } from "node-emoji";
-import { type LogType } from '../itivrutaha.js';
+import { LogType } from "../config.js";
 
 export function emoji<LogTypeName extends string>(type: LogType<LogTypeName>) {
     return get(type.emoji)

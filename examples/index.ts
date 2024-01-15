@@ -1,48 +1,11 @@
-import chalk from 'chalk'
-import { itivrutaha } from '../dist/index.js'
+import { defaultConfig, itivrutaha } from '../dist/index.js'
 
-const log = itivrutaha({
-    theme: `:time ${chalk.gray.dim('•')} :scope :emoji :type :msg :data`,
-    timeFormat: 'hh:mm:ss dd-MM-yyyy',
-    scopes: [
-        {
-            name: 'app',
-            color: chalk.redBright
-        },
-        {
-            name: 'web',
-            color: chalk.cyanBright
-        }
-    ],
-    types: [
-        {
-            name: 'error',
-            emoji: 'x',
-            color: chalk.redBright
-        },
-        {
-            name: 'warning',
-            emoji: 'construction',
-            color: chalk.yellowBright
-        }
-    ]
-})
+const log = itivrutaha(defaultConfig)
 
-log.error('a simple error message')
-log.warning('a simple warning message', {
-    hello: {
-        works: false,
-        some: 'wow!'
-    },
-    world: '🎊'
-})
-
-log.error({
-    msg: 'hellow rold',
-    scope: 'app'
-})
-
-log.warning({
-    msg: 'wow!',
-    scope: 'web'
-})
+log.error('some error')
+log.info('nice info')
+log.note('a useful note')
+log.okay(`it's okay`)
+log.success('that is a success')
+log.verbose('useful for developers')
+log.warning('something is going wrong')

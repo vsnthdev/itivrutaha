@@ -4,8 +4,8 @@
  */
 
 import chalk from 'chalk'
-import { Config } from "../itivrutaha.js"
 import format from 'date-format'
+import { type Config } from '../config.js'
 
 export function time<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>) {
     return chalk.gray.dim(format.asString(config.timeFormat))
