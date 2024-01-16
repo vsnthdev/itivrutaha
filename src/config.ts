@@ -18,7 +18,7 @@ export interface LogType<Name> {
 
 export interface UnifiedData<ScopeName> {
     scope?: ScopeName
-    msg: string
+    msg: string | Error
     [key: string]: any
 }
 

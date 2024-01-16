@@ -7,7 +7,7 @@ import { filterObject } from './utilts.js';
 import * as variables from './variables/index.js'
 import { Config, LogType, UnifiedData } from './config.js';
 
-function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, msg: string, scopeName?: ScopeName, data?: any) {
+function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, msg: string | Error, scopeName?: ScopeName, data?: any) {
     // filter internal keys from data
     if (data) data = filterObject(data, ['msg', 'scope'])
 
@@ -17,17 +17,29 @@ function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, L
             .replace(/:scope/g, variables.scope(config, scopeName))
             .replace(/:emoji/g, variables.emoji(type))
             .replace(/:type/g, variables.type(type))
-            .replace(/:msg/g, msg)
+            .replace(/:msg/g, msg instanceof Error ? msg.message : msg)
             .replace(/:data/g, variables.data(data))
     )
+
+    if (msg instanceof Error) {
+        console.log(msg)
+    }
+
+    // whether there's an error instance in data
+    for (const key in data) {
+        const value = data[key]
+
+        if (value instanceof Error) {
+            console.log(value)
+        }
+    }
 }
 
 export function render<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>) {
     // consume all the log objects
 
-    return (msgOrData: string | UnifiedData<ScopeName>, data?: any, scope?: ScopeName) => {
-        // determine whether we're using unified data or seperate arguments
-        if (typeof msgOrData == 'string') {
+    return (msgOrData: string | UnifiedData<ScopeName> | Error, data?: any, scope?: ScopeName) => {
+        if (msgOrData instanceof Error || typeof msgOrData == 'string') {
             // seperate arguments
             line(config, type, msgOrData, scope, data)
         } else {

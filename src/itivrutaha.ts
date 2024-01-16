@@ -8,7 +8,7 @@ import { Config, UnifiedData } from "./config.js"
 
 export function itivrutaha<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>) {
     type Types = typeof config['types'][0]['name']
-    type Signature = (msgOrData: string | UnifiedData<Scope>, data?: any, scope?: Scope) => void
+    type Signature = (msgOrData: string | UnifiedData<Scope> | Error, data?: any, scope?: Scope) => void
 
     type ReturnSignature = {
         [Type in Types]: Signature
