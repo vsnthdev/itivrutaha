@@ -23,8 +23,9 @@ export function data(input: any) {
         const value = input[key]
         const keyBlock = `${chalk.cyanBright(key)}${chalk.whiteBright('=')}`
 
-
-        if (typeof value == 'object') {
+        if (value instanceof Error) {
+            str = str.concat(keyBlock).concat(chalk.magentaBright(value.message)).concat(' ')
+        } else if (typeof value == 'object') {
             str = str.concat(keyBlock).concat(highlight(formatJSON(value), {
                 language: 'json',
                 ignoreIllegals: true,
