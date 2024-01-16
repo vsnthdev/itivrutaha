@@ -3,9 +3,9 @@
  *  Created On 15 January 2024
  */
 
-import { filterObject } from './utilts.js';
+import { filterObject } from './utilts.js'
 import * as variables from './variables/index.js'
-import { Config, LogType, UnifiedData } from './config.js';
+import { type Config, type LogType, type UnifiedData } from './config.js'
 
 function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, msg: string | Error, scopeName?: ScopeName, data?: any) {
     // filter internal keys from data
@@ -45,8 +45,8 @@ export function render<ScopeName, LogTypeName extends string>(config: Config<Sco
         } else {
             // unified data
             // ensure scope & data are not given in both placces
-            if (scope) throw Error(`Specifying scope as argument is not allowed`)
-            if (data) throw Error(`Specifying data separately is not allowed`)
+            if (scope) throw Error('Specifying scope as argument is not allowed')
+            if (data) throw Error('Specifying data separately is not allowed')
 
             line(config, type, msgOrData.msg, msgOrData.scope, msgOrData)
         }

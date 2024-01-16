@@ -3,8 +3,8 @@
  *  Created On 29 October 2023
  */
 
-import { render } from "./renderer.js"
-import { Config, UnifiedData } from "./config.js"
+import { render } from './renderer.js'
+import { type Config, type UnifiedData } from './config.js'
 
 export function itivrutaha<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>) {
     type Types = typeof config['types'][0]['name']

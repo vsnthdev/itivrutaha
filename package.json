@@ -19,6 +19,8 @@
     "scripts": {
         "dev": "tsc --watch",
         "clean": "rimraf dist",
+        "lint": "eslint --fix .",
+        "prepare": "husky install",
         "build": "rimraf dist && tsc"
     },
     "dependencies": {
@@ -28,6 +30,11 @@
     },
     "devDependencies": {
         "@types/node": "^20.10.6",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/parser": "latest",
+        "eslint": "latest",
+        "eslint-plugin-perfectionist": "^2.5.0",
+        "husky": "^8.0.3",
         "rimraf": "^5.0.5",
         "typescript": "^5.3.3"
     }

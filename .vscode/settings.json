@@ -1,0 +1,14 @@
+{
+    "[typescript]": {
+        "editor.formatOnSaveMode": "file",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[javascript]": {
+        "editor.formatOnSaveMode": "file",
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    }
+}

@@ -10,7 +10,7 @@ function formatJSON(data: any) {
     return JSON.stringify(data)
         .replace(/{"/g, '{ "')
         .replace(/"}/g, '" }')
-        .replace(/,"/g, ", \"")
+        .replace(/,"/g, ', "')
         .replace(/":/g, '": ')
 }
 

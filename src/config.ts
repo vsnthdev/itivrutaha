@@ -3,7 +3,7 @@
  *  Created On 15 January 2024
  */
 
-import chalk, { ChalkInstance } from "chalk"
+import chalk, { type ChalkInstance } from 'chalk'
 
 export interface Scope<ScopeName> {
     name: ScopeName
@@ -34,8 +34,8 @@ export function makeConfig<Scope extends string, LogTypeName extends string>(con
 }
 
 export const defaultConfig = makeConfig({
-    theme: `:time ${chalk.gray.dim('•')} :scope :emoji :type :msg :data`,
     timeFormat: 'hh:mm:ss dd-MM-yyyy',
+    theme: `:time ${chalk.gray.dim('•')} :scope :emoji :type :msg :data`,
     scopes: [
         {
             name: 'app',
@@ -44,38 +44,38 @@ export const defaultConfig = makeConfig({
     ],
     types: [
         {
-            name: 'success',
             emoji: '✅',
+            name: 'success',
             color: chalk.greenBright,
         },
         {
-            name: 'info',
             emoji: 'ℹ️',
+            name: 'info',
             color: chalk.blueBright,
         },
         {
-            name: 'okay',
             emoji: '👍',
+            name: 'okay',
             color: chalk.gray,
         },
         {
-            name: 'note',
             emoji: '✍️',
+            name: 'note',
             color: chalk.magentaBright,
         },
         {
-            name: 'verbose',
             emoji: '🧐',
+            name: 'verbose',
             color: chalk.cyanBright,
         },
         {
-            name: 'warning',
             emoji: '⚠️',
+            name: 'warning',
             color: chalk.yellowBright
         },
         {
-            name: 'error',
             emoji: '🚨',
+            name: 'error',
             color: chalk.redBright
         },
     ]
