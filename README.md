@@ -74,8 +74,6 @@ log.info({
 log.verbose("Always makes developer's life easy 😀")
 ```
 
-See below to know more about configuration options to customize the theme, add more log types, define scopes and much more!
-
 ## 🛠 Building
 
 * `bun install` — Installs required dependencies.
