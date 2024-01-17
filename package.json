@@ -1,6 +1,6 @@
 {
     "name": "itivrutaha",
-    "description": "",
+    "description": "( इतिवृत्तः ) — An 👌 easy-to-use, 🛠️ configurable, Bun-first ⚡ console logger.",
     "version": "3.0.0-beta.2",
     "license": "MIT",
     "type": "module",
