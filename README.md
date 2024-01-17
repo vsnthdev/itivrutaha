@@ -23,14 +23,30 @@
 
 > Tweet me <a target="_blank" rel="noopener" href="https://vas.cx/twitter">@vsnthdev</a>, I would love to know your opinion/experience on this project 😍
 
-### 🚀 Migrating from v2.x
+## 🚀 Migrating from v2.x
 
-<!-- todo -->
+Version 3 is a complete rewrite with several features removed, trimmed down and optimized, while modernizing the codebase and adding Bun.js support.
+
+The `v2.x.x` versions can be found in the [v2](https://github.com/vsnthdev/itivrutaha/tree/v2) branch containing the older version of `itivrutaha`.
+
+### ⚠️ Major changes
+
+1. Luxon has been replaced in favor of [date-format](https://www.npmjs.com/package/date-format) which is more lightweight.
+2. Removed automatic logs when app starts, and how long it ran when the app exists. (An additional utility will be shipped in a later version.)
+3. The `verboseIdentifer` and `quietIdentifier` config option has been removed.
+4. `v3` no longer uses TypeScript classes, favors functional approach instead.
+5. Multiple scopes (previously contexts) are now support by single instance of `itivrutaha` unlike previous.
+6. File logging was completely removed.
+7. The `:message` variable has been replaced by `:msg`.
+8. Following variables are no longer supported `:node_path`, `:script_path`, `:node_version`, `:v8_version`, `:filename`, `:openssl_version`, `:electron_version`. These will be added again on request basis.
 
 ## ⚡️ Features
 
 1. Easy to customize according to your needs
 2. Flexible theming support with [chalk](https://www.npmjs.com/package/chalk)
+3. Different log levels (ex. silent, verbose etc) *(Planned)*
+4. Ability to log without any ANSI characters *(Planned)*
+5. Support for uppercase message types (ex. INFO instead of info) *(Planned)*
 
 ## 💿 Installation
 
