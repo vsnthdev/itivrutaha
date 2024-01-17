@@ -76,6 +76,15 @@ log.verbose("Always makes developer's life easy 😀")
 
 See below to know more about configuration options to customize the theme, add more log types, define scopes and much more!
 
+## 🛠 Building
+
+* `bun install` — Installs required dependencies.
+* `bun run dev` — Watches for changes & runs TypeScript compiler.
+* `bun run build` — Freshly compiles TypeScript code.
+* `npm run docs` — Freshly builds by reading code and templates.
+
+ℹ️ **Note:** You can run `bun run examples/index.ts` to test `itivrutaha` with the latest code.
+
 ## 📰 License
 > The **itivrutaha** project is released under the [MIT license](https://github.com/vasanthdeveloper/itivrutaha/blob/main/LICENSE.md).
 <hr>
