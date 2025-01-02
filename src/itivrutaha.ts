@@ -20,3 +20,5 @@ export function itivrutaha<Scope extends string, LogTypeName extends string>(con
         [current.name]: render(config, current)
     }), {}) as ReturnSignature
 }
+
+export type ExtractScopes<T> = T extends ReturnType<typeof itivrutaha<infer S extends string, any>> ? S : never
