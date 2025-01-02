@@ -17,11 +17,11 @@
         "url": "https://github.com/vsnthdev/itivrutaha.git"
     },
     "scripts": {
-        "dev": "tsc --watch",
+        "dev": "bun run --bun tsc --watch",
         "clean": "rimraf dist",
         "lint": "eslint --fix .",
         "prepare": "husky install",
-        "build": "rimraf dist && tsc"
+        "build": "rimraf dist && bun run --bun tsc"
     },
     "dependencies": {
         "chalk": "^5.3.0",
