@@ -24,18 +24,18 @@
         "build": "rimraf dist && bun run --bun tsc"
     },
     "dependencies": {
-        "chalk": "^5.4.1",
+        "chalk": "^5.6.2",
         "cli-highlight": "^2.1.11",
         "date-format": "^4.0.14"
     },
     "devDependencies": {
-        "@types/node": "^22.10.3",
+        "@types/node": "^24.3.1",
         "@typescript-eslint/eslint-plugin": "latest",
         "@typescript-eslint/parser": "latest",
         "eslint": "latest",
         "eslint-plugin-perfectionist": "^2.5.0",
         "husky": "^9.1.7",
         "rimraf": "^6.0.1",
-        "typescript": "^5.7.2"
+        "typescript": "^5.9.2"
     }
 }
