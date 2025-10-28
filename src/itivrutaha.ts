@@ -7,6 +7,9 @@ import { render } from './renderer.js'
 import { type Config, type UnifiedData } from './config.js'
 
 export function itivrutaha<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>) {
+    // calculate the log type filter values at load
+    const typeFilter = config.typeFilterFn()
+
     type Types = typeof config['types'][0]['name']
     type Signature = (msgOrData: string | UnifiedData<Scope> | Error, data?: any, scope?: Scope) => void
 
@@ -17,7 +20,7 @@ export function itivrutaha<Scope extends string, LogTypeName extends string>(con
     // return all the log functions
     return config.types.reduce((previous, current) => ({
         ...previous,
-        [current.name]: render(config, current)
+        [current.name]: render(config, current, typeFilter)
     }), {}) as ReturnSignature
 }
 

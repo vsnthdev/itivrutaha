@@ -35,10 +35,13 @@ function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, L
     }
 }
 
-export function render<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>) {
+export function render<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, filter: LogTypeName[]) {
     // consume all the log objects
 
     return (msgOrData: string | UnifiedData<ScopeName> | Error, data?: any, scope?: ScopeName) => {
+        // filter based on filter function from config
+        if (!filter.includes(type.name)) return
+        
         if (msgOrData instanceof Error || typeof msgOrData == 'string') {
             // seperate arguments
             line(config, type, msgOrData, scope, data)

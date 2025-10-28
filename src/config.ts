@@ -27,6 +27,7 @@ export interface Config<ScopeName, LogTypeName> {
     timeFormat: string
     scopes: Scope<ScopeName>[]
     types: LogType<LogTypeName>[]
+    typeFilterFn: () => LogTypeName[]
 }
 
 export function makeConfig<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>) {
@@ -36,6 +37,11 @@ export function makeConfig<Scope extends string, LogTypeName extends string>(con
 export const defaultConfig = makeConfig({
     timeFormat: 'hh:mm:ss dd-MM-yyyy',
     theme: `:time ${chalk.gray.dim('•')} :scope :emoji :type :msg :data`,
+    typeFilterFn: () => {
+        const environment: string | undefined = process.env.ITIVRUTAHA_LOG_FILTER || process.env.itivrutaha_log_filter
+        if (!environment) return ['success', 'info', 'okay', 'note', 'verbose', 'warning', 'error']
+        return environment.trim().toLowerCase().split(',')
+    },
     scopes: [
         {
             name: 'app',
