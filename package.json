@@ -17,11 +17,12 @@
         "url": "https://github.com/vsnthdev/itivrutaha.git"
     },
     "scripts": {
-        "dev": "bun run --bun tsc --watch",
+        "dev": "bun run --bun tsgo --watch",
         "clean": "rimraf dist",
         "lint": "eslint --fix .",
         "prepare": "husky",
-        "build": "rimraf dist && bun run --bun tsc"
+        "build": "rimraf dist && bun run --bun tsgo",
+        "type-check": "bun run --bun tsgo --noEmit"
     },
     "dependencies": {
         "chalk": "^5.6.2",
@@ -31,11 +32,11 @@
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^8.46.2",
         "@typescript-eslint/parser": "^8.46.2",
+        "@typescript/native-preview": "^7.0.0-dev.20260405.1",
         "bun-types": "^1.3.11",
         "eslint": "^9.38.0",
         "eslint-plugin-perfectionist": "^2.11.0",
         "husky": "^9.1.7",
-        "rimraf": "^6.0.1",
-        "typescript": "^5.9.3"
+        "rimraf": "^6.0.1"
     }
 }

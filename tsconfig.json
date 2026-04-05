@@ -18,6 +18,7 @@
         "esModuleInterop": true,
         "preserveConstEnums": true,
         "moduleResolution": "NodeNext",
+        "skipLibCheck": true,
         "types": [
             "bun-types"
         ]
