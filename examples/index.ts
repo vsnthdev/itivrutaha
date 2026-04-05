@@ -1,4 +1,4 @@
-import { defaultConfig, itivrutaha } from '../dist/index.js'
+import { defaultConfig, itivrutaha } from '../src/index.js'
 
 const log = itivrutaha(defaultConfig)
 
