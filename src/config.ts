@@ -27,10 +27,10 @@ export interface Config<ScopeName, LogTypeName> {
     timeFormat: string
     scopes: Scope<ScopeName>[]
     types: LogType<LogTypeName>[]
-    typeFilterFn: () => LogTypeName[]
+    typeFilterFn: () => string[]
 }
 
-export function makeConfig<Scope extends string, LogTypeName extends string>(config: Config<Scope, LogTypeName>) {
+export function makeConfig<const T extends Config<string, string>>(config: T): T {
     return config
 }
 

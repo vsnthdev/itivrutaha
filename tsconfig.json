@@ -10,7 +10,11 @@
         "alwaysStrict": true,
         "esModuleInterop": true,
         "preserveConstEnums": true,
-        "moduleResolution": "NodeNext"
+        "moduleResolution": "NodeNext",
+        "noUncheckedIndexedAccess": true,
+        "types": [
+            "bun-types"
+        ]
     },
     "include": [
         "src"
