@@ -6,6 +6,7 @@
 import chalk from 'chalk'
 import { highlight } from 'cli-highlight'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function formatJSON(data: any) {
     return JSON.stringify(data)
         .replace(/{"/g, '{ "')
@@ -14,6 +15,7 @@ function formatJSON(data: any) {
         .replace(/":/g, '": ')
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function data(input: any) {
     if (!input) return ''
 

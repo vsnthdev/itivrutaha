@@ -5,6 +5,7 @@
 
 import chalk from 'chalk'
 import format from 'date-format'
+
 import { type Config } from '../config.js'
 
 export function time<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>) {
