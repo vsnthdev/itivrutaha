@@ -1,3 +1,8 @@
+/*
+ *  Example usage of itivrutaha logger
+ *  Created On 05 April 2026
+ */
+
 import { defaultConfig, itivrutaha } from '../src/index.js'
 
 const log = itivrutaha(defaultConfig)
