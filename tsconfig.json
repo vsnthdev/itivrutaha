@@ -1,17 +1,23 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
-        "newLine": "LF",
+        "strict": true,
+        "allowJs": true,
+        "verbatimModuleSyntax": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUncheckedIndexedAccess": true,
+        "noImplicitOverride": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noPropertyAccessFromIndexSignature": true,
         "outDir": "dist/",
         "target": "ESNext",
         "declaration": true,
-        "incremental": false,
         "module": "NodeNext",
         "alwaysStrict": true,
         "esModuleInterop": true,
         "preserveConstEnums": true,
         "moduleResolution": "NodeNext",
-        "noUncheckedIndexedAccess": true,
         "types": [
             "bun-types"
         ]

@@ -38,7 +38,7 @@ export const defaultConfig = makeConfig({
     timeFormat: 'hh:mm:ss dd-MM-yyyy',
     theme: `:time ${chalk.gray.dim('•')} :scope :emoji :type :msg :data`,
     typeFilterFn: () => {
-        const environment: string | undefined = process.env.ITIVRUTAHA_LOG_FILTER || process.env.itivrutaha_log_filter
+        const environment: string | undefined = process.env['ITIVRUTAHA_LOG_FILTER'] || process.env['itivrutaha_log_filter']
         if (!environment) return ['success', 'info', 'okay', 'note', 'verbose', 'warning', 'error']
         return environment.trim().toLowerCase().split(',')
     },

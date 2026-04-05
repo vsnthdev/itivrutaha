@@ -7,5 +7,6 @@ import { type Config } from '../config.js'
 
 export function scope<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, scopeName?: ScopeName) {
     const scope = scopeName ? config.scopes.find(sco => sco.name == scopeName) : config.scopes[0]
+    if (!scope) throw new Error('Scope not found')
     return scope.color(scope.name)
 }

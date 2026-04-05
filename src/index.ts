@@ -4,4 +4,4 @@
  */
 
 export { defaultConfig } from './config.js'
-export { itivrutaha, ExtractScopes } from './itivrutaha.js'
+export { itivrutaha, type ExtractScopes } from './itivrutaha.js'
