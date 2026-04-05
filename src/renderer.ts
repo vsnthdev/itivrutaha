@@ -7,7 +7,8 @@ import { type Config, type LogType, type UnifiedData } from './config.js'
 import { filterObject } from './utilts.js'
 import * as variables from './variables/index.js'
 
-function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, msg: string | Error, scopeName?: ScopeName, data?: object) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, msg: string | Error, scopeName?: ScopeName, data?: any) {
     // filter internal keys from data
     if (data) data = filterObject(data, ['msg', 'scope'])
 

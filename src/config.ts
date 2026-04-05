@@ -19,7 +19,8 @@ export interface LogType<Name> {
 export interface UnifiedData<ScopeName> {
     scope?: ScopeName
     msg: string | Error
-    [key: string]: unknown
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: string]: any
 }
 
 export interface Config<ScopeName, LogTypeName> {
