@@ -18,13 +18,18 @@
         "esModuleInterop": true,
         "preserveConstEnums": true,
         "moduleResolution": "NodeNext",
+        "rootDir": "src",
         "skipLibCheck": true,
         "types": [
             "bun-types"
         ]
     },
     "include": [
-        "src",
-        "examples"
+        "src"
+    ],
+    "exclude": [
+        "examples",
+        "dist",
+        "node_modules"
     ]
 }
