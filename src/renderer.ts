@@ -36,13 +36,13 @@ function line<ScopeName, LogTypeName extends string>(config: Config<ScopeName, L
     }
 }
 
-export function render<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>, filter: LogTypeName[]) {
+export function render<ScopeName, LogTypeName extends string>(config: Config<ScopeName, LogTypeName>, type: LogType<LogTypeName>) {
     // consume all the log objects
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return (msgOrData: string | UnifiedData<ScopeName> | Error, data?: any, scope?: ScopeName) => {
         // filter based on filter function from config
-        if (!filter.includes(type.name)) return
+        if (config.filterFn(type.name) == false) return
         
         if (msgOrData instanceof Error || typeof msgOrData == 'string') {
             // seperate arguments
